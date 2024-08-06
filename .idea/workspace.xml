@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/deleteUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/deleteUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/editUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/editUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/getAllUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/getAllUsers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/login_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/login_process.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/register_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/register_process.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/searchUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/searchUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/updateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/updateUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ajax/userData.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/userData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbConnection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/mdb-favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template-4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-4/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +82,7 @@
       <workItem from="1722314339995" duration="24875000" />
       <workItem from="1722401016342" duration="19509000" />
       <workItem from="1722487799921" duration="1306000" />
+      <workItem from="1722940144916" duration="2635000" />
     </task>
     <servers />
   </component>
