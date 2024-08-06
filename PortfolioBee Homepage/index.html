@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>PortfolioBee: Home</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/images/Group%20107.png" type="image/x-icon"/>
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css"/>
+    <style>
+        @media only screen and (max-width: 991px){
+
+            .pricing{
+                width: 80%;
+            }
+        }
+        .buy-now{
+            display: flex;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
+        /* Assuming you want to target the specific icon */
+        .carousel-control-next-icon::after {
+            content: none; /* Remove the ::after content */
+        }
+        .carousel-control-prev-icon::after {
+            content: none; /* Remove the ::after content */
+        }
+        .carousel-control-next{
+            right: -5%;
+            transform: translateX(70%);
+        }
+        .carousel-control-prev{
+             left: -5%;
+            transform: translateX(-70%);
+        }
+        /*.accordion-button::after{*/
+        /*    background-color: #FFE164;*/
+        /*    width: 2rem;*/
+        /*    height: 2rem;*/
+        /*    border-radius: 40%;*/
+        /*}*/
+        /* Custom styles for accordion */
+        .accordion-button {
+            background: none; /* Remove background */
+            border: none; /* Remove border */
+            box-shadow: none; /* Remove box-shadow */
+            padding: 0; /* Remove padding */
+            margin: 0; /* Remove margin */
+            color: inherit; /* Inherit color */
+            font-size: 1.25rem; /* Set font size */
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Center vertically */
+            justify-content: space-between; /* Align items horizontally */
+        }
+
+        /* Hide default indicator */
+        .accordion-button::after {
+            display: none; /* Hide the default indicator */
+        }
+
+        /* Custom icon style */
+        .accordion-button .fas {
+            transition: transform 0.3s ease; /* Smooth rotation transition */
+            font-size: 1.5rem; /* Set icon size */
+            margin-right: 0.5rem; /* Space between icon and text */
+            color: goldenrod;
+        }
+
+        /* Rotate icon when expanded */
+        .accordion-button:not(.collapsed) .fas {
+            transform: rotate(180deg); /* Rotate icon 180 degrees when expanded */
+        }
+
+        /* Styling for the accordion header */
+        .accordion-header {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 1rem; /* Adjust padding as needed */
+        }
+        .navbar{
+            box-shadow: none;
+        }
+        @media only screen and (max-width: 991px){
+            .signup-btn{
+                display: none;
+            }
+            .connect-form   {
+                padding: 2rem;
+                margin-top: 2rem;
+            }
+            /*.connect-form-structure{*/
+            /*    padding: 2rem;*/
+            /*}*/
+        }
+        .rolling-img {
+            overflow: hidden; /* Hide overflow to only show the part within the container */
+            white-space: nowrap; /* Prevent images from wrapping to the next line */
+            position: relative; /* Ensure proper positioning for animation */
+            width: 100%; /* Make sure the container takes up full width */
+            padding: 20px 0; /* Optional: add padding for better spacing */
+        }
+
+        .rolling-img .d-flex {
+            display: inline-flex; /* Align images horizontally */
+            animation: scroll 20s linear infinite; /* Animation settings */
+        }
+
+        .rolling-img img {
+            margin-right: 1rem; /* Space between images */
+        }
+
+        /* Keyframes for scrolling animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0); /* Start position */
+            }
+            100% {
+                transform: translateX(-100%); /* End position */
+            }
+        }
+
+        .accordion-button:not(.collapsed) {
+            color: #0c622e;
+            padding-bottom: 0.5rem;
+        }
+        .intro-banner-container {
+            position: relative;
+        }
+
+        .intro-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 65%; /* This ensures the background occupies half of the height */
+            background-color: #FFE164;
+            z-index: -1; /* Place the background behind the content */
+        }
+
+        /* Adjust positioning for the banner image if needed */
+        .intro-banner img {
+            position: relative;
+            z-index: 1; /* Ensure the image is above the background */
+        }
+        .zoom-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+        }
+
+        .zoom-effect:hover {
+            transform: scale(1.05); /* Slightly enlarge the element on hover */
+            box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.6); /* Increase shadow intensity on hover */
+        }
+
+    </style>
+</head>
+<body>
+<!-- Start your project here-->
+    <nav class="navbar navbar-expand-lg" style="background-color: #FFE164">
+        <div class="container-fluid">
+            <div class="logo-img d-flex justify-content-between align-items-center" >
+                <img src="images/Group%20107.png" alt="Logo" class="img-fluid">
+                <h5 class="mb-0 ps-1">PortfolioBee</h5>
+            </div>
+            <button
+                    data-mdb-collapse-init
+                    class="navbar-toggler"
+                    type="button"
+                    data-mdb-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav fw-semibold">
+                    <a class="nav-link" aria-current="page" href="#">About</a>
+                    <a class="nav-link" href="#">Feature</a>
+                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="#"
+                    >Testimonials</a
+                    >
+                    <a class="nav-link" href="#"
+                    >Contact Us</a
+                    >
+                </div>
+            </div>
+            <div class="signup-btn">
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: white">Get Started</button>
+            </div>
+        </div>
+    </nav>
+<div class="intro-banner-container">
+    <div class="intro-banner d-flex flex-wrap flex-column justify-content-center align-content-center align-items-center pt-4 mb-4 mt-0">
+        <h1 class="text-center fw-bolder">Craft Your Professional Identity with PortfolioBee!</h1>
+        <p class="container text-center">The ultimate platform for showcasing both your academic brilliance and extracurricular triumphs.</p>
+        <div class="app-btn d-flex flex-column d-sm-block">
+            <img src="images/Link.png" alt="App Store" class="img-fluid">
+            <img src="images/Link%20(1).png" alt="Play Store" class="img-fluid">
+        </div>
+        <img src="images/Laptop%20Air%20and%20Phone%2014%20Mockup%2002%201.png" alt="mac-systems" class="img-fluid my-4">
+        <h5 class="text-center">Trusted by 20,000+ students & institutions</h5>
+    </div>
+</div>
+
+<div class="container-fluid ">
+    <div class="rolling-img">
+        <div class="d-flex justify-content-between">
+            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group.png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(1).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(2).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(3).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group.png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(1).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(2).png" alt="Image 5" class="img-fluid m-4" style="width: 5rem; height: 5rem; border-radius: 100%">
+        </div>
+    </div>
+    <div class="features my-4">
+        <h2>Features</h2>
+        <hr style="width: 25%">
+        <div class="row">
+            <div class="feature-1 col-12 col-lg-4  my-2">
+                <div class="card zoom-effect" style="background-color: black; color: white; padding: 2rem;">
+                    <h6 class="mb-2">Personalised Dashboard</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo
+                        diam libero vitae erat.</p>
+                </div>
+            </div>
+            <div class="feature-2 col-12 col-lg-4  my-2">
+                <div class="card zoom-effect" style="background-color: black; color: white; padding: 2rem;">
+                    <h6 class="mb-2">Personalised Dashboard</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo
+                        diam libero vitae erat.</p>
+                </div>
+            </div>
+            <div class="feature-3 col-12 col-lg-4  my-2">
+                <div class="card zoom-effect" style="background-color: black; color: white; padding: 2rem;">
+                    <h6 class="mb-2">Personalised Dashboard</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo
+                        diam libero vitae erat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="details my-5">
+<!--        <div class="row align-items-center">-->
+            <div class="row">
+                <div class="special-header container d-flex align-items-start col-12 col-md-6 my-2">
+                    <div>
+                        <h2>Get job smarter, not harder</h2>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare.</p>
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get Started</button>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-column-reverse flex-md-row">
+                <div class="col-12 col-md-6 my-2">
+                    <h4>Personalised Dashboard</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                        vitae erat.</p>
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <img src="images/image%201%20(1).png" alt="feature-1" class="img-fluid">
+                </div>
+            </div>
+
+
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 my-2">
+                    <img src="images/image%202.png" alt="feature-2" class="img-fluid">
+
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <h4>Portfolio</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                        vitae erat.</p>
+                </div>
+            </div>
+
+
+            <div class="row align-items-center flex-column-reverse flex-md-row">
+                <div class="col-12 col-md-6 my-2">
+                    <h4>E-mail Signature</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                        vitae erat.</p>
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <img src="images/image%203.png" alt="feature-3" class="img-fluid">
+                </div>
+            </div>
+
+
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6 my-2">
+                    <img src="images/image%204.png" alt="feature-4" class="img-fluid">
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <h4>Resume Review Report</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                        vitae erat.</p>
+                </div>
+            </div>
+
+
+            <div class="row align-items-center flex-column-reverse flex-md-row">
+                <div class="col-12 col-md-6 my-2">
+                    <h4>Job Tracker</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum
+                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero
+                        vitae erat.</p>
+                </div>
+
+                <div class="col-12 col-md-6 my-2">
+                    <img src="images/Group%20150.png" alt="feature-5" class="img-fluid">
+                </div>
+            </div>
+
+
+<!--        </div>-->
+    </div>
+    <div class="about-us my-4">
+        <h2>About Us</h2>
+        <hr style="width: 15%">
+        <p>At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
+            in simplifying the journey for students, professionals, and everyone in between, ensuring that their unique
+            professional narratives are effortlessly captured and showcased.</p>
+    </div>
+    <div class="goal my-4">
+        <div class="row">
+            <div class="col-12 col-md-6 my-2 ">
+                <div class="d-flex flex-column justify-content-between rounded-4" style="background-color: black; color: white; padding: 2rem;  height: 100%;">
+                    <div class="container goal-img">
+                        <img src="/images/Group%20142.png" alt="rocket" class="img-fluid" style="height: 70%;">
+                    </div>
+                    <div class="container goals">
+                        <h2>Our Mission</h2>
+                    <p style="margin-bottom: 0px;">
+                        PortfolioBee's mission is to simplify professional self-presentation. Through our subscription model, users enjoy flexibility in updating their portfolios. Additionally, our tailor-made portfolio option transforms resumes into compelling narratives, ensuring a standout professional identity with minimal effort.
+                    </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 my-2 ">
+                <div class="d-flex flex-column justify-content-between rounded-4" style="background-color: black; color: white; padding: 2rem; height: 100%;">
+                    <div class="container goal-img">
+                        <img src="/images/Group%20144.png" alt="telescope" class="img-fluid" style="height: 70%;">
+                    </div>
+                    <div class="container goals">
+                        <h2>Our Vision</h2>
+                    <p style="margin-bottom: 0px;">
+                        PortfolioBee aims to be the ultimate global hub for professional identity display. We strive to effortlessly link talent with global opportunities, envisioning a diverse community where each portfolio narrates a distinctive story. Our commitment to constant innovation empowers individuals to confidently excel in their fields, enriching the professional landscape with authenticity.
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="find-plan  d-flex flex-column justify-content-center align-items-center my-5" >
+        <h1 class="text-center">Find the perfect plan for you</h1>
+        <div class="find-paragraph" style="width: 60%; text-align: center">
+            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu egestas morbi sem vulputate etiam facilisis pellentesque ut quis.</p>
+        </div>
+        <div class="container d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-center align-items-center">
+            <div class="monthly m-2">
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Monthly Plan</button>
+            </div>
+            <div class="annual m-2">
+                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init style="color: black">Annual Plan</button>
+            </div>
+            </div>
+    </div>
+    <div class="pricing container">
+        <div class="row">
+            <div class="col-12 col-lg-4 my-4 ">
+                <div class="d-flex flex-column justify-content-between zoom-effect" style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
+                    <h3>Starter</h3>
+                    <div class="d-flex align-items-baseline">
+                        <h2>Rs 799</h2>
+                        <h4 style="opacity: 70%">/Month</h4>
+                    </div>
+                    <div class="container d-flex justify-content-center px-0">
+                    <hr style="width: 100%;">
+                    </div>
+                    <div class="container d-flex flex-column justify-content-center align-items-center">
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                        <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                        <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    </div>
+                    <div class="buy-now">
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get Started</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 my-4 ">
+                <div class="d-flex flex-column justify-content-between zoom-effect" style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%; background-color: #FFE164">
+                    <h3>Pro</h3>
+                    <div class="d-flex align-items-baseline">
+                        <h2>Rs 999</h2>
+                        <h4 style="opacity: 70%">/Month</h4>
+                    </div>
+                    <div class="container d-flex justify-content-center px-0">
+                        <hr style="width: 100%;">
+                    </div>
+                    <div class="container d-flex flex-column justify-content-center align-items-center">
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                        <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                        <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                    </div>
+                    <div class="buy-now">
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color:white">Get Started</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 my-4">
+                <div class="d-flex flex-column justify-content-between zoom-effect" style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
+                    <h3>Premium</h3>
+                    <div class="d-flex align-items-baseline">
+                        <h4>Rs 1799</h4>
+                        <h5 style="opacity: 70%">/Month</h5>
+                    </div>
+                    <div class="container d-flex justify-content-center px-0">
+                    <hr style="width: 100%;">
+                    </div>
+                    <div class="container d-flex flex-column justify-content-center align-items-center">
+                       <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div><div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i><p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                </div>
+                    <div class="buy-now">
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get Started</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+    <div class="mentions  d-flex justify-content-center my-4">
+        <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init style="width: 80%">
+            <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
+                <div class="carousel-item active">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid" style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
+                            <h3 class="card-title">Rahul Sharma</h3>
+                            <h6 class="card-title">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid" style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
+                            <h3 class="card-title">Rahul Sharma</h3>
+                            <h6 class="card-title">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid" style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
+                            <h3 class="card-title">Rahul Sharma</h3>
+                            <h6 class="card-title">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left" style="color: goldenrod;"></i>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+                <i class="carousel-control-next-icon fas fa-2x fa-angle-right" style="color: goldenrod;"></i>
+            </button>
+        </div>
+    </div>
+    <div class="faq  d-flex flex-column justify-content-center">
+        <h2 class="text-center my-5">Frequently Asked Questions</h2>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                            data-mdb-collapse-init
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne"
+                    >
+                        How does PortfolioBee work?
+                        <i class="fas fa-circle-chevron-down"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseOne"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingOne"
+                        data-mdb-parent="#accordionFlushExample"
+                >
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                            data-mdb-collapse-init
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseTwo"
+                    >
+                        Is PortfolioBee free to use?
+                        <i class="fas fa-circle-chevron-down"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingTwo"
+                        data-mdb-parent="#accordionFlushExample"
+                >
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button
+                            data-mdb-collapse-init
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseThree"
+                    >
+                        Can I customize my portfolio?
+                        <i class="fas fa-circle-chevron-down"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseThree"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree"
+                        data-mdb-parent="#accordionFlushExample"
+                >
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingFour">
+                    <button
+                            data-mdb-collapse-init
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseFour"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseFour"
+                    >
+                        How can I share my portfolio?
+                        <i class="fas fa-circle-chevron-down"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseFour"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingFour"
+                        data-mdb-parent="#accordionFlushExample"
+                >
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="connect  my-5">
+        <div class="row">
+            <div class="col-12 col-lg-4 contact-info py-2">
+
+                    <div class="card" style="background-color: black; color: white; padding: 2rem; height: 100%;">
+                        <h2>Contact information</h2>
+                        <p class="mb-4">Say something to start a live chat!</p>
+                        <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
+                            <i class="fas fa-phone me-4"></i><p class="mb-0">+1012 3456 789</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
+                            <i class="fas fa-envelope me-4"></i><p class="mb-0">demo@gmail.com</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
+                            <i class="fas fa-location-dot me-4"></i><p class="mb-0" style="width: 60%">132 Dartmouth Street Boston, Massachusetts 02156 United States</p>
+                        </div>
+                    </div>
+
+
+            </div>
+            <div class="col-12 col-lg-8 connect-form py-2">
+                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">
+                    <h2 class="text-center">Got Questions?</h2>
+                    <h2 class="text-center mb-0"> We're Here to Help!</h2>
+                </div>
+                    <div class="connect-form-structure" style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
+                        <div class="d-flex justify-content-between mb-5">
+                            <div class="form-outline" data-mdb-input-init style="width: 45%;">
+                                <input type="text" id="first_name" class="form-control" />
+                                <label class="form-label" for="first_name">First Name</label>
+                            </div>
+                            <div class="form-outline" data-mdb-input-init style="width: 45%;">
+                                <input type="text" id="last_name" class="form-control" />
+                                <label class="form-label" for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between my-5">
+                            <div class="form-outline" data-mdb-input-init style="width: 45%;">
+                                <input type="email" id="email" class="form-control" />
+                                <label class="form-label" for="email">Email</label>
+                            </div>
+                            <div class="form-outline" data-mdb-input-init style="width: 45%;">
+                                <input type="tel" id="phone" class="form-control" />
+                                <label class="form-label" for="phone">Phone No.</label>
+                            </div>
+                        </div>
+                        <h5 class="mt-2">SelectSubject?</h5>
+                        <div class="radio-btn row">
+                            <div class="form-check col-6 col-md-3 d-flex align-items-center " style="padding-left: 2rem;">
+                                <input class="form-check-input me-2 " type="radio" name="inlineRadio" id="inlineRadio1"/>
+                                <label class="form-check-label" for="inlineRadio1"> General Inquiry </label>
+                            </div>
+                            <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
+                                <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio2"/>
+                                <label class="form-check-label" for="inlineRadio2"> Feedback </label>
+                            </div>
+                            <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
+                                <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio3"/>
+
+                                <label class="form-check-label" for="inlineRadio3"> Support </label>
+                            </div>
+                            <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
+                                <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio4"/>
+
+                                <label class="form-check-label" for="inlineRadio4"> Other </label>
+                            </div>
+                        </div>
+
+                        <div class="form-outline mt-5" data-mdb-input-init>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                            <label class="form-label" for="message">write your message ...</label>
+                        </div>
+                        <div class="d-flex justify-content-end align-content-end">
+
+                        </div>
+                        <div class="send-msg d-flex justify-content-end mt-3">
+                            <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Send Message</button>
+                        </div>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="foot" style="margin-top: 7rem;">
+        <div class="rounded-4" style="background-color: #FFE164; width: 100%" >
+            <div class="credits ">
+                <div class="container upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4" >
+                    <div class="logo-img d-flex justify-content-start  align-items-center" >
+                        <img src="images/Group%20107.png" alt="Logo" class="img-fluid me-1">
+                        <h5 class="mb-0 ps-1">PortfolioBee</h5>
+                    </div>
+                    <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center" style="width: 40%">
+
+                        <p  class="mb-2 mb-sm-0 fw-semibold" data-mdb-ripple-init data-mdb-ripple-color="light">About
+                        </p>
+                        <p  class="mb-2 mb-sm-0 fw-semibold" data-mdb-ripple-init data-mdb-ripple-color="light">Features
+                        </p>
+                        <p  class="mb-3 mb-sm-0 fw-semibold" data-mdb-ripple-init data-mdb-ripple-color="light">Pricing
+                        </p>
+
+
+                    </div>
+                    <div class="media-links d-flex justify-content-between" style="width: 15%;">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-linkedin-in"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="container d-flex justify-content-center px-0">
+                <hr style="width: 90%;">
+            </div>
+            <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between " style="padding: 2rem 6rem 2rem 6rem;">
+                <p class="text-center text-sm-center text-md-start fw-semibold">2024 | Licenses</p>
+                <p class="text-center text-sm-center text-md-end fw-semibold">Developed by Wooble</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End your project here-->
+<!-- MDB -->
+<script type="text/javascript" src="js/mdb.umd.min.js"></script>
+<!-- Custom scripts -->
+<script type="text/javascript"></script>
+</body>
+</html>

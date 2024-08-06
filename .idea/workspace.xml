@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/template-4/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/template-4/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/deleteUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/deleteUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/editUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/editUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/getAllUsers.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/getAllUsers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/login_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/login_process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/logout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/register_process.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/register_process.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/searchUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/searchUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/updateUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/updateUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ajax/userData.php" beforeDir="false" afterPath="$PROJECT_DIR$/ajax/userData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/dbConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/mdb-favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-4/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-4/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +32,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../bin" />
+    </include_path>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -32,14 +51,21 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/archishmandash/Documents/github/templates&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -57,7 +83,19 @@
       <option name="presentableId" value="Default" />
       <updated>1721108262445</updated>
       <workItem from="1721108263449" duration="10062000" />
-      <workItem from="1721276130002" duration="21502000" />
+      <workItem from="1721276130002" duration="22144000" />
+      <workItem from="1721367314091" duration="8460000" />
+      <workItem from="1721624362505" duration="10151000" />
+      <workItem from="1721643598430" duration="1691000" />
+      <workItem from="1721645439969" duration="589000" />
+      <workItem from="1721646146823" duration="6200000" />
+      <workItem from="1721710660998" duration="21975000" />
+      <workItem from="1721796154573" duration="24873000" />
+      <workItem from="1721882951069" duration="25162000" />
+      <workItem from="1722227627480" duration="21792000" />
+      <workItem from="1722314339995" duration="24875000" />
+      <workItem from="1722401016342" duration="19509000" />
+      <workItem from="1722487799921" duration="1306000" />
     </task>
     <servers />
   </component>

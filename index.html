@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
+    <title>template homepage</title>
     <!-- MDB icon -->
     <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
     <!-- Font Awesome -->
@@ -22,29 +22,51 @@
   </head>
   <body>
     <!-- Start your project here-->
-    <div class="container">
-      <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        <div class="text-center">
-          <img
-            class="mb-4"
-            src="https://mdbootstrap.com/img/logo/mdb-transparent-250px.png"
-            style="width: 250px; height: 90px"
-          />
-          <h5 class="mb-3">Thank you for using our product. We're glad you're with us.</h5>
-          <p class="mb-3">MDB Team</p>
-          <a
-            class="btn btn-primary btn-lg"
-            data-mdb-ripple-init
-            href="https://mdbootstrap.com/docs/standard/getting-started/"
-            target="_blank"
-            role="button"
-            >Start MDB tutorial</a
+      <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <!-- Container wrapper -->
+        <div class="container-fluid">
+          <!-- Toggle button -->
+          <button
+                  data-mdb-collapse-init
+                  class="navbar-toggler"
+                  type="button"
+                  data-mdb-target="#navbarCenteredExample"
+                  aria-controls="navbarCenteredExample"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
           >
-        </div>
-      </div>
-    </div>
-    <!-- End your project here-->
+            <i class="fas fa-bars"></i>
+          </button>
 
+          <!-- Collapsible wrapper -->
+          <div
+                  class="collapse navbar-collapse justify-content-center"
+                  id="navbarCenteredExample"
+          >
+            <!-- Left links -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./template1/index.html">template-1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./template-2/index.html">template-2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./template-3/index.html">template-3</a>
+              </li><li class="nav-item">
+              <a class="nav-link" href="./template-4/index.html">template-4</a>
+            </li>
+              </li><li class="nav-item">
+              <a class="nav-link" href="Admin%20Ui%20Template/index.php">template-5</a>
+            </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+          <!-- Collapsible wrapper -->
+        </div>
+        <!-- Container wrapper -->
+      </nav>
+    <!-- End your project here-->
     <!-- MDB -->
     <script type="text/javascript" src="js/mdb.umd.min.js"></script>
     <!-- Custom scripts -->
