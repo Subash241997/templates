@@ -599,38 +599,40 @@ $user_name = $_SESSION['user_name'];
                     var response = JSON.parse(xhr.responseText);
                     if (response.status === 'success') {
                         console.log("User deleted successfully:", response.message);
-                        showErrorModal("User deleted successfully:", response.message);
+                        alert("User deleted successfully:", response.message);
                             // Remove the row from the table
                         let deletedRow = document.getElementById('user-' + userId);
                         if (deletedRow) {
                             deletedRow.remove();
                         } else {
                             console.error("Error deleting user: Row not found.");
-                            showErrorModal("Error deleting user: Row not found.");
+                            alert("Error deleting user: Row not found.");
                             return; // Exit early
                         }
 
                         // Check if there are any rows left
                         let tableBody = document.getElementById('table-body'); // Adjust this ID as needed
                         if (tableBody && tableBody.children.length === 0) {
-                            showErrorModal("No matching results found.");
+                            alert("No matching results found.");
                         }
                     } else {
                         console.error("Error deleting user:", response.message);
-                        showErrorModal("Error deleting user: " + response.message);
+                        alert("Error deleting user: " + response.message);
                     }
                 } else {
                     console.error("Error deleting user:", xhr.statusText);
-                    showErrorModal("Error deleting user.");
+                    alert("Error deleting user.");
                 }
             };
             xhr.onerror = function () {
                 console.error('Request failed.');
-                showErrorModal('Request failed.');
+                alert('Request failed.');
             };
             // Send userId as JSON data
             xhr.send(JSON.stringify({userId: userId}));
         }
+        // This will reload the page from the cache
+        window.location.reload();
     }
 
 
