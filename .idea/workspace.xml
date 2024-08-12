@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Admin Ui Template/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Admin Ui Template/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,10 @@
       <workItem from="1722487799921" duration="1306000" />
       <workItem from="1722940144916" duration="4389000" />
       <workItem from="1723006961690" duration="1473000" />
-      <workItem from="1723012179349" duration="1014000" />
+      <workItem from="1723012179349" duration="3298000" />
+      <workItem from="1723094655120" duration="6909000" />
+      <workItem from="1723179982001" duration="3205000" />
+      <workItem from="1723437843569" duration="21728000" />
     </task>
     <servers />
   </component>
