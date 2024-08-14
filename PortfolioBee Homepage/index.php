@@ -1,3 +1,6 @@
+<?php
+include 'dbConnection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +10,7 @@
     <title>PortfolioBee: Home</title>
     <!-- MDB icon -->
     <link rel="stylesheet" href="https://portfoliobee.com/plugins/css/all.min.css"/>
-    <link rel="icon" href="./images/Group%20107.png" type="image/x-icon"/>
+    <link rel="icon" href="./images/path0%20(1).png" type="image/x-icon"/>
     <!-- Font Awesome -->
     <link
             rel="stylesheet"
@@ -18,6 +21,10 @@
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap"
+          rel="stylesheet">
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css"/>
     <style>
@@ -83,7 +90,8 @@
             transition: transform 0.3s ease; /* Smooth rotation transition */
             font-size: 1.5rem; /* Set icon size */
             margin-right: 0.5rem; /* Space between icon and text */
-            color: goldenrod;
+            background: linear-gradient(135deg, #FFB2B2 0%, #FFB27D 52.5%, #7199FF 100%);
+            border-radius: 100%;
         }
 
         /* Rotate icon when expanded */
@@ -145,7 +153,7 @@
         }
 
         .accordion-button:not(.collapsed) {
-            color: #0c622e;
+            color: black;
             padding-bottom: 0.5rem;
         }
 
@@ -160,7 +168,7 @@
             left: 0;
             width: 100%;
             height: 65%; /* This ensures the background occupies half of the height */
-            background-color: #FFE164;
+            background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
             z-index: -1; /* Place the background behind the content */
         }
 
@@ -218,43 +226,107 @@
         .feature-text {
             flex: 1;
         }
+
+        body {
+            font-family: "outfit", sans-serif;
+        }
+
+        /* Hide the cross icon by default */
+        .fa-xmark {
+            display: none;
+        }
+
+        /* Show the cross icon and hide the hamburger icon when the navbar is expanded */
+        .navbar-toggler.collapsed .fa-xmark {
+            display: none;
+        }
+
+        .navbar-toggler:not(.collapsed) .fa-bars {
+            display: none;
+        }
+
+        .navbar-toggler:not(.collapsed) .fa-xmark {
+            display: block;
+        }
+
+        .gradient-icon {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFB2B2 0%, #FFB27D 52.5%, #7199FF 100%);
+            -webkit-background-clip: text; /* For Chrome, Safari, and Opera */
+            -webkit-text-fill-color: transparent; /* For Chrome, Safari, and Opera */
+            background-clip: text; /* For other browsers */
+            text-fill-color: transparent; /* For other browsers */
+        }
+
+        .gradient-text {
+            background: linear-gradient(92.05deg, #FF847D 0%, #FFA949 54.04%, #3260D7 99.16%);
+            -webkit-background-clip: text; /* For Chrome, Safari, and Opera */
+            -webkit-text-fill-color: transparent; /* For Chrome, Safari, and Opera */
+            background-clip: text; /* For other browsers */
+            text-fill-color: transparent; /* For other browsers */
+            font-size: 1.25rem; /* Adjust font size if needed */
+        }
+
+        @media only screen and (max-width: 992px) {
+            .nav-head {
+                background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
+                padding: 1rem;
+                background-color: transparent !important;
+            }
+
+            .head-menu {
+                color: black !important;
+            }
+        }
     </style>
 </head>
 <body style="overflow-x: hidden;">
 <!-- Start your project here-->
 <div class="container-fluid g-0">
-    <nav class="navbar navbar-expand-lg" style="background-color: #FFE164">
+    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
+">
         <div class="container-fluid">
             <div class="logo-img d-flex justify-content-between align-items-center">
-                <img src="images/Group%20107.png" alt="Logo" class="img-fluid">
-                <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
+                <a href="#">
+                    <img src="images/path0.png" alt="Logo" class="img-fluid">
+                </a>
+                <a href="#">
+                    <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
+                </a>
             </div>
             <button
                     data-mdb-collapse-init
                     class="navbar-toggler"
                     type="button"
+                    data-toggle="collapse"
                     data-mdb-target="#navbarNavAltMarkup"
                     aria-controls="navbarNavAltMarkup"
                     aria-expanded="false"
                     aria-label="Toggle navigation"
             >
                 <i class="fas fa-bars text-black"></i>
+                <i class="fas fa-xmark text-black"></i>
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                <div class="navbar-nav fw-semibold">
-                    <a class="nav-link text-black" aria-current="page" href="#about-us">About</a>
-                    <a class="nav-link text-black" href="#features">Feature</a>
-                    <a class="nav-link text-black" href="#find-plan">Pricing</a>
-                    <a class="nav-link text-black" href="#mentions"
+            <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
+                <div class="navbar-nav nav-head fw-semibold" style="background-color: black;">
+                    <a class="nav-link head-menu text-white" href="#about-us">About</a>
+                    <a class="nav-link head-menu text-white" href="#features">Feature</a>
+                    <a class="nav-link head-menu text-white" href="#find-plan">Pricing</a>
+                    <a class="nav-link head-menu text-white" href="#mentions"
                     >Testimonials</a
                     >
-                    <a class="nav-link text-black" href="#connect"
+                    <a class="nav-link head-menu text-white" href="#connect"
                     >Contact Us</a
                     >
+                    <div class="d-lg-none mt-2">
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F">Get
+                            Started
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="signup-btn">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: white">Get Started
+            <div class="signup-btn d-none d-lg-block">
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F">Get Started
                 </button>
             </div>
         </div>
@@ -270,7 +342,7 @@
             </div>
             <img src="images/Laptop%20Air%20and%20Phone%2014%20Mockup%2002%201.png" alt="mac-systems"
                  class="img-fluid my-4">
-            <h5 class="text-center">Trusted by 20,000+ students & institutions</h5>
+            <h5 class="text-center text-black">Trusted by 20,000+ students & institutions</h5>
         </div>
     </div>
 </div>
@@ -309,139 +381,38 @@
                  style="width: 5rem; height: 5rem; border-radius: 100%">
             <img src="./images/Group%20(2).png" alt="Image 5" class="img-fluid m-4"
                  style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
+            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
+                 style="width: 5rem; height: 5rem; border-radius: 100%">
         </div>
     </div>
-    <!--    <div class="features my-4">-->
-    <!--        <h2 class="fw-bolder text-black">Features</h2>-->
-    <!--        <hr style="width: 7rem">-->
-    <!--        <div class="row">-->
-    <!--            <div class="feature-1 col-12 col-lg-4  my-2">-->
-    <!--                <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; height: 100%;">-->
-    <!--                    <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                        <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                    </div>-->
-    <!--                    <h4 class="mb-2 fw-bolder">Personalised Dashboard</h4>-->
-    <!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                        diam libero vitae erat.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="feature-2 col-12 col-lg-4  my-2">-->
-    <!--                <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; height: 100%;">-->
-    <!--                    <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                        <img src="./images/personal-info%201.png" alt="portfolio" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                    </div>-->
-    <!--                    <h4 class="mb-2 fw-bolder">Portfolio</h4>-->
-    <!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                        diam libero vitae erat.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="feature-3 col-12 col-lg-4  my-2">-->
-    <!--                <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; height: 100%;">-->
-    <!--                    <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                        <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                    </div>-->
-    <!--                    <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                        diam libero vitae erat.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="feature-4 col-12 col-lg-4  my-2">-->
-    <!--                <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; height: 100%;">-->
-    <!--                    <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                        <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                    </div>-->
-    <!--                    <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                        diam libero vitae erat.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <div class="feature-5 col-12 col-lg-4  my-2">-->
-    <!--                <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; height: 100%;">-->
-    <!--                    <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                        <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                    </div>-->
-    <!--                    <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                        diam libero vitae erat.</p>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="features  d-flex justify-content-center my-4">-->
-    <!--        <div id="carouselExampleControls-2" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init style="width: 85%">-->
-    <!--            <div class="carousel-inner  rounded-6 " >-->
-    <!--                <div class="carousel-item active">-->
-    <!--                    <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; ">-->
-    <!--                        <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                            <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                        </div>-->
-    <!--                        <h4 class="mb-2 fw-bolder">Personalised Dashboard</h4>-->
-    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                            diam libero vitae erat.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="carousel-item">-->
-    <!--                    <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; ">-->
-    <!--                        <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                            <img src="./images/personal-info%201.png" alt="portfolio" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                        </div>-->
-    <!--                        <h4 class="mb-2 fw-bolder">Portfolio</h4>-->
-    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                            diam libero vitae erat.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="carousel-item">-->
-    <!--                    <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; ">-->
-    <!--                        <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                            <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                        </div>-->
-    <!--                        <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                            diam libero vitae erat.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="carousel-item">-->
-    <!--                    <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem;">-->
-    <!--                        <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                            <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                        </div>-->
-    <!--                        <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                            diam libero vitae erat.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--                <div class="carousel-item">-->
-    <!--                    <div class="card zoom-effect my-3 mx-2" style="background-color: black; color: white; padding: 2rem; ">-->
-    <!--                        <div class="img-feature d-flex justify-content-end my-4">-->
-    <!--                            <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail" style="width: 5rem; height: 5rem; background-color: #FFE164">-->
-    <!--                        </div>-->
-    <!--                        <h4 class="mb-2 fw-bolder">Resume Review Report</h4>-->
-    <!--                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-    <!--                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo-->
-    <!--                            diam libero vitae erat.</p>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls-2" data-mdb-slide="prev">-->
-    <!--                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left" style="color: goldenrod;"></i>-->
-    <!--            </button>-->
-    <!--            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls-2" data-mdb-slide="next">-->
-    <!--                <i class="carousel-control-next-icon fas fa-2x fa-angle-right" style="color: goldenrod;"></i>-->
-    <!--            </button>-->
-    <!--        </div>-->
-    <!--    </div>-->
 
     <div class="features " id="features">
+        <div class="head-text">
+            <h2 class="fw-bolder text-black">Features</h2>
+            <hr style="width: 8rem; ">
+        </div>
         <div class="multi-carousel  d-flex justify-content-center" data-mdb-carousel="true">
             <div class="multi-carousel-inner" style="width: 95%;">
                 <div class="multi-carousel-item" style="height: 100%;">
@@ -449,7 +420,8 @@
                          style="background-color: black; color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-end my-4">
                             <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background-color: #FFE164">
+                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
+">
                         </div>
                         <div class="feature-text">
                             <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>
@@ -469,7 +441,8 @@
                          style="background-color: black; color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-end my-4">
                             <img src="./images/personal-info%201.png" alt="portfolio" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background-color: #FFE164">
+                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
+">
                         </div>
                         <div class="feature-text">
                             <h4 class="my-3 fw-bolder">Portfolio</h4>
@@ -488,7 +461,8 @@
                          style="background-color: black; color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-end my-4">
                             <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background-color: #FFE164">
+                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
+">
                         </div>
                         <div class="feature-text">
                             <h4 class="my-3 fw-bolder">Resume Review Report</h4>
@@ -507,7 +481,8 @@
                          style="background-color: black; color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-end my-4">
                             <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background-color: #FFE164">
+                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
+">
                         </div>
                         <div class="feature-text">
                             <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>
@@ -526,7 +501,8 @@
                          style="background-color: black; color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-end my-4">
                             <img src="./images/personal-info%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background-color: #FFE164">
+                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
+">
                         </div>
                         <div class="feature-text">
                             <h4 class="my-3 fw-bolder">Portfolio</h4>
@@ -542,10 +518,10 @@
                 </div>
             </div>
             <button class="carousel-control-prev multi-control-prev" type="button" data-mdb-slide="prev">
-                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left" style="color: goldenrod;"></i>
+                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
             </button>
             <button class="carousel-control-next multi-control-next" type="button" data-mdb-slide="next">
-                <i class="carousel-control-next-icon fas fa-2x fa-angle-right" style="color: goldenrod;"></i>
+                <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
             </button>
         </div>
     </div>
@@ -565,7 +541,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
                         elementum
                         tristique. Duis cursus, mi quis viverra ornare.</p>
-                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get Started
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C">Get Started
                     </button>
                 </div>
 
@@ -586,14 +562,14 @@
             </div>
 
             <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%201%20(1).png" alt="feature-1" class="img-fluid">
+                <img src="images/image%205.png" alt="feature-1" class="img-fluid">
             </div>
         </div>
 
 
         <div class="row align-items-center">
             <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%202.png" alt="feature-2" class="img-fluid">
+                <img src="images/image%206.png" alt="feature-2" class="img-fluid">
 
             </div>
 
@@ -625,7 +601,7 @@
             </div>
 
             <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%203.png" alt="feature-3" class="img-fluid">
+                <img src="images/image%207.png" alt="feature-3" class="img-fluid">
             </div>
         </div>
 
@@ -667,23 +643,26 @@
             </div>
         </div>
     </div>
-    <div class="about-us my-4" id="about-us">
-        <h2 class="fw-bolder text-black">About Us</h2>
-        <hr style="width: 7rem;">
+    <div class="about-us  my-4" id="about-us">
+        <div class="head-text">
+            <h2 class="fw-bolder text-black">About Us</h2>
+            <hr style="width: 8rem;">
+        </div>
         <p>At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
             in simplifying the journey for students, professionals, and everyone in between, ensuring that their unique
             professional narratives are effortlessly captured and showcased.</p>
     </div>
-    <div class="goal my-4">
+
+    <div class="goal container my-4 ">
         <div class="row">
             <div class="col-12 col-md-6 my-2 ">
                 <div class="d-flex flex-column justify-content-between rounded-4 hover-zoom"
                      style="background-color: black; color: white; padding: 2rem;  height: 100%;">
                     <div class="container goal-img">
-                        <img src="./images/Group%20142.png" alt="rocket" class="img-fluid" style="height: 70%;">
+                        <img src="./images/Group%20142%20(1).png" alt="rocket" class="img-fluid" style="height: 70%;">
                     </div>
                     <div class="container goals">
-                        <h2>Our Mission</h2>
+                        <h2>Our <span>Mission</span></h2>
                         <p style="margin-bottom: 0px;">
                             PortfolioBee's mission is to simplify professional self-presentation. Through our
                             subscription model, users enjoy flexibility in updating their portfolios. Additionally, our
@@ -697,10 +676,10 @@
                 <div class="d-flex flex-column justify-content-between rounded-4 hover-zoom"
                      style="background-color: black; color: white; padding: 2rem; height: 100%;">
                     <div class="container goal-img">
-                        <img src="./images/Group%20144.png" alt="telescope" class="img-fluid" style="height: 70%;">
+                        <img src="./images/Group%20143.png" alt="telescope" class="img-fluid" style="height: 70%;">
                     </div>
                     <div class="container goals">
-                        <h2>Our Vision</h2>
+                        <h2>Our <span>Vision</span></h2>
                         <p style="margin-bottom: 0px;">
                             PortfolioBee aims to be the ultimate global hub for professional identity display. We strive
                             to effortlessly link talent with global opportunities, envisioning a diverse community where
@@ -713,6 +692,7 @@
             </div>
         </div>
     </div>
+
     <div class="find-plan  d-flex flex-column justify-content-center align-items-center my-5" id="find-plan">
         <h1 class="text-center fw-bolder text-black">Find the perfect plan for you</h1>
         <div class="find-paragraph" style="width: 60%; text-align: center">
@@ -721,7 +701,7 @@
         </div>
         <div class="container d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-center align-items-center">
             <div class="monthly m-2">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Monthly Plan
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2">Monthly Plan
                 </button>
             </div>
             <div class="annual m-2">
@@ -738,7 +718,7 @@
                      style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
                     <h3 class="text-black">Starter</h3>
                     <div class="d-flex align-items-baseline">
-                        <h2>Rs 799</h2>
+                        <h2 class="text-black">Rs 799</h2>
                         <h4 style="opacity: 70%">/Month</h4>
                     </div>
                     <div class="container d-flex justify-content-center px-0">
@@ -763,7 +743,7 @@
                         </div>
                     </div>
                     <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
                             Started
                         </button>
                     </div>
@@ -771,10 +751,10 @@
             </div>
             <div class="col-12 col-lg-4 my-4 ">
                 <div class="d-flex flex-column justify-content-between zoom-effect"
-                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%; background-color: #FFE164">
+                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%; background: linear-gradient(165.25deg, #FFB4AF 0%, #FFBB7B 36.5%, #7499FD 99.99%);">
                     <h3 class="text-black">Pro</h3>
                     <div class="d-flex align-items-baseline">
-                        <h2>Rs 999</h2>
+                        <h2 class="text-black">Rs 999</h2>
                         <h4 style="opacity: 70%">/Month</h4>
                     </div>
                     <div class="container d-flex justify-content-center px-0">
@@ -799,7 +779,7 @@
                         </div>
                     </div>
                     <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color:white">Get
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color:#F5BA79">Get
                             Started
                         </button>
                     </div>
@@ -810,7 +790,7 @@
                      style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
                     <h3 class="text-black">Premium</h3>
                     <div class="d-flex align-items-baseline">
-                        <h4>Rs 1799</h4>
+                        <h4 class="text-black">Rs 1799</h4>
                         <h5 style="opacity: 70%">/Month</h5>
                     </div>
                     <div class="container d-flex justify-content-center px-0">
@@ -835,7 +815,7 @@
                         </div>
                     </div>
                     <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Get
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
                             Started
                         </button>
                     </div>
@@ -843,7 +823,9 @@
             </div>
         </div>
     </div>
-    <div class="mentions  d-flex justify-content-center my-4" id="mentions">
+    <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4" id="mentions">
+        <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
+            you will too!</h2>
         <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
              style="width: 80%">
             <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
@@ -858,8 +840,8 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title">Rahul Sharma</h3>
-                            <h6 class="card-title">Full Stack Developer</h6>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
                 </div>
@@ -874,8 +856,8 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title">Rahul Sharma</h3>
-                            <h6 class="card-title">Full Stack Developer</h6>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
                 </div>
@@ -890,8 +872,8 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title">Rahul Sharma</h3>
-                            <h6 class="card-title">Full Stack Developer</h6>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
                 </div>
@@ -906,8 +888,8 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title">Rahul Sharma</h3>
-                            <h6 class="card-title">Full Stack Developer</h6>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
                 </div>
@@ -922,29 +904,29 @@
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title">Rahul Sharma</h3>
-                            <h6 class="card-title">Full Stack Developer</h6>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
                     data-mdb-slide="prev">
-                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left" style="color: goldenrod;"></i>
+                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
             </button>
             <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
                     data-mdb-slide="next">
-                <i class="carousel-control-next-icon fas fa-2x fa-angle-right" style="color: goldenrod;"></i>
+                <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
             </button>
         </div>
     </div>
     <div class="faq  d-flex flex-column justify-content-center">
-        <h2 class="text-center my-5 text-black">Frequently Asked Questions</h2>
+        <h2 class="text-center my-5 text-black fw-bolder">Frequently Asked Questions</h2>
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item py-4">
                 <h2 class="accordion-header" id="flush-headingOne">
                     <button
-                            data-mdb-collapse-init
+
                             class="accordion-button collapsed"
                             type="button"
                             data-mdb-toggle="collapse"
@@ -977,7 +959,7 @@
             <div class="accordion-item py-4">
                 <h2 class="accordion-header" id="flush-headingTwo">
                     <button
-                            data-mdb-collapse-init
+
                             class="accordion-button collapsed"
                             type="button"
                             data-mdb-toggle="collapse"
@@ -1010,7 +992,7 @@
             <div class="accordion-item py-4">
                 <h2 class="accordion-header" id="flush-headingThree">
                     <button
-                            data-mdb-collapse-init
+
                             class="accordion-button collapsed"
                             type="button"
                             data-mdb-toggle="collapse"
@@ -1043,7 +1025,7 @@
             <div class="accordion-item py-4">
                 <h2 class="accordion-header" id="flush-headingFour">
                     <button
-                            data-mdb-collapse-init
+
                             class="accordion-button collapsed"
                             type="button"
                             data-mdb-toggle="collapse"
@@ -1077,11 +1059,12 @@
         </div>
     </div>
     <div class="connect  my-5" id="connect">
+        <h2 class="text-black text-center my-5 fw-bolder">Get in contact with our team!</h2>
         <div class="row">
             <div class="col-12 col-lg-4 contact-info py-2">
 
-                <div class="card" style="background-color: black; color: white; padding: 2rem; height: 100%;">
-                    <h2>Contact information</h2>
+                <div class="card contact-card" style="background-color: black; color: white; padding: 2rem; height: 100%;">
+                    <h2>Contact Information</h2>
                     <p class="mb-4">Say something to start a live chat!</p>
                     <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
                         <i class="fas fa-phone me-4"></i>
@@ -1101,114 +1084,144 @@
 
             </div>
             <div class="col-12 col-lg-8 connect-form py-2">
-                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">
-                    <h2 class="text-center">Got Questions?</h2>
-                    <h2 class="text-center mb-0"> We're Here to Help!</h2>
-                </div>
-                <div class="connect-form-structure"
+                <!--                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">-->
+                <!--                    <h2 class="text-center">Got Questions?</h2>-->
+                <!--                    <h2 class="text-center mb-0"> We're Here to Help!</h2>-->
+                <!--                </div>-->
+                <form class="connect-form-structure" id="connect-form"
                      style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
                     <div class="d-flex justify-content-between mb-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="text" id="first_name" class="form-control"/>
+                            <input type="text" id="first_name" name="first_name" class="form-control"/>
                             <label class="form-label" for="first_name">First Name</label>
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="text" id="last_name" class="form-control"/>
+                            <input type="text" id="last_name" name="last_name" class="form-control"/>
                             <label class="form-label" for="last_name">Last Name</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between my-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="email" id="email" class="form-control"/>
+                            <input type="email" id="email" name="email" class="form-control"/>
                             <label class="form-label" for="email">Email</label>
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="tel" id="phone" class="form-control"/>
+                            <input type="tel" id="phone" name="phone" class="form-control"/>
                             <label class="form-label" for="phone">Phone No.</label>
                         </div>
                     </div>
                     <h5 class="mt-2">SelectSubject?</h5>
                     <div class="radio-btn row">
-                        <div class="form-check col-6 col-md-3 d-flex align-items-center " style="padding-left: 2rem;">
-                            <input class="form-check-input me-2 " type="radio" name="inlineRadio" id="inlineRadio1"/>
+                        <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
+                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio1" value="General Inquiry"/>
                             <label class="form-check-label" for="inlineRadio1"> General Inquiry </label>
                         </div>
                         <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio2"/>
+                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio2" value="Feedback"/>
                             <label class="form-check-label" for="inlineRadio2"> Feedback </label>
                         </div>
                         <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio3"/>
-
+                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio3" value="Support"/>
                             <label class="form-check-label" for="inlineRadio3"> Support </label>
                         </div>
                         <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inlineRadio" id="inlineRadio4"/>
-
+                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio4" value="Other"/>
                             <label class="form-check-label" for="inlineRadio4"> Other </label>
                         </div>
                     </div>
 
                     <div class="form-outline mt-5" data-mdb-input-init>
-                        <textarea class="form-control" id="message" rows="4"></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" ></textarea>
                         <label class="form-label" for="message">write your message ...</label>
                     </div>
                     <div class="d-flex justify-content-end align-content-end">
 
                     </div>
-                    <div class="send-msg d-flex justify-content-end mt-3">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFE164">Send
+                    <div class="send-msg d-flex justify-content-end" style="margin-top: 2.5rem;">
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="sendContactDetails()">Send
                             Message
                         </button>
                     </div>
-                </div>
+                </form>
 
 
             </div>
         </div>
     </div>
     <div class="foot" style="margin-top: 7rem;">
-        <div class="rounded-4" style="background-color: #FFE164; width: 100%">
+        <div class="rounded-4" style="background-color: black; width: 100%">
             <div class="credits ">
                 <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
                     <div class="logo-img d-flex justify-content-start  align-items-center">
-                        <img src="images/Group%20107.png" alt="Logo" class="img-fluid me-1">
-                        <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
+                        <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
+                        <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
                     </div>
-                    <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-2"
+                    <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
                          style="width: 40%">
 
-                        <a class="nav-link text-black mb-2 mb-sm-0 fw-semibold" aria-current="page" href="#about-us">About</a>
-                        <a class="nav-link text-black mb-2 mb-sm-0 fw-semibold" href="#features">Feature</a>
-                        <a class="nav-link text-black mb-3 mb-sm-0 fw-semibold" href="#find-plan">Pricing</a>
-
+                        <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page" href="#about-us"
+                           style="color: #FFB4AF">About</a>
+                        <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" href="#features" style="color: #F5BA79">Feature</a>
+                        <a class="nav-link mb-4 mb-sm-0 fw-semibold zoom-effect" href="#find-plan"
+                           style="color: #7199FF">Pricing</a>
 
 
                     </div>
-                    <div class="media-links d-flex justify-content-between" style="width: 15%;">
-                        <i class="fab fa-instagram"></i>
-                        <i class="fab fa-linkedin-in"></i>
-                        <i class="fab fa-twitter"></i>
+                    <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
+                        <i class="fab fa-instagram fa-lg zoom-effect" style="cursor: pointer"></i>
+                        <i class="fab fa-linkedin-in fa-lg zoom-effect" style="cursor: pointer"></i>
+                        <i class="fab fa-twitter fa-lg zoom-effect" style="cursor: pointer"></i>
                     </div>
                 </div>
             </div>
             <div class="d-flex justify-content-center px-0">
-                <hr style="width: 90%;">
+                <hr style="width: 90%; color: white;">
             </div>
             <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between "
                  style="padding: 2rem 6rem 2rem 6rem;">
-                <p class="text-center text-sm-center text-md-start fw-semibold text-black">2024 | Licenses</p>
-                <p class="text-center text-sm-center text-md-end fw-semibold text-black">Developed by Wooble</p>
+                <p class="text-center text-sm-center text-md-start fw-semibold text-white">2024 | Licenses</p>
+                <p class="text-center text-sm-center text-md-end fw-semibold text-white">Developed by Wooble</p>
             </div>
         </div>
     </div>
 </div>
 <!-- End your project here-->
-<!-- MDB -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://portfoliobee.com/js/mdb.min.js"></script>
 <script type="text/javascript" src="https://portfoliobee.com/plugins/js/all.min.js"></script>
 <script type="text/javascript" src="https://portfoliobee.com/js/modules/alert.min.js"></script>
+<script type="text/javascript" src="js/mdb.umd.min.js"></script>
+
 <!-- Custom scripts -->
-<script type="text/javascript"></script>
+<script type="text/javascript">
+    function sendContactDetails(){
+        event.preventDefault();
+        let first_name=document.getElementById('first_name').value
+        let last_name=document.getElementById('last_name').value
+        let email=document.getElementById('email').value
+        let phone=document.getElementById('phone').value
+        let selectedRadio = document.querySelector('input[name="inquiry_type"]:checked');
+        let radios = selectedRadio ? selectedRadio.value : null;
+        let message=document.getElementById('message').value
+        let formData={
+            first_name: first_name,
+            last_name: last_name,
+            email: email,
+            phone: phone,
+            inquiry_type: radios,
+            message: message
+        }
+        // console.log(formData)
+        $.ajax({
+            url: ('ajax/usersContact.php'),
+            type: 'POST',
+            data: formData,
+            success: function (response) {
+                console.log(response)
+            }
+        })
+    }
+</script>
 </body>
 </html>
