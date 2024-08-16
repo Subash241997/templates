@@ -278,6 +278,13 @@ include 'dbConnection.php';
                 color: black !important;
             }
         }
+        #annual {
+            display: none;
+        }
+        .textarea-custom-border {
+            border: none !important;
+            border-bottom: 1px solid black !important;
+        }
     </style>
 </head>
 <body style="overflow-x: hidden;">
@@ -409,11 +416,13 @@ include 'dbConnection.php';
     </div>
 
     <div class="features " id="features">
-        <div class="head-text">
+        <div class="head-text" style="position: relative">
             <h2 class="fw-bolder text-black">Features</h2>
-            <hr style="width: 8rem; ">
+<!--            <hr style="width: 8rem; ">-->
+            <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
+
         </div>
-        <div class="multi-carousel  d-flex justify-content-center" data-mdb-carousel="true">
+        <div class="multi-carousel  d-flex justify-content-center mt-5" data-mdb-carousel="true">
             <div class="multi-carousel-inner" style="width: 95%;">
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="zoom-effect my-3 mx-2 h-100"
@@ -639,16 +648,17 @@ include 'dbConnection.php';
             </div>
 
             <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/Group%20150.png" alt="feature-5" class="img-fluid">
+                <img src="images/image%208.png" alt="feature-5" class="img-fluid">
             </div>
         </div>
     </div>
     <div class="about-us  my-4" id="about-us">
-        <div class="head-text">
+        <div class="head-text" style="position: relative;">
             <h2 class="fw-bolder text-black">About Us</h2>
-            <hr style="width: 8rem;">
+<!--            <hr class="text-black fw-bold" style="width: 8rem;">-->
+            <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
         </div>
-        <p>At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
+        <p class="mt-5">At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
             in simplifying the journey for students, professionals, and everyone in between, ensuring that their unique
             professional narratives are effortlessly captured and showcased.</p>
     </div>
@@ -701,18 +711,18 @@ include 'dbConnection.php';
         </div>
         <div class="container d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-center align-items-center">
             <div class="monthly m-2">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2">Monthly Plan
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="showMonthlyPlans()">Monthly Plan
                 </button>
             </div>
             <div class="annual m-2">
-                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init style="color: black">Annual
+                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init style="color: black " onclick="showAnnualPlans()">Annual
                     Plan
                 </button>
             </div>
         </div>
     </div>
-    <div class="pricing container">
-        <div class="row">
+    <div class="pricing container ">
+        <div class="row justify-content-center monthly" id="monthly">
             <div class="col-12 col-lg-4 my-4 ">
                 <div class="d-flex flex-column justify-content-between zoom-effect"
                      style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
@@ -822,6 +832,45 @@ include 'dbConnection.php';
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center annual" id="annual">
+            <div class="col-12 col-lg-4 my-4">
+                <div class="d-flex flex-column justify-content-between zoom-effect"
+                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
+                    <h3 class="text-black">Premium Pro</h3>
+                    <div class="d-flex align-items-baseline">
+                        <h4 class="text-black">Rs 14999</h4>
+                        <h5 style="opacity: 70%">/Year</h5>
+                    </div>
+                    <div class="container d-flex justify-content-center px-0">
+                        <hr style="width: 100%;">
+                    </div>
+                    <div class="container d-flex flex-column justify-content-center align-items-center">
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
+                            <i class="far fa-circle-check me-2"></i>
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="buy-now">
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
+                            Started
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4" id="mentions">
         <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
@@ -1092,22 +1141,22 @@ include 'dbConnection.php';
                      style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
                     <div class="d-flex justify-content-between mb-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="text" id="first_name" name="first_name" class="form-control"/>
-                            <label class="form-label" for="first_name">First Name</label>
+<!--                            <label class="form-label" for="first_name">First Name</label>-->
+                            <input type="text" id="first_name" name="first_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="First Name"/>
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="text" id="last_name" name="last_name" class="form-control"/>
-                            <label class="form-label" for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Last Name"/>
+<!--                            <label class="form-label" for="last_name">Last Name</label>-->
                         </div>
                     </div>
                     <div class="d-flex justify-content-between my-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="email" id="email" name="email" class="form-control"/>
-                            <label class="form-label" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Email"/>
+<!--                            <label class="form-label" for="email">Email</label>-->
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="tel" id="phone" name="phone" class="form-control"/>
-                            <label class="form-label" for="phone">Phone No.</label>
+                            <input type="tel" id="phone" name="phone" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Phone No."/>
+<!--                            <label class="form-label" for="phone">Phone No.</label>-->
                         </div>
                     </div>
                     <h5 class="mt-2">SelectSubject?</h5>
@@ -1131,12 +1180,12 @@ include 'dbConnection.php';
                     </div>
 
                     <div class="form-outline mt-5" data-mdb-input-init>
-                        <textarea class="form-control" id="message" name="message" rows="4" ></textarea>
-                        <label class="form-label" for="message">write your message ...</label>
+                        <textarea class="textarea-custom-border w-100" id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
+<!--                        <label class="form-label" for="message">write your message ...</label>-->
                     </div>
-                    <div class="d-flex justify-content-end align-content-end">
-
-                    </div>
+<!--                    <div class="d-flex justify-content-end align-content-end">-->
+<!---->
+<!--                    </div>-->
                     <div class="send-msg d-flex justify-content-end" style="margin-top: 2.5rem;">
                         <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="sendContactDetails()">Send
                             Message
@@ -1184,7 +1233,31 @@ include 'dbConnection.php';
             </div>
         </div>
     </div>
+    <div
+            class="toast fade mx-auto"
+            id="basic-toast"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-mdb-toast-init
+            data-mdb-autohide="true"
+            data-mdb-delay="2000"
+            data-mdb-position="bottom-center"
+            data-mdb-append-to-body="true"
+            data-mdb-stacking="true"
+            data-mdb-width="350px"
+            data-mdb-color=""
+    >
+        <div class="toast-header" id="toast-header">
+            <strong class="me-auto" id="toast-head"></strong>
+
+            <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-body"></div>
+    </div>
+
 </div>
+
 <!-- End your project here-->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
@@ -1195,6 +1268,8 @@ include 'dbConnection.php';
 
 <!-- Custom scripts -->
 <script type="text/javascript">
+
+
     function sendContactDetails(){
         event.preventDefault();
         let first_name=document.getElementById('first_name').value
@@ -1202,7 +1277,7 @@ include 'dbConnection.php';
         let email=document.getElementById('email').value
         let phone=document.getElementById('phone').value
         let selectedRadio = document.querySelector('input[name="inquiry_type"]:checked');
-        let radios = selectedRadio ? selectedRadio.value : null;
+        let radios = selectedRadio ? selectedRadio.value : '';
         let message=document.getElementById('message').value
         let formData={
             first_name: first_name,
@@ -1212,16 +1287,116 @@ include 'dbConnection.php';
             inquiry_type: radios,
             message: message
         }
-        // console.log(formData)
+        console.log("FormData", formData)
         $.ajax({
             url: ('ajax/usersContact.php'),
             type: 'POST',
             data: formData,
             success: function (response) {
-                console.log(response)
+                try {
+                    // Get the Toast element and set the message
+                    let toastElement = document.getElementById('basic-toast');
+                    let toastBody = document.getElementById('toast-body');
+                    let toastHeader=document.getElementById('toast-head');
+                    let toastHead=document.getElementById('toast-header');
+
+
+                    console.log("Response is", response)
+                    let result = JSON.parse(response);
+                    console.log("Result is" ,result);
+                    // Set the message
+                    toastBody.textContent = result.message;
+                    toastHeader.textContent=result.status
+                    if (result.status === 'Success') {
+                        if (toastElement.classList.contains('toast-warning')){
+                            toastElement.classList.replace('toast-warning', 'toast-success');
+                            toastElement.setAttribute('data-mdb-color', 'success');
+                            toastHead.classList.replace('toast-warning', 'toast-success');
+                        }
+                        else{
+                            toastElement.classList.add('toast-success');
+                            toastElement.setAttribute('data-mdb-color', 'success');
+                            toastHead.classList.add('toast-success');
+                        }
+                        console.log("Message", result.message);
+                    } else {
+                        if (toastElement.classList.contains('toast-success')){
+                            toastElement.classList.replace('toast-success',  'toast-warning');
+                            toastElement.setAttribute('data-mdb-color', 'warning');
+                            toastHead.classList.replace('toast-success',  'toast-warning');
+                        }
+                        else{
+                            toastElement.classList.add( 'toast-warning');
+                            toastElement.setAttribute('data-mdb-color', 'warning');
+                            toastHead.classList.add( 'toast-warning');
+                        }
+                        console.log(result.message);
+                    }
+                    // Get the Toast instance and show it
+                    let toast = new mdb.Toast(toastElement);
+                    toast.show();
+                    document.getElementById('first_name').value = '';
+                    document.getElementById('last_name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('phone').value = '';
+                    let radios = document.querySelectorAll('input[name="inquiry_type"]');
+                    radios.forEach(radio => radio.checked = false);
+                    document.getElementById('message').value = '';
+                }
+
+                catch(e){
+                    // Handle errors in case of JSON parsing failure or other issues
+                    let toastElement = document.getElementById('basic-toast');
+                    let toastBody = document.getElementById('toast-body');
+                    let toastHeader=document.getElementById('toast-head');
+                    let toastHead=document.getElementById('toast-header');
+
+                    // Set a generic error message
+                    toastBody.textContent = 'Error processing your request.';
+                    toastHeader.textContent='Server error'
+
+                    // Set the color to warning for unexpected errors
+                    if (toastElement.classList.contains('toast-success')){
+                        toastElement.classList.replace('toast-success',  'toast-warning');
+                        toastElement.setAttribute('data-mdb-color', 'warning');
+                        toastHead.classList.replace('toast-success',  'toast-warning');
+                    }
+                    else{
+                        toastElement.classList.add( 'toast-warning');
+                        toastElement.setAttribute('data-mdb-color', 'warning');
+                        toastHead.classList.add( 'toast-warning');
+                    }
+
+                    // Get the Toast instance and show it
+                    let toast = new mdb.Toast(toastElement);
+                    toast.show();
+                    console.log("Error processing your request.", e);
+                    document.getElementById('first_name').value = '';
+                    document.getElementById('last_name').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('phone').value = '';
+                    let radios = document.querySelectorAll('input[name="inquiry_type"]');
+                    radios.forEach(radio => radio.checked = false);
+                    document.getElementById('message').value = '';
+                }
             }
         })
     }
+    function showMonthlyPlans(){
+        let monthlyPlans = document.getElementById('monthly');
+        let annualPlans = document.getElementById('annual');
+        monthlyPlans.style.display='flex';
+        annualPlans.style.display='none'
+    }
+    function showAnnualPlans(){
+        let monthlyPlans = document.getElementById('monthly');
+        let annualPlans = document.getElementById('annual');
+        monthlyPlans.style.display='none';
+        annualPlans.style.display='flex';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        showMonthlyPlans();
+    });
 </script>
 </body>
 </html>

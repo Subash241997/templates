@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PortfolioBee Homepage/ajax/usersContact.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PortfolioBee Homepage/dbConnection.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/ajax/usersContact.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/ajax/usersContact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +92,8 @@
       <workItem from="1723467763743" duration="105000" />
       <workItem from="1723531373315" duration="3799000" />
       <workItem from="1723536570161" duration="11279000" />
-      <workItem from="1723610778480" duration="20289000" />
+      <workItem from="1723610778480" duration="20596000" />
+      <workItem from="1723783741685" duration="17428000" />
     </task>
     <servers />
   </component>
