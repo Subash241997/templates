@@ -1,7 +1,7 @@
 <?php
 include '../dbConnection.php';
 // Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
 
 //// Check the connection
 //if ($conn->connect_error) {
@@ -17,10 +17,26 @@ $inquiry_type = trim($_POST['inquiry_type']);
 $message = trim($_POST['message']);
 
 // Validation
-if (empty($first_name) || empty($last_name) || empty($email) || empty($phone) || empty($inquiry_type) || empty($message)) {
+$missingFields = [];
+
+if (empty($first_name)) $missingFields[] = 'First Name';
+if (empty($last_name)) $missingFields[] = 'Last Name';
+if (empty($email)) $missingFields[] = 'Email';
+if (empty($phone)) $missingFields[] = 'Phone';
+if (empty($inquiry_type)) $missingFields[] = 'Inquiry Type';
+if (empty($message)) $missingFields[] = 'Message';
+
+// All fields are missing
+if (count($missingFields) == 6) {
     $response = [
         'status' => 'Error',
         'message' => 'Please fill up all the fields.'
+    ];
+} elseif (!empty($missingFields)) {
+    // Some fields are missing
+    $response = [
+        'status' => 'Error',
+        'message' => 'Please fill up the following field(s): ' . implode(', ', $missingFields) . '.'
     ];
 }
 elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

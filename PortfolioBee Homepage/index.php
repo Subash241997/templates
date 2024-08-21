@@ -119,10 +119,6 @@ include 'dbConnection.php';
                 padding: 2rem;
                 margin-top: 2rem;
             }
-
-            /*.connect-form-structure{*/
-            /*    padding: 2rem;*/
-            /*}*/
         }
 
         .rolling-img {
@@ -184,6 +180,14 @@ include 'dbConnection.php';
 
         .zoom-effect:hover {
             transform: scale(1.05); /* Slightly enlarge the element on hover */
+            box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.6); /* Increase shadow intensity on hover */
+        }
+        .zoom-effect-icon {
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
+        }
+
+        .zoom-effect-icon:hover {
+            transform: scale(2); /* Slightly enlarge the element on hover */
             box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.6); /* Increase shadow intensity on hover */
         }
 
@@ -269,7 +273,7 @@ include 'dbConnection.php';
 
         @media only screen and (max-width: 992px) {
             .nav-head {
-                background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
+                background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);
                 padding: 1rem;
                 background-color: transparent !important;
             }
@@ -285,12 +289,62 @@ include 'dbConnection.php';
             border: none !important;
             border-bottom: 1px solid black !important;
         }
+        .textarea-custom-border {
+            position: relative;
+        }
+
+        .textarea-custom-border::placeholder {
+            position: absolute;
+            top: 70%; /* Move placeholder text down */
+        }
+
+
+        .app-links:hover {
+            transform: translate(0px, 3px);
+        }
+        @media only screen and (min-width: 992px){
+            .custom-navbar{
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1030;
+            }
+            .nav-head{
+                border-radius: 50px;
+                padding: 0.5rem;
+                transition: background-color 0.3s ease;
+            }
+        }
+        /*.transparent {*/
+        /*    background-color: transparent !important;*/
+        /*}*/
+        /* Initial hidden state */
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px); /* Adjust as needed */
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Adjust timing as needed */
+        }
+
+        /* Revealed state */
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Initial hidden state for the button container */
+        #navbar-button-container {
+            display: none;
+        }
+
+        /* Show button container when navbar is sticky */
+        #navbar-button-container.visible {
+            display: block;
+        }
     </style>
 </head>
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden; position: relative;">
 <!-- Start your project here-->
 <div class="container-fluid g-0">
-    <nav class="navbar navbar-expand-lg" style="background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
+    <nav class="navbar navbar-expand-lg  " style="background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);
 ">
         <div class="container-fluid">
             <div class="logo-img d-flex justify-content-between align-items-center">
@@ -314,8 +368,8 @@ include 'dbConnection.php';
                 <i class="fas fa-bars text-black"></i>
                 <i class="fas fa-xmark text-black"></i>
             </button>
-            <div class="collapse navbar-collapse justify-content-center " id="navbarNavAltMarkup">
-                <div class="navbar-nav nav-head fw-semibold" style="background-color: black;">
+            <div class="collapse navbar-collapse justify-content-center custom-navbar" id="navbarNavAltMarkup">
+                <div class="navbar-nav nav-head fw-semibold align-items-center" style="background-color: black;" id="nav-head">
                     <a class="nav-link head-menu text-white" href="#about-us">About</a>
                     <a class="nav-link head-menu text-white" href="#features">Feature</a>
                     <a class="nav-link head-menu text-white" href="#find-plan">Pricing</a>
@@ -325,15 +379,18 @@ include 'dbConnection.php';
                     <a class="nav-link head-menu text-white" href="#connect"
                     >Contact Us</a
                     >
+                    <div id="navbar-button-container">
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F; border-radius: 50px;" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get Started</button>
+                    </div>
                     <div class="d-lg-none mt-2">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F">Get
+                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
                             Started
                         </button>
                     </div>
                 </div>
             </div>
             <div class="signup-btn d-none d-lg-block">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F">Get Started
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
                 </button>
             </div>
         </div>
@@ -344,8 +401,12 @@ include 'dbConnection.php';
             <p class="container text-center text-black">The ultimate platform for showcasing both your academic
                 brilliance and extracurricular triumphs.</p>
             <div class="app-btn d-flex flex-column d-sm-block">
-                <img src="images/Link.png" alt="App Store" class="img-fluid">
-                <img src="images/Link%20(1).png" alt="Play Store" class="img-fluid">
+                <a href="https://www.apple.com/app-store/" target="_blank" >
+                    <img src="images/Link.png" alt="App Store" class="img-fluid app-links">
+                </a>
+                <a href="https://play.google.com/store/games" target="_blank" >
+                    <img src="images/Link%20(1).png" alt="Play Store" class="img-fluid app-links">
+                </a>
             </div>
             <img src="images/Laptop%20Air%20and%20Phone%2014%20Mockup%2002%201.png" alt="mac-systems"
                  class="img-fluid my-4">
@@ -415,10 +476,10 @@ include 'dbConnection.php';
         </div>
     </div>
 
-    <div class="features " id="features">
+    <div class="features reveal hidden" id="features">
         <div class="head-text" style="position: relative">
-            <h2 class="fw-bolder text-black">Features</h2>
-<!--            <hr style="width: 8rem; ">-->
+            <h2 class="fw-bolder text-black ">Features</h2>
+            <!--            <hr style="width: 8rem; ">-->
             <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
 
         </div>
@@ -536,7 +597,7 @@ include 'dbConnection.php';
     </div>
 
 
-    <div class="details my-5">
+    <div class="details my-5 reveal hidden">
         <!--        <div class="row align-items-center">-->
         <div class="row">
             <div class="special-header container d-flex align-items-start col-12 col-md-6 my-2">
@@ -550,7 +611,7 @@ include 'dbConnection.php';
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
                         elementum
                         tristique. Duis cursus, mi quis viverra ornare.</p>
-                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C">Get Started
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
                     </button>
                 </div>
 
@@ -652,10 +713,10 @@ include 'dbConnection.php';
             </div>
         </div>
     </div>
-    <div class="about-us  my-4" id="about-us">
+    <div class="about-us  my-4 reveal hidden" id="about-us">
         <div class="head-text" style="position: relative;">
             <h2 class="fw-bolder text-black">About Us</h2>
-<!--            <hr class="text-black fw-bold" style="width: 8rem;">-->
+            <!--            <hr class="text-black fw-bold" style="width: 8rem;">-->
             <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
         </div>
         <p class="mt-5">At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
@@ -663,7 +724,7 @@ include 'dbConnection.php';
             professional narratives are effortlessly captured and showcased.</p>
     </div>
 
-    <div class="goal container my-4 ">
+    <div class="goal container my-4 reveal hidden">
         <div class="row">
             <div class="col-12 col-md-6 my-2 ">
                 <div class="d-flex flex-column justify-content-between rounded-4 hover-zoom"
@@ -703,7 +764,7 @@ include 'dbConnection.php';
         </div>
     </div>
 
-    <div class="find-plan  d-flex flex-column justify-content-center align-items-center my-5" id="find-plan">
+    <div class="find-plan  d-flex flex-column justify-content-center align-items-center my-5 reveal hidden" id="find-plan">
         <h1 class="text-center fw-bolder text-black">Find the perfect plan for you</h1>
         <div class="find-paragraph" style="width: 60%; text-align: center">
             <p>Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu egestas morbi sem vulputate etiam
@@ -721,7 +782,7 @@ include 'dbConnection.php';
             </div>
         </div>
     </div>
-    <div class="pricing container ">
+    <div class="pricing container reveal hidden">
         <div class="row justify-content-center monthly" id="monthly">
             <div class="col-12 col-lg-4 my-4 ">
                 <div class="d-flex flex-column justify-content-between zoom-effect"
@@ -833,7 +894,7 @@ include 'dbConnection.php';
             </div>
         </div>
         <div class="row justify-content-center annual" id="annual">
-            <div class="col-12 col-lg-4 my-4">
+            <div class="col-12 col-lg-6 my-4">
                 <div class="d-flex flex-column justify-content-between zoom-effect"
                      style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
                     <h3 class="text-black">Premium Pro</h3>
@@ -872,7 +933,7 @@ include 'dbConnection.php';
         </div>
 
     </div>
-    <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4" id="mentions">
+    <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden" id="mentions">
         <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
             you will too!</h2>
         <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
@@ -958,6 +1019,23 @@ include 'dbConnection.php';
                         </div>
                     </div>
                 </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
                     data-mdb-slide="prev">
@@ -969,7 +1047,7 @@ include 'dbConnection.php';
             </button>
         </div>
     </div>
-    <div class="faq  d-flex flex-column justify-content-center">
+    <div class="faq  d-flex flex-column justify-content-center reveal hidden">
         <h2 class="text-center my-5 text-black fw-bolder">Frequently Asked Questions</h2>
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item py-4">
@@ -1107,7 +1185,7 @@ include 'dbConnection.php';
 
         </div>
     </div>
-    <div class="connect  my-5" id="connect">
+    <div class="connect  my-5 reveal hidden" id="connect">
         <h2 class="text-black text-center my-5 fw-bolder">Get in contact with our team!</h2>
         <div class="row">
             <div class="col-12 col-lg-4 contact-info py-2">
@@ -1133,30 +1211,30 @@ include 'dbConnection.php';
 
             </div>
             <div class="col-12 col-lg-8 connect-form py-2">
-                <!--                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">-->
-                <!--                    <h2 class="text-center">Got Questions?</h2>-->
-                <!--                    <h2 class="text-center mb-0"> We're Here to Help!</h2>-->
-                <!--                </div>-->
+                <!--                                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">-->
+                <!--                                    <h2 class="text-center">Got Questions?</h2>-->
+                <!--                                    <h2 class="text-center mb-0"> We're Here to Help!</h2>-->
+                <!--                                </div>-->
                 <form class="connect-form-structure" id="connect-form"
-                     style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
+                      style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
                     <div class="d-flex justify-content-between mb-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
-<!--                            <label class="form-label" for="first_name">First Name</label>-->
+                            <!--                            <label class="form-label" for="first_name">First Name</label>-->
                             <input type="text" id="first_name" name="first_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="First Name"/>
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
                             <input type="text" id="last_name" name="last_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Last Name"/>
-<!--                            <label class="form-label" for="last_name">Last Name</label>-->
+                            <!--                            <label class="form-label" for="last_name">Last Name</label>-->
                         </div>
                     </div>
                     <div class="d-flex justify-content-between my-5">
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
                             <input type="email" id="email" name="email" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Email"/>
-<!--                            <label class="form-label" for="email">Email</label>-->
+                            <!--                            <label class="form-label" for="email">Email</label>-->
                         </div>
                         <div class="form-outline" data-mdb-input-init style="width: 45%;">
                             <input type="tel" id="phone" name="phone" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Phone No."/>
-<!--                            <label class="form-label" for="phone">Phone No.</label>-->
+                            <!--                            <label class="form-label" for="phone">Phone No.</label>-->
                         </div>
                     </div>
                     <h5 class="mt-2">SelectSubject?</h5>
@@ -1181,11 +1259,11 @@ include 'dbConnection.php';
 
                     <div class="form-outline mt-5" data-mdb-input-init>
                         <textarea class="textarea-custom-border w-100" id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
-<!--                        <label class="form-label" for="message">write your message ...</label>-->
+                        <!--                        <label class="form-label" for="message">write your message ...</label>-->
                     </div>
-<!--                    <div class="d-flex justify-content-end align-content-end">-->
-<!---->
-<!--                    </div>-->
+                    <!--                    <div class="d-flex justify-content-end align-content-end">-->
+                    <!---->
+                    <!--                    </div>-->
                     <div class="send-msg d-flex justify-content-end" style="margin-top: 2.5rem;">
                         <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="sendContactDetails()">Send
                             Message
@@ -1197,7 +1275,7 @@ include 'dbConnection.php';
             </div>
         </div>
     </div>
-    <div class="foot" style="margin-top: 7rem;">
+    <div class="foot reveal hidden" style="margin-top: 7rem;">
         <div class="rounded-4" style="background-color: black; width: 100%">
             <div class="credits ">
                 <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
@@ -1217,9 +1295,9 @@ include 'dbConnection.php';
 
                     </div>
                     <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
-                        <i class="fab fa-instagram fa-lg zoom-effect" style="cursor: pointer"></i>
-                        <i class="fab fa-linkedin-in fa-lg zoom-effect" style="cursor: pointer"></i>
-                        <i class="fab fa-twitter fa-lg zoom-effect" style="cursor: pointer"></i>
+                        <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                        <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                        <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
                     </div>
                 </div>
             </div>
@@ -1268,6 +1346,68 @@ include 'dbConnection.php';
 
 <!-- Custom scripts -->
 <script type="text/javascript">
+
+    // script.js
+
+    document.addEventListener('scroll', function() {
+        const navbar = document.getElementById('nav-head');
+        const buttonContainer = document.getElementById('navbar-button-container');
+        const stickyOffset = navbar.offsetTop;
+
+        if (window.scrollY > stickyOffset) {
+            // Make navbar transparent and show button
+            navbar.classList.add('transparent');
+            buttonContainer.classList.add('visible');
+        } else {
+            // Revert navbar background and hide button
+            navbar.classList.remove('transparent');
+            buttonContainer.classList.remove('visible');
+        }
+    });
+
+    // script.js
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const reveals = document.querySelectorAll('.reveal');
+        let lastScrollTop = 0; // Track last scroll position
+
+        const observerOptions = {
+            root: null, // use the viewport as the root
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, observerOptions);
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+
+        // Optional: Add scroll event listener if needed
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const direction = scrollTop > lastScrollTop ? 'down' : 'up';
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+
+            reveals.forEach(reveal => {
+                const rect = reveal.getBoundingClientRect();
+                const inViewport = rect.top < window.innerHeight && rect.bottom >= 0;
+                if (direction === 'down' && inViewport) {
+                    reveal.classList.add('visible');
+                } else if (direction === 'up' && !inViewport) {
+                    reveal.classList.remove('visible');
+                }
+            });
+        });
+    });
 
 
     function sendContactDetails(){
@@ -1318,6 +1458,13 @@ include 'dbConnection.php';
                             toastElement.setAttribute('data-mdb-color', 'success');
                             toastHead.classList.add('toast-success');
                         }
+                        document.getElementById('first_name').value = '';
+                        document.getElementById('last_name').value = '';
+                        document.getElementById('email').value = '';
+                        document.getElementById('phone').value = '';
+                        let radios = document.querySelectorAll('input[name="inquiry_type"]');
+                        radios.forEach(radio => radio.checked = false);
+                        document.getElementById('message').value = '';
                         console.log("Message", result.message);
                     } else {
                         if (toastElement.classList.contains('toast-success')){
@@ -1335,13 +1482,6 @@ include 'dbConnection.php';
                     // Get the Toast instance and show it
                     let toast = new mdb.Toast(toastElement);
                     toast.show();
-                    document.getElementById('first_name').value = '';
-                    document.getElementById('last_name').value = '';
-                    document.getElementById('email').value = '';
-                    document.getElementById('phone').value = '';
-                    let radios = document.querySelectorAll('input[name="inquiry_type"]');
-                    radios.forEach(radio => radio.checked = false);
-                    document.getElementById('message').value = '';
                 }
 
                 catch(e){
@@ -1400,3 +1540,4 @@ include 'dbConnection.php';
 </script>
 </body>
 </html>
+
