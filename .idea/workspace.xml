@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PortfolioBee Homepage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee Homepage/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +101,7 @@
       <workItem from="1724302606315" duration="23228000" />
       <workItem from="1724331324821" duration="14000" />
       <workItem from="1724331467580" duration="246000" />
+      <workItem from="1724331917806" duration="318000" />
     </task>
     <servers />
   </component>
