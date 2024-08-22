@@ -164,7 +164,7 @@ include 'dbConnection.php';
             left: 0;
             width: 100%;
             height: 65%; /* This ensures the background occupies half of the height */
-            background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);
+            /*background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 45.46%, #7198FF 84.06%, #48C8FF 105.83%);*/
             z-index: -1; /* Place the background behind the content */
         }
 
@@ -182,6 +182,7 @@ include 'dbConnection.php';
             transform: scale(1.05); /* Slightly enlarge the element on hover */
             box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.6); /* Increase shadow intensity on hover */
         }
+
         .zoom-effect-icon {
             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for zoom and shadow */
         }
@@ -270,10 +271,17 @@ include 'dbConnection.php';
             text-fill-color: transparent; /* For other browsers */
             font-size: 1.25rem; /* Adjust font size if needed */
         }
+        .gradient-text-header {
+            background: linear-gradient(92.05deg, #FF847D 0%, #FFA949 54.04%, #3260D7 99.16%);
+            -webkit-background-clip: text; /* For Chrome, Safari, and Opera */
+            -webkit-text-fill-color: transparent; /* For Chrome, Safari, and Opera */
+            background-clip: text; /* For other browsers */
+            text-fill-color: transparent; /* For other browsers */
+        }
 
         @media only screen and (max-width: 992px) {
             .nav-head {
-                background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);
+                /*background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);*/
                 padding: 1rem;
                 background-color: transparent !important;
             }
@@ -282,13 +290,16 @@ include 'dbConnection.php';
                 color: black !important;
             }
         }
+
         #annual {
             display: none;
         }
+
         .textarea-custom-border {
             border: none !important;
             border-bottom: 1px solid black !important;
         }
+
         .textarea-custom-border {
             position: relative;
         }
@@ -302,34 +313,39 @@ include 'dbConnection.php';
         .app-links:hover {
             transform: translate(0px, 3px);
         }
-        @media only screen and (min-width: 992px){
-            .custom-navbar{
+
+        @media only screen and (min-width: 992px) {
+            .custom-navbar {
                 position: fixed;
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: 1030;
+                /*transition: all 0.3s ease;*/
             }
-            .nav-head{
+
+            .nav-head {
                 border-radius: 50px;
                 padding: 0.5rem;
                 transition: background-color 0.3s ease;
             }
         }
+
         /*.transparent {*/
         /*    background-color: transparent !important;*/
         /*}*/
         /* Initial hidden state */
         .hidden {
             opacity: 0;
-            transform: translateY(20px); /* Adjust as needed */
+            transform: translateY(20px) scale(1.05);; /* Adjust as needed */
             transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Adjust timing as needed */
         }
 
         /* Revealed state */
         .visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);;
         }
+
         /* Initial hidden state for the button container */
         #navbar-button-container {
             display: none;
@@ -339,78 +355,129 @@ include 'dbConnection.php';
         #navbar-button-container.visible {
             display: block;
         }
+        @media only screen and (min-width: 992px) {
+            .other-screen{
+                display: flex;
+            }
+            .small-screen{
+                display: none !important;
+            }
+
+        }
+        @media only screen and (max-width: 991px) {
+            .other-screen{
+                display: none;
+            }
+            .small-screen{
+                display: block;
+            }
+        }
+        @media only screen and (min-width: 600px) and (max-width: 767px){
+            .multi-carousel-item{
+                width: 80% !important;
+            }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 945px){
+            .multi-carousel-item{
+                width: 50% !important;
+            }
+        }
+        @media only screen and (min-width: 946px){
+            .multi-carousel-item{
+                width: 50% !important;
+            }
+        }
+
+        @media only screen and (max-width: 991px){
+            .custom-btn{
+                display: none;
+            }
+        }
+        .navbar-collapse{
+            flex-grow: 0;
+        }
     </style>
 </head>
 <body style="overflow-x: hidden; position: relative;">
 <!-- Start your project here-->
 <div class="container-fluid g-0">
-    <nav class="navbar navbar-expand-lg  " style="background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);
-">
-        <div class="container-fluid">
-            <div class="logo-img d-flex justify-content-between align-items-center">
-                <a href="#">
-                    <img src="images/path0.png" alt="Logo" class="img-fluid">
-                </a>
-                <a href="#">
-                    <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
-                </a>
-            </div>
-            <button
-                    data-mdb-collapse-init
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-mdb-target="#navbarNavAltMarkup"
-                    aria-controls="navbarNavAltMarkup"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <i class="fas fa-bars text-black"></i>
-                <i class="fas fa-xmark text-black"></i>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center custom-navbar" id="navbarNavAltMarkup">
-                <div class="navbar-nav nav-head fw-semibold align-items-center" style="background-color: black;" id="nav-head">
-                    <a class="nav-link head-menu text-white" href="#about-us">About</a>
-                    <a class="nav-link head-menu text-white" href="#features">Feature</a>
-                    <a class="nav-link head-menu text-white" href="#find-plan">Pricing</a>
-                    <a class="nav-link head-menu text-white" href="#mentions"
-                    >Testimonials</a
-                    >
-                    <a class="nav-link head-menu text-white" href="#connect"
-                    >Contact Us</a
-                    >
-                    <div id="navbar-button-container">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F; border-radius: 50px;" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get Started</button>
-                    </div>
-                    <div class="d-lg-none mt-2">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
-                            Started
-                        </button>
-                    </div>
+    <nav class="navbar navbar-expand-lg  "
+    >
+    <div class="container-fluid">
+        <div class="logo-img d-flex justify-content-between align-items-center">
+            <a href="#">
+                <img src="images/path0.png" alt="Logo" class="img-fluid">
+            </a>
+            <a href="#">
+                <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
+            </a>
+        </div>
+        <button
+                data-mdb-collapse-init
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-mdb-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars text-black"></i>
+            <i class="fas fa-xmark text-black"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav nav-head fw-semibold" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8))
+;"
+                 id="nav-head">
+                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#about-us">About</a>
+                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#features">Feature</a>
+                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#find-plan">Pricing</a>
+                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#mentions"
+                >Testimonials</a
+                >
+                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#connect"
+                >Contact Us</a
+                >
+<!--                <div id="navbar-button-container">-->
+                    <button type="button" class="custom-btn btn btn-dark" data-mdb-ripple-init
+                            style="color: white; border-radius: 50px; background: linear-gradient(91.89deg, #FF847D 15.5%, #FDAA4A 46%, #3361D8 85.5%);
+"
+                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get
+                        Started
+                    </button>
+<!--                </div>-->
+                <div class="d-lg-none mt-2">
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"
+                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
+                        Started
+                    </button>
                 </div>
             </div>
-            <div class="signup-btn d-none d-lg-block">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
-                </button>
-            </div>
         </div>
+<!--        <div class="signup-btn d-none d-lg-block">-->
+<!--            <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"-->
+<!--                    onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started-->
+<!--            </button>-->
+<!--        </div>-->
+    </div>
     </nav>
-    <div class="intro-banner-container">
+    <div class="intro-banner-container" id="intro-banner">
         <div class="intro-banner d-flex flex-wrap flex-column justify-content-center align-content-center align-items-center pt-4 mb-4 mt-0">
-            <h1 class="text-center fw-bolder text-black">Craft Your Professional Identity with PortfolioBee!</h1>
+            <h1 class="text-center fw-bolder text-black">Craft Your Professional</h1>
+            <h1 class="text-center fw-bolder gradient-text-header" > Identity with PortfolioBee!</h1>
             <p class="container text-center text-black">The ultimate platform for showcasing both your academic
                 brilliance and extracurricular triumphs.</p>
             <div class="app-btn d-flex flex-column d-sm-block">
-                <a href="https://www.apple.com/app-store/" target="_blank" >
+                <a href="https://www.apple.com/app-store/" target="_blank">
                     <img src="images/Link.png" alt="App Store" class="img-fluid app-links">
                 </a>
-                <a href="https://play.google.com/store/games" target="_blank" >
+                <a href="https://play.google.com/store/games" target="_blank">
                     <img src="images/Link%20(1).png" alt="Play Store" class="img-fluid app-links">
                 </a>
             </div>
-            <img src="images/Laptop%20Air%20and%20Phone%2014%20Mockup%2002%201.png" alt="mac-systems"
-                 class="img-fluid my-4">
-            <h5 class="text-center text-black">Trusted by 20,000+ students & institutions</h5>
+            <img src="images/Group%201000001867.png" alt="mac-systems"
+                 class="img-fluid my-4 px-4 px-lg-0">
+            <h5 class="text-center text-black">Trusted by <span class="gradient-text">20,000+</span> students & institutions</h5>
         </div>
     </div>
 </div>
@@ -477,862 +544,754 @@ include 'dbConnection.php';
     </div>
 
     <div class="features reveal hidden" id="features">
-        <div class="head-text" style="position: relative">
-            <h2 class="fw-bolder text-black ">Features</h2>
+        <div class="head-text d-flex align-items-center" style="position: relative; padding: 1rem 2rem 1rem 2rem;">
+            <img src="images/Group%201000001887.png" alt="lightning" class="img-fluid">
+            <div class="head-text p-3">
+                <h2 class="fw-bolder text-black ">Features</h2>
             <!--            <hr style="width: 8rem; ">-->
-            <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
-
-        </div>
-        <div class="multi-carousel  d-flex justify-content-center mt-5" data-mdb-carousel="true">
-            <div class="multi-carousel-inner" style="width: 95%;">
-                <div class="multi-carousel-item" style="height: 100%;">
-                    <div class="zoom-effect my-3 mx-2 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
-                        <div class="img-feature d-flex justify-content-end my-4">
-                            <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
-">
-                        </div>
-                        <div class="feature-text">
-                            <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>
-                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo
-                                diam libero vitae erat.</p>
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <div class="multi-carousel-item" style="height: 100%;">
-                    <div class=" zoom-effect my-3 mx-2 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
-                        <div class="img-feature d-flex justify-content-end my-4">
-                            <img src="./images/personal-info%201.png" alt="portfolio" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
-">
-                        </div>
-                        <div class="feature-text">
-                            <h4 class="my-3 fw-bolder">Portfolio</h4>
-                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo
-                                diam libero vitae erat.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="multi-carousel-item" style="height: 100%;">
-                    <div class=" zoom-effect my-3 mx-2 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
-                        <div class="img-feature d-flex justify-content-end my-4">
-                            <img src="./images/report%201.png" alt="resume review report" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
-">
-                        </div>
-                        <div class="feature-text">
-                            <h4 class="my-3 fw-bolder">Resume Review Report</h4>
-                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo
-                                diam libero vitae erat.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="multi-carousel-item" style="height: 100%;">
-                    <div class=" zoom-effect my-3 mx-2 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
-                        <div class="img-feature d-flex justify-content-end my-4">
-                            <img src="./images/data-report%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
-">
-                        </div>
-                        <div class="feature-text">
-                            <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>
-                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo
-                                diam libero vitae erat.</p>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="multi-carousel-item" style="height: 100%;">
-                    <div class=" zoom-effect my-3 mx-2 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
-                        <div class="img-feature d-flex justify-content-end my-4">
-                            <img src="./images/personal-info%201.png" alt="dashboard" class="img-thumbnail"
-                                 style="width: 5rem; height: 5rem; background: linear-gradient(135deg, #FFB4AF 0%, #FFBD70 53.5%, #7199FF 100%);
-">
-                        </div>
-                        <div class="feature-text">
-                            <h4 class="my-3 fw-bolder">Portfolio</h4>
-                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                enim in eros
-                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                commodo
-                                diam libero vitae erat.</p>
-                        </div>
-
-                    </div>
-
-                </div>
+                <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 65%;"></div>
             </div>
-            <button class="carousel-control-prev multi-control-prev" type="button" data-mdb-slide="prev">
-                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
-            </button>
-            <button class="carousel-control-next multi-control-next" type="button" data-mdb-slide="next">
-                <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
-            </button>
         </div>
-    </div>
+                <div class="reveal hidden small-screen multi-carousel  d-flex justify-content-center mt-5" data-mdb-carousel="true" data-mdb-interval="4000">
+                    <div class="multi-carousel-inner" style="width: 95%;">
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Personalised Dashboard</h4>
+                                    <img src="./images/Group%201000001885.png" alt="dashboard" class="img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
 
 
-    <div class="details my-5 reveal hidden">
-        <!--        <div class="row align-items-center">-->
-        <div class="row">
-            <div class="special-header container d-flex align-items-start col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h2 class="fw-bolder text-black">Get job smarter, not harder</h2>
-                </div>
-            </div>
+                            </div>
 
-            <div class="container col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare.</p>
-                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C" onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
+                        </div>
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card  zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Portfolio</h4>
+                                    <img src="./images/personal-info%201%20(1).png" alt="portfolio" class="img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card  zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Review Report</h4>
+                                    <img src="./images/report%201%20(1).png" alt="resume review" class="img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card  zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Builder</h4>
+                                    <img src="./images/resume%20(2).png" alt="dashboard" class=img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card  zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">E-mail Signature</h4>
+                                    <img src="./images/email%20(2).png" alt="dashboard" class="img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="multi-carousel-item" style="height: 100%;">
+                            <div class="card  zoom-effect mx-1 h-100"
+                                 style="background-color: black; color: white; padding: 2rem; ">
+                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Job Tracker</h4>
+                                    <img src="./images/map-pointer.png" alt="dashboard" class="img-fluid"
+                                         style="width: 5rem; height: 5rem;"
+        ">
+                                </div>
+                                <div class="feature-text">
+                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                        enim in eros
+                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                        commodo
+                                        diam libero vitae erat.</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev multi-control-prev" type="button" data-mdb-slide="prev">
+                        <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
+                    </button>
+                    <button class="carousel-control-next multi-control-next" type="button" data-mdb-slide="next">
+                        <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
                     </button>
                 </div>
+        <div class="row other-screen" style="padding: 1rem 2rem 1rem 2rem">
+            <div class="col-lg-4 p-1 reveal hidden">
 
-            </div>
-        </div>
-
-        <div class="row align-items-center flex-column-reverse flex-md-row">
-            <div class="col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h4 class="fw-bolder text-black">Personalised Dashboard</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-                        libero
-                        vitae erat.</p>
-                </div>
-
-            </div>
-
-            <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%205.png" alt="feature-1" class="img-fluid">
-            </div>
-        </div>
-
-
-        <div class="row align-items-center">
-            <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%206.png" alt="feature-2" class="img-fluid">
-
-            </div>
-
-            <div class="col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h4 class="fw-bolder text-black">Portfolio</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-                        libero
-                        vitae erat.</p>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="row align-items-center flex-column-reverse flex-md-row">
-            <div class="col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h4 class="fw-bolder text-black">E-mail Signature</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-                        libero
-                        vitae erat.</p>
-                </div>
-
-            </div>
-
-            <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%207.png" alt="feature-3" class="img-fluid">
-            </div>
-        </div>
-
-
-        <div class="row align-items-center ">
-            <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%204.png" alt="feature-4" class="img-fluid">
-            </div>
-
-            <div class="col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h4 class="fw-bolder text-black">Resume Review Report</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-                        libero
-                        vitae erat.</p>
-                </div>
-
-            </div>
-        </div>
-
-
-        <div class="row align-items-center flex-column-reverse flex-md-row">
-            <div class="col-12 col-md-6 my-2">
-                <div class="container" style="width: 90%;">
-                    <h4 class="fw-bolder text-black">Job Tracker</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                        elementum
-                        tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-                        libero
-                        vitae erat.</p>
-                </div>
-
-            </div>
-
-            <div class="col-12 col-md-6 my-2 text-center">
-                <img src="images/image%208.png" alt="feature-5" class="img-fluid">
-            </div>
-        </div>
-    </div>
-    <div class="about-us  my-4 reveal hidden" id="about-us">
-        <div class="head-text" style="position: relative;">
-            <h2 class="fw-bolder text-black">About Us</h2>
-            <!--            <hr class="text-black fw-bold" style="width: 8rem;">-->
-            <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 120%;"></div>
-        </div>
-        <p class="mt-5">At PortfolioBee, we exist to empower individuals through seamless portfolio creation and sharing. We believe
-            in simplifying the journey for students, professionals, and everyone in between, ensuring that their unique
-            professional narratives are effortlessly captured and showcased.</p>
-    </div>
-
-    <div class="goal container my-4 reveal hidden">
-        <div class="row">
-            <div class="col-12 col-md-6 my-2 ">
-                <div class="d-flex flex-column justify-content-between rounded-4 hover-zoom"
-                     style="background-color: black; color: white; padding: 2rem;  height: 100%;">
-                    <div class="container goal-img">
-                        <img src="./images/Group%20142%20(1).png" alt="rocket" class="img-fluid" style="height: 70%;">
+                <div class="card zoom-effect"
+                     style="height: 100%; width: 100%; background-color: black; color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Personalised Dashboard</h4>
+                        <img src="./images/Group%201000001885.png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
                     </div>
-                    <div class="container goals">
-                        <h2>Our <span>Mission</span></h2>
-                        <p style="margin-bottom: 0px;">
-                            PortfolioBee's mission is to simplify professional self-presentation. Through our
-                            subscription model, users enjoy flexibility in updating their portfolios. Additionally, our
-                            tailor-made portfolio option transforms resumes into compelling narratives, ensuring a
-                            standout professional identity with minimal effort.
-                        </p>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
                     </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-lg-4 p-2 reveal hidden">
+                <div class="card zoom-effect"
+                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Portfolio</h4>
+                        <img src="./images/personal-info%201%20(1).png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
+                    </div>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">Portfolio</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
+                    </div>
+
+
                 </div>
             </div>
-            <div class="col-12 col-md-6 my-2 ">
-                <div class="d-flex flex-column justify-content-between rounded-4 hover-zoom"
-                     style="background-color: black; color: white; padding: 2rem; height: 100%;">
-                    <div class="container goal-img">
-                        <img src="./images/Group%20143.png" alt="telescope" class="img-fluid" style="height: 70%;">
+
+            <div class="col-lg-4 p-2 reveal hidden">
+                <div class="card zoom-effect"
+                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Review Report</h4>
+                        <img src="./images/report%201%20(1).png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
                     </div>
-                    <div class="container goals">
-                        <h2>Our <span>Vision</span></h2>
-                        <p style="margin-bottom: 0px;">
-                            PortfolioBee aims to be the ultimate global hub for professional identity display. We strive
-                            to effortlessly link talent with global opportunities, envisioning a diverse community where
-                            each portfolio narrates a distinctive story. Our commitment to constant innovation empowers
-                            individuals to confidently excel in their fields, enriching the professional landscape with
-                            authenticity.
-                        </p>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">Resume Review Report</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
                     </div>
+
+
                 </div>
+
+            </div>
+            <div class="col-lg-4 p-2 reveal hidden">
+                <div class="card zoom-effect"
+                     style="height: 100%; background-color: black;  color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Builder</h4>
+                        <img src="./images/resume%20(2).png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
+                    </div>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">Resume Builder</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-lg-4 p-2 reveal hidden">
+                <div class="card zoom-effect"
+                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">E-Mail Signature</h4>
+                        <img src="./images/email%20(2).png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
+                    </div>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">E-Mail Signature</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="col-lg-4 p-2 reveal hidden">
+                <div class="card zoom-effect"
+                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                    <div class="img-feature d-flex justify-content-between align-items-center mt-4">
+                        <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Job Tracker</h4>
+                        <img src="./images/map-pointer.png" alt="dashboard" class="img-fluid"
+                             style="width: 5rem; height: 5rem;
+">
+                    </div>
+                    <div class="feature-text">
+<!--                        <h4 class="my-3 fw-bolder">Job Tracker</h4>-->
+                        <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                            enim in eros
+                            elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                            commodo
+                            diam libero vitae erat.</p>
+                    </div>
+
+
+                </div>
+
             </div>
         </div>
     </div>
 
-    <div class="find-plan  d-flex flex-column justify-content-center align-items-center my-5 reveal hidden" id="find-plan">
-        <h1 class="text-center fw-bolder text-black">Find the perfect plan for you</h1>
-        <div class="find-paragraph" style="width: 60%; text-align: center">
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit tortor eu egestas morbi sem vulputate etiam
-                facilisis pellentesque ut quis.</p>
-        </div>
-        <div class="container d-flex flex-column flex-sm-column flex-md-column flex-lg-row justify-content-center align-items-center">
-            <div class="monthly m-2">
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="showMonthlyPlans()">Monthly Plan
+
+
+<div class="details my-5 reveal hidden">
+    <!--        <div class="row align-items-center">-->
+    <div class="row align-items-center">
+        <div class="special-header   col-12 col-md-6 my-5">
+            <div class="container" style="width: 90%;">
+                <h1 class="fw-bold text-black">Get job smarter, not harder</h1>
+            </div>
+
+            <div class="container" style="width: 90%;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                    elementum
+                    tristique. Duis cursus, mi quis viverra ornare.</p>
+                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C"
+                        onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
                 </button>
             </div>
-            <div class="annual m-2">
-                <button type="button" class="btn btn-outline-dark" data-mdb-ripple-init style="color: black " onclick="showAnnualPlans()">Annual
-                    Plan
+
+        </div>
+        <div class="col-12 col-md-6">
+            <img src="images/Group%201000001904.png" alt="portfolio-ring" class="img-fluid" style="padding: 1.5rem;">
+        </div>
+    </div>
+
+<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+<!--        <div class="col-12 col-md-6 my-2">-->
+<!--            <div class="container" style="width: 90%;">-->
+<!--                <h4 class="fw-bolder text-black">Personalised Dashboard</h4>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+<!--                    elementum-->
+<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+<!--                    libero-->
+<!--                    vitae erat.</p>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-12 col-md-6 my-2 text-center">-->
+<!--            <img src="images/image%205.png" alt="feature-1" class="img-fluid">-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!---->
+<!--    <div class="row align-items-center">-->
+<!--        <div class="col-12 col-md-6 my-2 text-center">-->
+<!--            <img src="images/image%206.png" alt="feature-2" class="img-fluid">-->
+<!---->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-12 col-md-6 my-2">-->
+<!--            <div class="container" style="width: 90%;">-->
+<!--                <h4 class="fw-bolder text-black">Portfolio</h4>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+<!--                    elementum-->
+<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+<!--                    libero-->
+<!--                    vitae erat.</p>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!---->
+<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+<!--        <div class="col-12 col-md-6 my-2">-->
+<!--            <div class="container" style="width: 90%;">-->
+<!--                <h4 class="fw-bolder text-black">E-mail Signature</h4>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+<!--                    elementum-->
+<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+<!--                    libero-->
+<!--                    vitae erat.</p>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-12 col-md-6 my-2 text-center">-->
+<!--            <img src="images/image%207.png" alt="feature-3" class="img-fluid">-->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!---->
+<!--    <div class="row align-items-center ">-->
+<!--        <div class="col-12 col-md-6 my-2 text-center">-->
+<!--            <img src="images/image%204.png" alt="feature-4" class="img-fluid">-->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-12 col-md-6 my-2">-->
+<!--            <div class="container" style="width: 90%;">-->
+<!--                <h4 class="fw-bolder text-black">Resume Review Report</h4>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+<!--                    elementum-->
+<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+<!--                    libero-->
+<!--                    vitae erat.</p>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
+<!---->
+<!---->
+<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+<!--        <div class="col-12 col-md-6 my-2">-->
+<!--            <div class="container" style="width: 90%;">-->
+<!--                <h4 class="fw-bolder text-black">Job Tracker</h4>-->
+<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+<!--                    elementum-->
+<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+<!--                    libero-->
+<!--                    vitae erat.</p>-->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!---->
+<!--        <div class="col-12 col-md-6 my-2 text-center">-->
+<!--            <img src="images/image%208.png" alt="feature-5" class="img-fluid">-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<div class="what-you-get reveal hidden">
+    <div class="reveal hidden first-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
+        <img src="images/data-report%201.png" alt="data-report" class="img-fluid my-4">
+        <div class="d-flex flex-column justify-content-center align-items-center my-4">
+            <p class="h2 text-black fw-bold text-center">Your Career Dashboard:</p>
+            <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
+        </div>
+        <p style="opacity: 60%;">Insights. Progress. Success.</p>
+        <img src="images/Group%201000001911.png" alt="portfoliobee-dashboard" class="img-fluid p-5">
+    </div>
+    <div class="reveal hidden second-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
+        <img src="images/Group%201000001909%20(2).png" alt="personal-info" class="img-fluid my-4">
+        <div class="d-flex flex-column justify-content-center align-items-center my-4">
+            <p class="h2 text-black fw-bold text-center">Your Personal Portfolio:</p>
+            <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
+        </div>
+        <p style="opacity: 60%;">Achievements. Growth. Legacy.</p>
+        <img src="images/Group%201000001912.png" alt="portfoliobee" class="img-fluid">
+    </div>
+    <div class="reveal hidden third-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
+        <img src="images/Group%201000001909%20(1).png" alt="data-report" class="img-fluid my-4">
+        <div class="d-flex flex-column justify-content-center align-items-center my-4">
+            <p class="h2 text-black fw-bold text-center">Your Signature:</p>
+            <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
+        </div>
+        <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
+        <img src="images/image%207.png" alt="portfoliobee-dashboard" class="img-fluid">
+    </div>
+    <div class="reveal hidden fourth-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
+        <img src="images/Group%201000001909%20(3).png" alt="data-report" class="img-fluid my-4">
+        <div class="d-flex flex-column justify-content-center align-items-center my-4">
+            <p class="h2 text-black fw-bold text-center">Your Resume:</p>
+            <p class="h2 gradient-text-header text-center">Optimized for Success</p>
+        </div>
+        <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
+        <img src="images/" alt="portfoliobee-dashboard" class="img-fluid ">
+    </div>
+
+</div>
+
+<div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden" id="mentions">
+    <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
+        you will too!</h2>
+    <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
+         style="width: 70%">
+        <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
+            <div class="carousel-item active">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card text-center" style="  padding: 1rem;">
+                    <div class="display-pic d-flex justify-content-center">
+                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                             style="width: 8rem; height: 8rem;">
+                    </div>
+                    <div class="card-body p-2">
+
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                            interdum.</p>
+                        <h3 class="card-title text-black">Rahul Sharma</h3>
+                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
+                data-mdb-slide="prev">
+            <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
+        </button>
+        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
+                data-mdb-slide="next">
+            <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
+        </button>
+    </div>
+</div>
+<div class="faq  d-flex flex-column justify-content-center reveal hidden">
+    <h2 class="text-center my-5 text-black fw-bolder">Frequently Asked Questions</h2>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item py-4">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button
+
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#flush-collapseOne"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseOne"
+                >
+                    How does PortfolioBee work?
+                    <i class="fas fa-circle-chevron-down"></i>
                 </button>
-            </div>
-        </div>
-    </div>
-    <div class="pricing container reveal hidden">
-        <div class="row justify-content-center monthly" id="monthly">
-            <div class="col-12 col-lg-4 my-4 ">
-                <div class="d-flex flex-column justify-content-between zoom-effect"
-                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
-                    <h3 class="text-black">Starter</h3>
-                    <div class="d-flex align-items-baseline">
-                        <h2 class="text-black">Rs 799</h2>
-                        <h4 style="opacity: 70%">/Month</h4>
-                    </div>
-                    <div class="container d-flex justify-content-center px-0">
-                        <hr style="width: 100%;">
-                    </div>
-                    <div class="container d-flex flex-column justify-content-center align-items-center">
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
-                            Started
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 my-4 ">
-                <div class="d-flex flex-column justify-content-between zoom-effect"
-                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%; background: linear-gradient(165.25deg, #FFB4AF 0%, #FFBB7B 36.5%, #7499FD 99.99%);">
-                    <h3 class="text-black">Pro</h3>
-                    <div class="d-flex align-items-baseline">
-                        <h2 class="text-black">Rs 999</h2>
-                        <h4 style="opacity: 70%">/Month</h4>
-                    </div>
-                    <div class="container d-flex justify-content-center px-0">
-                        <hr style="width: 100%;">
-                    </div>
-                    <div class="container d-flex flex-column justify-content-center align-items-center">
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color:#F5BA79">Get
-                            Started
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 my-4">
-                <div class="d-flex flex-column justify-content-between zoom-effect"
-                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
-                    <h3 class="text-black">Premium</h3>
-                    <div class="d-flex align-items-baseline">
-                        <h4 class="text-black">Rs 1799</h4>
-                        <h5 style="opacity: 70%">/Month</h5>
-                    </div>
-                    <div class="container d-flex justify-content-center px-0">
-                        <hr style="width: 100%;">
-                    </div>
-                    <div class="container d-flex flex-column justify-content-center align-items-center">
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
-                            Started
-                        </button>
-                    </div>
+            </h2>
+            <div
+                    id="flush-collapseOne"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-mdb-parent="#accordionFlushExample"
+            >
+                <div class="accordion-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                    heard of them accusamus labore sustainable VHS.
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center annual" id="annual">
-            <div class="col-12 col-lg-6 my-4">
-                <div class="d-flex flex-column justify-content-between zoom-effect"
-                     style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4); border-radius: 2%; padding: 2rem; height: 100%;">
-                    <h3 class="text-black">Premium Pro</h3>
-                    <div class="d-flex align-items-baseline">
-                        <h4 class="text-black">Rs 14999</h4>
-                        <h5 style="opacity: 70%">/Year</h5>
-                    </div>
-                    <div class="container d-flex justify-content-center px-0">
-                        <hr style="width: 100%;">
-                    </div>
-                    <div class="container d-flex flex-column justify-content-center align-items-center">
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div class="pricing-description d-flex justify-content-between align-items-baseline">
-                            <i class="far fa-circle-check me-2"></i>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    <div class="buy-now">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #F5BA79">Get
-                            Started
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="accordion-item py-4">
+            <h2 class="accordion-header" id="flush-headingTwo">
+                <button
 
-    </div>
-    <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden" id="mentions">
-        <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
-            you will too!</h2>
-        <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
-             style="width: 80%">
-            <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
-                <div class="carousel-item active">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card text-center" style="  padding: 1rem;">
-                        <div class="display-pic d-flex justify-content-center">
-                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                                 style="width: 8rem; height: 8rem;">
-                        </div>
-                        <div class="card-body p-2">
-
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
-                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
-                    data-mdb-slide="prev">
-                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
-            </button>
-            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
-                    data-mdb-slide="next">
-                <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
-            </button>
-        </div>
-    </div>
-    <div class="faq  d-flex flex-column justify-content-center reveal hidden">
-        <h2 class="text-center my-5 text-black fw-bolder">Frequently Asked Questions</h2>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button
-
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseOne"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseOne"
-                    >
-                        How does PortfolioBee work?
-                        <i class="fas fa-circle-chevron-down"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseOne"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne"
-                        data-mdb-parent="#accordionFlushExample"
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#flush-collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseTwo"
                 >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
-                    </div>
+                    Is PortfolioBee free to use?
+                    <i class="fas fa-circle-chevron-down"></i>
+                </button>
+            </h2>
+            <div
+                    id="flush-collapseTwo"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingTwo"
+                    data-mdb-parent="#accordionFlushExample"
+            >
+                <div class="accordion-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                    heard of them accusamus labore sustainable VHS.
                 </div>
             </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                    <button
+        </div>
+        <div class="accordion-item py-4">
+            <h2 class="accordion-header" id="flush-headingThree">
+                <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseTwo"
-                    >
-                        Is PortfolioBee free to use?
-                        <i class="fas fa-circle-chevron-down"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseTwo"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingTwo"
-                        data-mdb-parent="#accordionFlushExample"
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#flush-collapseThree"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseThree"
                 >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
-                    </div>
+                    Can I customize my portfolio?
+                    <i class="fas fa-circle-chevron-down"></i>
+                </button>
+            </h2>
+            <div
+                    id="flush-collapseThree"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingThree"
+                    data-mdb-parent="#accordionFlushExample"
+            >
+                <div class="accordion-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                    heard of them accusamus labore sustainable VHS.
                 </div>
             </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button
+        </div>
+        <div class="accordion-item py-4">
+            <h2 class="accordion-header" id="flush-headingFour">
+                <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseThree"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseThree"
-                    >
-                        Can I customize my portfolio?
-                        <i class="fas fa-circle-chevron-down"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingThree"
-                        data-mdb-parent="#accordionFlushExample"
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-mdb-toggle="collapse"
+                        data-mdb-target="#flush-collapseFour"
+                        aria-expanded="false"
+                        aria-controls="flush-collapseFour"
                 >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
-                    </div>
+                    How can I share my portfolio?
+                    <i class="fas fa-circle-chevron-down"></i>
+                </button>
+            </h2>
+            <div
+                    id="flush-collapseFour"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingFour"
+                    data-mdb-parent="#accordionFlushExample"
+            >
+                <div class="accordion-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                    heard of them accusamus labore sustainable VHS.
                 </div>
             </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingFour">
-                    <button
+        </div>
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseFour"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseFour"
-                    >
-                        How can I share my portfolio?
-                        <i class="fas fa-circle-chevron-down"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseFour"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingFour"
-                        data-mdb-parent="#accordionFlushExample"
-                >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
-                    </div>
+    </div>
+</div>
+
+<div class="foot reveal hidden" style="margin-top: 7rem;">
+    <div class="rounded-4" style="background-color: black; width: 100%">
+        <div class="credits ">
+            <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
+                <div class="logo-img d-flex justify-content-start  align-items-center">
+                    <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
+                    <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
+                </div>
+                <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
+                     style="width: 40%">
+
+                    <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page" href="#about-us"
+                       style="color: #FFB4AF">About</a>
+                    <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" href="#features" style="color: #F5BA79">Feature</a>
+                    <a class="nav-link mb-4 mb-sm-0 fw-semibold zoom-effect" href="#find-plan"
+                       style="color: #7199FF">Pricing</a>
+
+
+                </div>
+                <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
+                    <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                    <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                    <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
                 </div>
             </div>
-
+        </div>
+        <div class="d-flex justify-content-center px-0">
+            <hr style="width: 90%; color: white;">
+        </div>
+        <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between "
+             style="padding: 2rem 6rem 2rem 6rem;">
+            <p class="text-center text-sm-center text-md-start fw-semibold text-white">2024 | Licenses</p>
+            <p class="text-center text-sm-center text-md-end fw-semibold text-white">Developed by Wooble</p>
         </div>
     </div>
-    <div class="connect  my-5 reveal hidden" id="connect">
-        <h2 class="text-black text-center my-5 fw-bolder">Get in contact with our team!</h2>
-        <div class="row">
-            <div class="col-12 col-lg-4 contact-info py-2">
+</div>
+<div
+        class="toast fade mx-auto"
+        id="basic-toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-mdb-toast-init
+        data-mdb-autohide="true"
+        data-mdb-delay="2000"
+        data-mdb-position="bottom-center"
+        data-mdb-append-to-body="true"
+        data-mdb-stacking="true"
+        data-mdb-width="350px"
+        data-mdb-color=""
+>
+    <div class="toast-header" id="toast-header">
+        <strong class="me-auto" id="toast-head"></strong>
 
-                <div class="card contact-card" style="background-color: black; color: white; padding: 2rem; height: 100%;">
-                    <h2>Contact Information</h2>
-                    <p class="mb-4">Say something to start a live chat!</p>
-                    <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
-                        <i class="fas fa-phone me-4"></i>
-                        <p class="mb-0">+1012 3456 789</p>
-                    </div>
-                    <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
-                        <i class="fas fa-envelope me-4"></i>
-                        <p class="mb-0">demo@gmail.com</p>
-                    </div>
-                    <div class="pricing-description d-flex justify-content-start align-items-baseline my-4">
-                        <i class="fas fa-location-dot me-4"></i>
-                        <p class="mb-0" style="width: 60%">132 Dartmouth Street Boston, Massachusetts 02156 United
-                            States</p>
-                    </div>
-                </div>
-
-
-            </div>
-            <div class="col-12 col-lg-8 connect-form py-2">
-                <!--                                <div class="card my-2 p-2" style="background-color: #FFE164; color: black">-->
-                <!--                                    <h2 class="text-center">Got Questions?</h2>-->
-                <!--                                    <h2 class="text-center mb-0"> We're Here to Help!</h2>-->
-                <!--                                </div>-->
-                <form class="connect-form-structure" id="connect-form"
-                      style="background-color: white; color: black; padding-top: 1rem;  height: 100%;">
-                    <div class="d-flex justify-content-between mb-5">
-                        <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <!--                            <label class="form-label" for="first_name">First Name</label>-->
-                            <input type="text" id="first_name" name="first_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="First Name"/>
-                        </div>
-                        <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="text" id="last_name" name="last_name" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Last Name"/>
-                            <!--                            <label class="form-label" for="last_name">Last Name</label>-->
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between my-5">
-                        <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="email" id="email" name="email" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Email"/>
-                            <!--                            <label class="form-label" for="email">Email</label>-->
-                        </div>
-                        <div class="form-outline" data-mdb-input-init style="width: 45%;">
-                            <input type="tel" id="phone" name="phone" class="border-0 w-100" style="border-bottom: 1px solid black !important;" placeholder="Phone No."/>
-                            <!--                            <label class="form-label" for="phone">Phone No.</label>-->
-                        </div>
-                    </div>
-                    <h5 class="mt-2">SelectSubject?</h5>
-                    <div class="radio-btn row">
-                        <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio1" value="General Inquiry"/>
-                            <label class="form-check-label" for="inlineRadio1"> General Inquiry </label>
-                        </div>
-                        <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio2" value="Feedback"/>
-                            <label class="form-check-label" for="inlineRadio2"> Feedback </label>
-                        </div>
-                        <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio3" value="Support"/>
-                            <label class="form-check-label" for="inlineRadio3"> Support </label>
-                        </div>
-                        <div class="form-check col-6 col-md-3 d-flex align-items-center" style="padding-left: 2rem;">
-                            <input class="form-check-input me-2" type="radio" name="inquiry_type" id="inlineRadio4" value="Other"/>
-                            <label class="form-check-label" for="inlineRadio4"> Other </label>
-                        </div>
-                    </div>
-
-                    <div class="form-outline mt-5" data-mdb-input-init>
-                        <textarea class="textarea-custom-border w-100" id="message" name="message" rows="4" placeholder="Write your message..."></textarea>
-                        <!--                        <label class="form-label" for="message">write your message ...</label>-->
-                    </div>
-                    <!--                    <div class="d-flex justify-content-end align-content-end">-->
-                    <!---->
-                    <!--                    </div>-->
-                    <div class="send-msg d-flex justify-content-end" style="margin-top: 2.5rem;">
-                        <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FFB2B2" onclick="sendContactDetails()">Send
-                            Message
-                        </button>
-                    </div>
-                </form>
-
-
-            </div>
-        </div>
+        <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="foot reveal hidden" style="margin-top: 7rem;">
-        <div class="rounded-4" style="background-color: black; width: 100%">
-            <div class="credits ">
-                <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
-                    <div class="logo-img d-flex justify-content-start  align-items-center">
-                        <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
-                        <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
-                    </div>
-                    <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
-                         style="width: 40%">
-
-                        <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page" href="#about-us"
-                           style="color: #FFB4AF">About</a>
-                        <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" href="#features" style="color: #F5BA79">Feature</a>
-                        <a class="nav-link mb-4 mb-sm-0 fw-semibold zoom-effect" href="#find-plan"
-                           style="color: #7199FF">Pricing</a>
-
-
-                    </div>
-                    <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
-                        <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                        <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                        <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center px-0">
-                <hr style="width: 90%; color: white;">
-            </div>
-            <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between "
-                 style="padding: 2rem 6rem 2rem 6rem;">
-                <p class="text-center text-sm-center text-md-start fw-semibold text-white">2024 | Licenses</p>
-                <p class="text-center text-sm-center text-md-end fw-semibold text-white">Developed by Wooble</p>
-            </div>
-        </div>
-    </div>
-    <div
-            class="toast fade mx-auto"
-            id="basic-toast"
-            role="alert"
-            aria-live="assertive"
-            aria-atomic="true"
-            data-mdb-toast-init
-            data-mdb-autohide="true"
-            data-mdb-delay="2000"
-            data-mdb-position="bottom-center"
-            data-mdb-append-to-body="true"
-            data-mdb-stacking="true"
-            data-mdb-width="350px"
-            data-mdb-color=""
-    >
-        <div class="toast-header" id="toast-header">
-            <strong class="me-auto" id="toast-head"></strong>
-
-            <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body" id="toast-body"></div>
-    </div>
+    <div class="toast-body" id="toast-body"></div>
+</div>
 
 </div>
 
@@ -1347,25 +1306,30 @@ include 'dbConnection.php';
 <!-- Custom scripts -->
 <script type="text/javascript">
 
-    // script.js
+// document.addEventListener('scroll', function () {
+//         const navbar = document.getElementById('nav-head');
+//         const buttonContainer = document.getElementById('navbar-button-container');
+//
+//         // Define a threshold value (in pixels) to adjust when the styles are applied
+//         const scrollThreshold = 40; // Adjust this value as needed
+//
+//         // Get the offset of the navbar from the top
+//         const navbarOffset = navbar.offsetTop;
+//
+//         // Calculate the effective sticky offset considering the scroll threshold
+//         const effectiveStickyOffset = navbarOffset + scrollThreshold;
+//
+//         if (window.scrollY > effectiveStickyOffset) {
+//             // Make navbar transparent and show button
+//             navbar.classList.add('transparent');
+//             buttonContainer.classList.add('visible');
+//         } else {
+//             // Revert navbar background and hide button
+//             navbar.classList.remove('transparent');
+//             buttonContainer.classList.remove('visible');
+//         }
+//     });
 
-    document.addEventListener('scroll', function() {
-        const navbar = document.getElementById('nav-head');
-        const buttonContainer = document.getElementById('navbar-button-container');
-        const stickyOffset = navbar.offsetTop;
-
-        if (window.scrollY > stickyOffset) {
-            // Make navbar transparent and show button
-            navbar.classList.add('transparent');
-            buttonContainer.classList.add('visible');
-        } else {
-            // Revert navbar background and hide button
-            navbar.classList.remove('transparent');
-            buttonContainer.classList.remove('visible');
-        }
-    });
-
-    // script.js
 
     document.addEventListener('DOMContentLoaded', () => {
         const reveals = document.querySelectorAll('.reveal');
@@ -1410,16 +1374,16 @@ include 'dbConnection.php';
     });
 
 
-    function sendContactDetails(){
+    function sendContactDetails() {
         event.preventDefault();
-        let first_name=document.getElementById('first_name').value
-        let last_name=document.getElementById('last_name').value
-        let email=document.getElementById('email').value
-        let phone=document.getElementById('phone').value
+        let first_name = document.getElementById('first_name').value
+        let last_name = document.getElementById('last_name').value
+        let email = document.getElementById('email').value
+        let phone = document.getElementById('phone').value
         let selectedRadio = document.querySelector('input[name="inquiry_type"]:checked');
         let radios = selectedRadio ? selectedRadio.value : '';
-        let message=document.getElementById('message').value
-        let formData={
+        let message = document.getElementById('message').value
+        let formData = {
             first_name: first_name,
             last_name: last_name,
             email: email,
@@ -1437,23 +1401,22 @@ include 'dbConnection.php';
                     // Get the Toast element and set the message
                     let toastElement = document.getElementById('basic-toast');
                     let toastBody = document.getElementById('toast-body');
-                    let toastHeader=document.getElementById('toast-head');
-                    let toastHead=document.getElementById('toast-header');
+                    let toastHeader = document.getElementById('toast-head');
+                    let toastHead = document.getElementById('toast-header');
 
 
                     console.log("Response is", response)
                     let result = JSON.parse(response);
-                    console.log("Result is" ,result);
+                    console.log("Result is", result);
                     // Set the message
                     toastBody.textContent = result.message;
-                    toastHeader.textContent=result.status
+                    toastHeader.textContent = result.status
                     if (result.status === 'Success') {
-                        if (toastElement.classList.contains('toast-warning')){
+                        if (toastElement.classList.contains('toast-warning')) {
                             toastElement.classList.replace('toast-warning', 'toast-success');
                             toastElement.setAttribute('data-mdb-color', 'success');
                             toastHead.classList.replace('toast-warning', 'toast-success');
-                        }
-                        else{
+                        } else {
                             toastElement.classList.add('toast-success');
                             toastElement.setAttribute('data-mdb-color', 'success');
                             toastHead.classList.add('toast-success');
@@ -1467,44 +1430,40 @@ include 'dbConnection.php';
                         document.getElementById('message').value = '';
                         console.log("Message", result.message);
                     } else {
-                        if (toastElement.classList.contains('toast-success')){
-                            toastElement.classList.replace('toast-success',  'toast-warning');
+                        if (toastElement.classList.contains('toast-success')) {
+                            toastElement.classList.replace('toast-success', 'toast-warning');
                             toastElement.setAttribute('data-mdb-color', 'warning');
-                            toastHead.classList.replace('toast-success',  'toast-warning');
-                        }
-                        else{
-                            toastElement.classList.add( 'toast-warning');
+                            toastHead.classList.replace('toast-success', 'toast-warning');
+                        } else {
+                            toastElement.classList.add('toast-warning');
                             toastElement.setAttribute('data-mdb-color', 'warning');
-                            toastHead.classList.add( 'toast-warning');
+                            toastHead.classList.add('toast-warning');
                         }
                         console.log(result.message);
                     }
                     // Get the Toast instance and show it
                     let toast = new mdb.Toast(toastElement);
                     toast.show();
-                }
-
-                catch(e){
+                } catch (e) {
                     // Handle errors in case of JSON parsing failure or other issues
                     let toastElement = document.getElementById('basic-toast');
                     let toastBody = document.getElementById('toast-body');
-                    let toastHeader=document.getElementById('toast-head');
-                    let toastHead=document.getElementById('toast-header');
+                    let toastHeader = document.getElementById('toast-head');
+                    let toastHead = document.getElementById('toast-header');
 
                     // Set a generic error message
                     toastBody.textContent = 'Error processing your request.';
-                    toastHeader.textContent='Server error'
+                    toastHeader.textContent = 'Server error'
 
                     // Set the color to warning for unexpected errors
-                    if (toastElement.classList.contains('toast-success')){
-                        toastElement.classList.replace('toast-success',  'toast-warning');
+                    if (toastElement.classList.contains('toast-success')) {
+                        toastElement.classList.replace('toast-success', 'toast-warning');
                         toastElement.setAttribute('data-mdb-color', 'warning');
-                        toastHead.classList.replace('toast-success',  'toast-warning');
-                    }
-                    else{
-                        toastElement.classList.add( 'toast-warning');
+                        toastHead.classList.replace('toast-success', 'toast-warning');
+                    } else {
+                        toastElement.classList.add('toast-warning');
                         toastElement.setAttribute('data-mdb-color', 'warning');
-                        toastHead.classList.add( 'toast-warning');
+                        toastHead.classList.add('toast-warning');
                     }
 
                     // Get the Toast instance and show it
@@ -1522,19 +1481,22 @@ include 'dbConnection.php';
             }
         })
     }
-    function showMonthlyPlans(){
+
+    function showMonthlyPlans() {
         let monthlyPlans = document.getElementById('monthly');
         let annualPlans = document.getElementById('annual');
-        monthlyPlans.style.display='flex';
-        annualPlans.style.display='none'
+        monthlyPlans.style.display = 'flex';
+        annualPlans.style.display = 'none'
     }
-    function showAnnualPlans(){
+
+    function showAnnualPlans() {
         let monthlyPlans = document.getElementById('monthly');
         let annualPlans = document.getElementById('annual');
-        monthlyPlans.style.display='none';
-        annualPlans.style.display='flex';
+        monthlyPlans.style.display = 'none';
+        annualPlans.style.display = 'flex';
     }
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
         showMonthlyPlans();
     });
 </script>
