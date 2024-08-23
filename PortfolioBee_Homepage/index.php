@@ -51,29 +51,35 @@ include 'dbConnection.php';
         }
 
         .carousel-control-next {
-            right: -5%;
+            right: -12%;
             transform: translateX(70%);
         }
 
         .carousel-control-prev {
-            left: -5%;
+            left: -12%;
             transform: translateX(-70%);
+        }
+        @media only screen and (max-width: 576px){
+            .mentions-arrow{
+                width: 3rem !important;
+                height: 3rem !important;
+            }
         }
 
         /*.accordion-button::after{*/
-        /*    background-color: #FFE164;*/
+        /*    background-color: white !important;*/
         /*    width: 2rem;*/
         /*    height: 2rem;*/
         /*    border-radius: 40%;*/
         /*}*/
         /* Custom styles for accordion */
         .accordion-button {
-            background: none; /* Remove background */
+            background-color: black !important; /* Remove background */
             border: none; /* Remove border */
             box-shadow: none; /* Remove box-shadow */
             padding: 0; /* Remove padding */
             margin: 0; /* Remove margin */
-            color: inherit; /* Inherit color */
+            color: white; /* Inherit color */
             font-size: 1.25rem; /* Set font size */
             display: flex; /* Flexbox for alignment */
             align-items: center; /* Center vertically */
@@ -96,7 +102,7 @@ include 'dbConnection.php';
 
         /* Rotate icon when expanded */
         .accordion-button:not(.collapsed) .fas {
-            transform: rotate(180deg); /* Rotate icon 180 degrees when expanded */
+            transform: rotate(90deg); /* Rotate icon 180 degrees when expanded */
         }
 
         /* Styling for the accordion header */
@@ -149,7 +155,8 @@ include 'dbConnection.php';
         }
 
         .accordion-button:not(.collapsed) {
-            color: black;
+            color: white;
+            opacity: 70%;
             padding-bottom: 0.5rem;
         }
 
@@ -271,6 +278,7 @@ include 'dbConnection.php';
             text-fill-color: transparent; /* For other browsers */
             font-size: 1.25rem; /* Adjust font size if needed */
         }
+
         .gradient-text-header {
             background: linear-gradient(92.05deg, #FF847D 0%, #FFA949 54.04%, #3260D7 99.16%);
             -webkit-background-clip: text; /* For Chrome, Safari, and Opera */
@@ -283,11 +291,12 @@ include 'dbConnection.php';
             .nav-head {
                 /*background: linear-gradient(101.88deg, #FFB3AE 6.87%, #FEBC6F 50%, #7198FF 95%, #48C8FF 105.83%);*/
                 padding: 1rem;
+                margin-top: 0.5rem;
                 background-color: transparent !important;
             }
 
             .head-menu {
-                color: black !important;
+                color: white !important;
             }
         }
 
@@ -355,46 +364,74 @@ include 'dbConnection.php';
         #navbar-button-container.visible {
             display: block;
         }
+
         @media only screen and (min-width: 992px) {
-            .other-screen{
+            .other-screen {
                 display: flex;
             }
-            .small-screen{
+
+            .small-screen {
                 display: none !important;
             }
 
         }
+
         @media only screen and (max-width: 991px) {
-            .other-screen{
+            .other-screen {
                 display: none;
             }
-            .small-screen{
+
+            .small-screen {
                 display: block;
             }
         }
-        @media only screen and (min-width: 600px) and (max-width: 767px){
-            .multi-carousel-item{
+
+        @media only screen and (min-width: 600px) and (max-width: 767px) {
+            .multi-carousel-item {
                 width: 80% !important;
             }
         }
-        @media only screen and (min-width: 768px) and (max-width: 945px){
-            .multi-carousel-item{
-                width: 50% !important;
-            }
-        }
-        @media only screen and (min-width: 946px){
-            .multi-carousel-item{
+
+        @media only screen and (min-width: 768px) and (max-width: 945px) {
+            .multi-carousel-item {
                 width: 50% !important;
             }
         }
 
-        @media only screen and (max-width: 991px){
-            .custom-btn{
+        @media only screen and (min-width: 946px) {
+            .multi-carousel-item {
+                width: 50% !important;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
+            .custom-btn {
                 display: none;
             }
         }
-        .navbar-collapse{
+
+        .navbar-collapse {
             flex-grow: 0;
+        }
+
+        .gradient-border-container {
+            padding: 0.1875rem; /* Adjust to control the border width */
+            background: linear-gradient(284.62deg, #28292C 84.25%, #6A94FF 90.54%, #F5BA79 92.24%, #FF8181 93.27%);
+            border-radius: 0.375rem; /* Match the border radius of the inner content */
+        }
+        body{
+            background-color: black;
+        }
+        .accordion-item {
+            background-color: black !important;
+        }
+        .accordion-body{
+            color: white;
+            opacity: 80%;
+        }
+        .fa-chevron-right:before{
+            background-color: black;
+            color: #FFB4B0;
         }
     </style>
 </head>
@@ -403,81 +440,84 @@ include 'dbConnection.php';
 <div class="container-fluid g-0">
     <nav class="navbar navbar-expand-lg  "
     >
-    <div class="container-fluid">
-        <div class="logo-img d-flex justify-content-between align-items-center">
-            <a href="#">
-                <img src="images/path0.png" alt="Logo" class="img-fluid">
-            </a>
-            <a href="#">
-                <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
-            </a>
-        </div>
-        <button
-                data-mdb-collapse-init
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-mdb-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-        >
-            <i class="fas fa-bars text-black"></i>
-            <i class="fas fa-xmark text-black"></i>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <div class="navbar-nav nav-head fw-semibold" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8))
+        <div class="container-fluid">
+            <div class="logo-img d-flex justify-content-between align-items-center">
+                <a href="#">
+                    <img src="images/path0.svg" alt="Logo" class="img-fluid">
+                </a>
+                <a href="#">
+                    <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
+                </a>
+            </div>
+            <button
+                    data-mdb-collapse-init
+                    class="navbar-toggler"
+                    type="button"
+                    data-toggle="collapse"
+                    data-mdb-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+            >
+                <i class="fas fa-bars text-black"></i>
+                <i class="fas fa-xmark text-black"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                <div class="navbar-nav nav-head fw-semibold" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8))
 ;"
-                 id="nav-head">
-                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#about-us">About</a>
-                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#features">Feature</a>
-                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#find-plan">Pricing</a>
-                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#mentions"
-                >Testimonials</a
-                >
-                <a class="nav-link head-menu" style="color: white; opacity: 60%;" href="#connect"
-                >Contact Us</a
-                >
-<!--                <div id="navbar-button-container">-->
-                    <button type="button" class="custom-btn btn btn-dark" data-mdb-ripple-init
-                            style="color: white; border-radius: 50px; background: linear-gradient(91.89deg, #FF847D 15.5%, #FDAA4A 46%, #3361D8 85.5%);
+                     id="nav-head">
+                    <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#about-us">About</a>
+                    <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#features">Feature</a>
+                    <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#find-plan">Pricing</a>
+                    <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#mentions"
+                    >Testimonials</a
+                    >
+                    <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#connect"
+                    >Contact Us</a
+                    >
+                    <!--                <div id="navbar-button-container">-->
+                    <button type="button" class="custom-btn btn btn-dark text-capitalize" data-mdb-ripple-init
+                            style="color: white; border-radius: 50px; background: linear-gradient(91.89deg, #FF847D 15.5%, #FDAA4A 46%, #3361D8 85.5%); font-size: small;
 "
                             onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get
                         Started
                     </button>
-<!--                </div>-->
-                <div class="d-lg-none mt-2">
-                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"
-                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
-                        Started
-                    </button>
+                    <!--                </div>-->
+                    <div class="d-lg-none mt-2">
+                        <button type="button" class="btn btn-dark text-capitalize" data-mdb-ripple-init
+                                style="color: white; border-radius: 50px; background: linear-gradient(91.89deg, #FF847D 15.5%, #FDAA4A 46%, #3361D8 85.5%); font-size: small;
+"
+                                onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get
+                            Started
+                        </button>
+                    </div>
                 </div>
             </div>
+            <!--        <div class="signup-btn d-none d-lg-block">-->
+            <!--            <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"-->
+            <!--                    onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started-->
+            <!--            </button>-->
+            <!--        </div>-->
         </div>
-<!--        <div class="signup-btn d-none d-lg-block">-->
-<!--            <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"-->
-<!--                    onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started-->
-<!--            </button>-->
-<!--        </div>-->
-    </div>
     </nav>
     <div class="intro-banner-container" id="intro-banner">
         <div class="intro-banner d-flex flex-wrap flex-column justify-content-center align-content-center align-items-center pt-4 mb-4 mt-0">
             <h1 class="text-center fw-bolder text-black">Craft Your Professional</h1>
-            <h1 class="text-center fw-bolder gradient-text-header" > Identity with PortfolioBee!</h1>
-            <p class="container text-center text-black">The ultimate platform for showcasing both your academic
+            <h1 class="text-center fw-bolder gradient-text-header"> Identity with PortfolioBee!</h1>
+            <p class="container text-center">The ultimate platform for showcasing both your academic
                 brilliance and extracurricular triumphs.</p>
             <div class="app-btn d-flex flex-column d-sm-block">
                 <a href="https://www.apple.com/app-store/" target="_blank">
-                    <img src="images/Link.png" alt="App Store" class="img-fluid app-links">
+                    <img src="images/Link_margin.svg" alt="App Store" class="img-fluid app-links">
                 </a>
                 <a href="https://play.google.com/store/games" target="_blank">
-                    <img src="images/Link%20(1).png" alt="Play Store" class="img-fluid app-links">
+                    <img src="images/Link.svg" alt="Play Store" class="img-fluid app-links">
                 </a>
             </div>
-            <img src="images/Group%201000001867.png" alt="mac-systems"
+            <img src="images/Group%201000001867.svg" alt="mac-systems"
                  class="img-fluid my-4 px-4 px-lg-0">
-            <h5 class="text-center text-black">Trusted by <span class="gradient-text">20,000+</span> students & institutions</h5>
+            <h5 class="text-center text-black">Trusted by <span class="gradient-text">20,000+</span> students &
+                institutions</h5>
         </div>
     </div>
 </div>
@@ -545,145 +585,146 @@ include 'dbConnection.php';
 
     <div class="features reveal hidden" id="features">
         <div class="head-text d-flex align-items-center" style="position: relative; padding: 1rem 2rem 1rem 2rem;">
-            <img src="images/Group%201000001887.png" alt="lightning" class="img-fluid">
+            <img src="images/Group%201000001887.svg" alt="lightning" class="img-fluid">
             <div class="head-text p-3">
-                <h2 class="fw-bolder text-black ">Features</h2>
-            <!--            <hr style="width: 8rem; ">-->
+                <h2 class="fw-bolder text-white ">Features</h2>
+                <!--            <hr style="width: 8rem; ">-->
                 <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 65%;"></div>
             </div>
         </div>
-                <div class="reveal hidden small-screen multi-carousel  d-flex justify-content-center mt-5" data-mdb-carousel="true" data-mdb-interval="4000">
-                    <div class="multi-carousel-inner" style="width: 95%;">
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Personalised Dashboard</h4>
-                                    <img src="./images/Group%201000001885.png" alt="dashboard" class="img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
-
-
-                            </div>
-
+        <div class="reveal hidden small-screen multi-carousel  d-flex justify-content-center mt-5"
+             data-mdb-carousel="true" data-mdb-interval="4000">
+            <div class="multi-carousel-inner" style="width: 95%;">
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Personalised Dashboard</h4>
+                            <img src="./images/Group%201000001885.svg" alt="dashboard" class="img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
                         </div>
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card  zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Portfolio</h4>
-                                    <img src="./images/personal-info%201%20(1).png" alt="portfolio" class="img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
-
-                            </div>
-
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
                         </div>
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card  zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Review Report</h4>
-                                    <img src="./images/report%201%20(1).png" alt="resume review" class="img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
 
-                            </div>
 
+                    </div>
+
+                </div>
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card  zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Portfolio</h4>
+                            <img src="./images/personal-info%201.svg" alt="portfolio" class="img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
                         </div>
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card  zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Builder</h4>
-                                    <img src="./images/resume%20(2).png" alt="dashboard" class=img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card  zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">E-mail Signature</h4>
-                                    <img src="./images/email%20(2).png" alt="dashboard" class="img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="multi-carousel-item" style="height: 100%;">
-                            <div class="card  zoom-effect mx-1 h-100"
-                                 style="background-color: black; color: white; padding: 2rem; ">
-                                <div class="img-feature d-flex justify-content-between align-items-center my-4">
-                                    <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Job Tracker</h4>
-                                    <img src="./images/map-pointer.png" alt="dashboard" class="img-fluid"
-                                         style="width: 5rem; height: 5rem;"
-        ">
-                                </div>
-                                <div class="feature-text">
-                                    <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
-                                        enim in eros
-                                        elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                                        commodo
-                                        diam libero vitae erat.</p>
-                                </div>
-
-                            </div>
-
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
                         </div>
 
                     </div>
-                    <button class="carousel-control-prev multi-control-prev" type="button" data-mdb-slide="prev">
-                        <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
-                    </button>
-                    <button class="carousel-control-next multi-control-next" type="button" data-mdb-slide="next">
-                        <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
-                    </button>
+
                 </div>
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card  zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Review Report</h4>
+                            <img src="./images/report%201.svg" alt="resume review" class="img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
+                        </div>
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card  zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Builder</h4>
+                            <img src="./images/resume%20(2).svg" alt="dashboard" class=img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
+                        </div>
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card  zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">E-mail Signature</h4>
+                            <img src="./images/email%20(2).svg" alt="dashboard" class="img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
+                        </div>
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="multi-carousel-item" style="height: 100%;">
+                    <div class="card  zoom-effect mx-1 h-100"
+                         style="background-color: black; color: white; padding: 2rem; ">
+                        <div class="img-feature d-flex justify-content-between align-items-center my-4">
+                            <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Job Tracker</h4>
+                            <img src="./images/map-pointer.svg" alt="dashboard" class="img-fluid"
+                                 style="width: 5rem; height: 5rem;"
+                            ">
+                        </div>
+                        <div class="feature-text">
+                            <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
+                                enim in eros
+                                elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                                commodo
+                                diam libero vitae erat.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <button class="carousel-control-prev multi-control-prev" type="button" data-mdb-slide="prev">
+                <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
+            </button>
+            <button class="carousel-control-next multi-control-next" type="button" data-mdb-slide="next">
+                <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
+            </button>
+        </div>
         <div class="row other-screen" style="padding: 1rem 2rem 1rem 2rem">
             <div class="col-lg-4 p-1 reveal hidden">
 
@@ -691,12 +732,12 @@ include 'dbConnection.php';
                      style="height: 100%; width: 100%; background-color: black; color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Personalised Dashboard</h4>
-                        <img src="./images/Group%201000001885.png" alt="dashboard" class="img-fluid"
+                        <img src="./images/Group%201000001885.svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">Personalised Dashboard</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -713,12 +754,12 @@ include 'dbConnection.php';
                      style="height: 100%; background-color: black; color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Portfolio</h4>
-                        <img src="./images/personal-info%201%20(1).png" alt="dashboard" class="img-fluid"
+                        <img src="./images/personal-info%201.svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">Portfolio</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">Portfolio</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -735,12 +776,12 @@ include 'dbConnection.php';
                      style="height: 100%; background-color: black; color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Review Report</h4>
-                        <img src="./images/report%201%20(1).png" alt="dashboard" class="img-fluid"
+                        <img src="./images/report%201.svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">Resume Review Report</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">Resume Review Report</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -757,12 +798,12 @@ include 'dbConnection.php';
                      style="height: 100%; background-color: black;  color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Builder</h4>
-                        <img src="./images/resume%20(2).png" alt="dashboard" class="img-fluid"
+                        <img src="./images/resume%20(2).svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">Resume Builder</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">Resume Builder</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -779,12 +820,12 @@ include 'dbConnection.php';
                      style="height: 100%; background-color: black; color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">E-Mail Signature</h4>
-                        <img src="./images/email%20(2).png" alt="dashboard" class="img-fluid"
+                        <img src="./images/email%20(2).svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">E-Mail Signature</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">E-Mail Signature</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -801,12 +842,12 @@ include 'dbConnection.php';
                      style="height: 100%; background-color: black; color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Job Tracker</h4>
-                        <img src="./images/map-pointer.png" alt="dashboard" class="img-fluid"
+                        <img src="./images/map-pointer.svg" alt="dashboard" class="img-fluid"
                              style="width: 5rem; height: 5rem;
 ">
                     </div>
                     <div class="feature-text">
-<!--                        <h4 class="my-3 fw-bolder">Job Tracker</h4>-->
+                        <!--                        <h4 class="my-3 fw-bolder">Job Tracker</h4>-->
                         <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius
                             enim in eros
                             elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
@@ -822,476 +863,526 @@ include 'dbConnection.php';
     </div>
 
 
+    <div class="details my-5 reveal hidden">
+        <!--        <div class="row align-items-center">-->
+        <div class="row align-items-center">
+            <div class="special-header   col-12 col-md-6 my-5">
+                <div class="container" style="width: 90%;">
+                    <h1 class="fw-bold text-white">Get job smarter, not harder</h1>
+                </div>
 
-<div class="details my-5 reveal hidden">
-    <!--        <div class="row align-items-center">-->
-    <div class="row align-items-center">
-        <div class="special-header   col-12 col-md-6 my-5">
-            <div class="container" style="width: 90%;">
-                <h1 class="fw-bold text-black">Get job smarter, not harder</h1>
+                <div class="container" style="width: 90%; color: white">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
+                        elementum
+                        tristique. Duis cursus, mi quis viverra ornare.</p>
+                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C"
+                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
+                        Started
+                    </button>
+                </div>
+
             </div>
-
-            <div class="container" style="width: 90%;">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
-                    elementum
-                    tristique. Duis cursus, mi quis viverra ornare.</p>
-                <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C"
-                        onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started
-                </button>
+            <div class="col-12 col-md-6">
+                <img src="images/Group%201000001904.svg" alt="portfolio-ring" class="img-fluid"
+                     style="padding: 1.5rem;">
             </div>
+        </div>
 
+        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+        <!--        <div class="col-12 col-md-6 my-2">-->
+        <!--            <div class="container" style="width: 90%;">-->
+        <!--                <h4 class="fw-bolder text-black">Personalised Dashboard</h4>-->
+        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+        <!--                    elementum-->
+        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+        <!--                    libero-->
+        <!--                    vitae erat.</p>-->
+        <!--            </div>-->
+        <!---->
+        <!--        </div>-->
+        <!---->
+        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
+        <!--            <img src="images/image%205.png" alt="feature-1" class="img-fluid">-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!---->
+        <!---->
+        <!--    <div class="row align-items-center">-->
+        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
+        <!--            <img src="images/image%206.png" alt="feature-2" class="img-fluid">-->
+        <!---->
+        <!--        </div>-->
+        <!---->
+        <!--        <div class="col-12 col-md-6 my-2">-->
+        <!--            <div class="container" style="width: 90%;">-->
+        <!--                <h4 class="fw-bolder text-black">Portfolio</h4>-->
+        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+        <!--                    elementum-->
+        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+        <!--                    libero-->
+        <!--                    vitae erat.</p>-->
+        <!--            </div>-->
+        <!---->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!---->
+        <!---->
+        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+        <!--        <div class="col-12 col-md-6 my-2">-->
+        <!--            <div class="container" style="width: 90%;">-->
+        <!--                <h4 class="fw-bolder text-black">E-mail Signature</h4>-->
+        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+        <!--                    elementum-->
+        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+        <!--                    libero-->
+        <!--                    vitae erat.</p>-->
+        <!--            </div>-->
+        <!---->
+        <!--        </div>-->
+        <!---->
+        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
+        <!--            <img src="images/image%207.png" alt="feature-3" class="img-fluid">-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!---->
+        <!---->
+        <!--    <div class="row align-items-center ">-->
+        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
+        <!--            <img src="images/image%204.png" alt="feature-4" class="img-fluid">-->
+        <!--        </div>-->
+        <!---->
+        <!--        <div class="col-12 col-md-6 my-2">-->
+        <!--            <div class="container" style="width: 90%;">-->
+        <!--                <h4 class="fw-bolder text-black">Resume Review Report</h4>-->
+        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+        <!--                    elementum-->
+        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+        <!--                    libero-->
+        <!--                    vitae erat.</p>-->
+        <!--            </div>-->
+        <!---->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!---->
+        <!---->
+        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
+        <!--        <div class="col-12 col-md-6 my-2">-->
+        <!--            <div class="container" style="width: 90%;">-->
+        <!--                <h4 class="fw-bolder text-black">Job Tracker</h4>-->
+        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
+        <!--                    elementum-->
+        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
+        <!--                    libero-->
+        <!--                    vitae erat.</p>-->
+        <!--            </div>-->
+        <!---->
+        <!--        </div>-->
+        <!---->
+        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
+        <!--            <img src="images/image%208.png" alt="feature-5" class="img-fluid">-->
+        <!--        </div>-->
+        <!--    </div>-->
+    </div>
+    <div class="what-you-get">
+        <div class="reveal hidden first-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001927.svg" alt="data-report" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Your Career Dashboard:</p>
+                <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
+            </div>
+            <p style="opacity: 60%;">Insights. Progress. Success.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001911%20(1).svg" alt="portfoliobee-dashboard" class="img-fluid">
+            </div>
         </div>
-        <div class="col-12 col-md-6">
-            <img src="images/Group%201000001904.png" alt="portfolio-ring" class="img-fluid" style="padding: 1.5rem;">
+        <div class="second-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001926.svg" alt="personal-info" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Your Personal Portfolio:</p>
+                <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
+            </div>
+            <p style="opacity: 60%;">Achievements. Growth. Legacy.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001912%20(1).svg" alt="portfoliobee" class="img-fluid">
+            </div>
         </div>
+        <div class="third-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001928.svg" alt="data-report" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Your Signature:</p>
+                <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
+            </div>
+            <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001913.svg" alt="portfoliobee-dashboard" class="img-fluid">
+            </div>
+        </div>
+        <div class="fourth-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001929.svg" alt="data-report" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Your Resume:</p>
+                <p class="h2 gradient-text-header text-center">Optimized for Success</p>
+            </div>
+            <p style="opacity: 60%;">Review. Refine. Succeed.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001914.svg" alt="portfoliobee-dashboard" class="img-fluid">
+            </div>
+        </div>
+        <div class="fifth-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001930.svg" alt="data-report" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Craft Your Resume:</p>
+                <p class="h2 gradient-text-header text-center">Tailored for Success</p>
+            </div>
+            <p style="opacity: 60%;">Build. Enhance. Excel.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001915%20(2).svg" alt="portfoliobee-dashboard" class="img-fluid">
+            </div>
+        </div>
+        <div class="sixth-item d-flex flex-column justify-content-center align-items-center"
+             style="margin-top: 6rem; margin-bottom: 6rem">
+            <img src="images/Group%201000001931.svg" alt="data-report" class="img-fluid my-4">
+            <div class="d-flex flex-column justify-content-center align-items-center my-4">
+                <p class="h2 text-white fw-bold text-center">Track Your Applications:</p>
+                <p class="h2 gradient-text-header text-center">Stay Ahead in Your Job Search</p>
+            </div>
+            <p style="opacity: 60%;">Monitor. Progress. Succeed.</p>
+            <div class="img-container" style="width: 80%;">
+                <img src="images/Group%201000001916.svg" alt="portfoliobee-dashboard" class="img-fluid">
+            </div>
+        </div>
+
+
     </div>
 
-<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-<!--        <div class="col-12 col-md-6 my-2">-->
-<!--            <div class="container" style="width: 90%;">-->
-<!--                <h4 class="fw-bolder text-black">Personalised Dashboard</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-<!--                    elementum-->
-<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-<!--                    libero-->
-<!--                    vitae erat.</p>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--        <div class="col-12 col-md-6 my-2 text-center">-->
-<!--            <img src="images/image%205.png" alt="feature-1" class="img-fluid">-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!---->
-<!--    <div class="row align-items-center">-->
-<!--        <div class="col-12 col-md-6 my-2 text-center">-->
-<!--            <img src="images/image%206.png" alt="feature-2" class="img-fluid">-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--        <div class="col-12 col-md-6 my-2">-->
-<!--            <div class="container" style="width: 90%;">-->
-<!--                <h4 class="fw-bolder text-black">Portfolio</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-<!--                    elementum-->
-<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-<!--                    libero-->
-<!--                    vitae erat.</p>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!---->
-<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-<!--        <div class="col-12 col-md-6 my-2">-->
-<!--            <div class="container" style="width: 90%;">-->
-<!--                <h4 class="fw-bolder text-black">E-mail Signature</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-<!--                    elementum-->
-<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-<!--                    libero-->
-<!--                    vitae erat.</p>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--        <div class="col-12 col-md-6 my-2 text-center">-->
-<!--            <img src="images/image%207.png" alt="feature-3" class="img-fluid">-->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!---->
-<!--    <div class="row align-items-center ">-->
-<!--        <div class="col-12 col-md-6 my-2 text-center">-->
-<!--            <img src="images/image%204.png" alt="feature-4" class="img-fluid">-->
-<!--        </div>-->
-<!---->
-<!--        <div class="col-12 col-md-6 my-2">-->
-<!--            <div class="container" style="width: 90%;">-->
-<!--                <h4 class="fw-bolder text-black">Resume Review Report</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-<!--                    elementum-->
-<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-<!--                    libero-->
-<!--                    vitae erat.</p>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!---->
-<!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-<!--        <div class="col-12 col-md-6 my-2">-->
-<!--            <div class="container" style="width: 90%;">-->
-<!--                <h4 class="fw-bolder text-black">Job Tracker</h4>-->
-<!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-<!--                    elementum-->
-<!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-<!--                    libero-->
-<!--                    vitae erat.</p>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--        <div class="col-12 col-md-6 my-2 text-center">-->
-<!--            <img src="images/image%208.png" alt="feature-5" class="img-fluid">-->
-<!--        </div>-->
-<!--    </div>-->
-</div>
-<div class="what-you-get reveal hidden">
-    <div class="reveal hidden first-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
-        <img src="images/data-report%201.png" alt="data-report" class="img-fluid my-4">
-        <div class="d-flex flex-column justify-content-center align-items-center my-4">
-            <p class="h2 text-black fw-bold text-center">Your Career Dashboard:</p>
-            <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
+    <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden"
+         id="mentions">
+        <div class="mentions-header text-center my-3">
+            <h2 class="text-white text-center fw-bolder">They love Portfoliobee</h2>
+            <h2 class="gradient-text-header">you will too!</h2>
         </div>
-        <p style="opacity: 60%;">Insights. Progress. Success.</p>
-        <img src="images/Group%201000001911.png" alt="portfoliobee-dashboard" class="img-fluid p-5">
-    </div>
-    <div class="reveal hidden second-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
-        <img src="images/Group%201000001909%20(2).png" alt="personal-info" class="img-fluid my-4">
-        <div class="d-flex flex-column justify-content-center align-items-center my-4">
-            <p class="h2 text-black fw-bold text-center">Your Personal Portfolio:</p>
-            <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
+        <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
+             style="width: 70%">
+            <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
+                <div class="carousel-item active">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="card text-center" style="  padding: 1rem;">
+                        <div class="display-pic d-flex justify-content-center">
+                            <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
+                                 style="width: 8rem; height: 8rem;">
+                        </div>
+                        <div class="card-body p-2">
+
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                                varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
+                                interdum.</p>
+                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
+                    data-mdb-slide="prev">
+                <!--            <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>-->
+<!--                <i class="far fa-circle-left fa-2x gradient-icon"></i>-->
+                <img src="images/Group%201000001932.svg" alt="left" class="mentions-arrow" style="width: 4rem; height: 4rem;">
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
+                    data-mdb-slide="next">
+                <!--            <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>-->
+<!--                <i class="far fa-circle-right fa-2x gradient-icon"></i>-->
+                <img src="images/Group%201000001933.svg" alt="right" class="mentions-arrow" style="width: 4rem; height: 4rem;">
+            </button>
         </div>
-        <p style="opacity: 60%;">Achievements. Growth. Legacy.</p>
-        <img src="images/Group%201000001912.png" alt="portfoliobee" class="img-fluid">
     </div>
-    <div class="reveal hidden third-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
-        <img src="images/Group%201000001909%20(1).png" alt="data-report" class="img-fluid my-4">
-        <div class="d-flex flex-column justify-content-center align-items-center my-4">
-            <p class="h2 text-black fw-bold text-center">Your Signature:</p>
-            <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
-        </div>
-        <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
-        <img src="images/image%207.png" alt="portfoliobee-dashboard" class="img-fluid">
-    </div>
-    <div class="reveal hidden fourth-item d-flex flex-column justify-content-center align-items-center" style="margin-top: 6rem; margin-bottom: 6rem">
-        <img src="images/Group%201000001909%20(3).png" alt="data-report" class="img-fluid my-4">
-        <div class="d-flex flex-column justify-content-center align-items-center my-4">
-            <p class="h2 text-black fw-bold text-center">Your Resume:</p>
-            <p class="h2 gradient-text-header text-center">Optimized for Success</p>
-        </div>
-        <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
-        <img src="images/" alt="portfoliobee-dashboard" class="img-fluid ">
-    </div>
+    <div class="faq  d-flex flex-column justify-content-center reveal hidden">
+        <h2 class="text-center my-5 text-white fw-bolder">Frequently Asked Questions</h2>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button
 
-</div>
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne"
 
-<div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden" id="mentions">
-    <h2 class="text-black text-center my-5 fw-bolder">They love Portfoliobee,
-        you will too!</h2>
-    <div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" data-mdb-carousel-init
-         style="width: 70%">
-        <div class="carousel-inner  rounded-6 " style="box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);">
-            <div class="carousel-item active">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="card text-center" style="  padding: 1rem;">
-                    <div class="display-pic d-flex justify-content-center">
-                        <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
-                             style="width: 8rem; height: 8rem;">
-                    </div>
-                    <div class="card-body p-2">
-
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                            varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                            interdum.</p>
-                        <h3 class="card-title text-black">Rahul Sharma</h3>
-                        <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
-                data-mdb-slide="prev">
-            <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>
-        </button>
-        <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
-                data-mdb-slide="next">
-            <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>
-        </button>
-    </div>
-</div>
-<div class="faq  d-flex flex-column justify-content-center reveal hidden">
-    <h2 class="text-center my-5 text-black fw-bolder">Frequently Asked Questions</h2>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
-        <div class="accordion-item py-4">
-            <h2 class="accordion-header" id="flush-headingOne">
-                <button
-
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#flush-collapseOne"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseOne"
+                    >
+                        How does PortfolioBee work?
+                        <i class="fas fa-chevron-right accordion-arrow"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseOne"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingOne"
+                        data-mdb-parent="#accordionFlushExample"
                 >
-                    How does PortfolioBee work?
-                    <i class="fas fa-circle-chevron-down"></i>
-                </button>
-            </h2>
-            <div
-                    id="flush-collapseOne"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingOne"
-                    data-mdb-parent="#accordionFlushExample"
-            >
-                <div class="accordion-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                    heard of them accusamus labore sustainable VHS.
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item py-4">
-            <h2 class="accordion-header" id="flush-headingTwo">
-                <button
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
 
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#flush-collapseTwo"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseTwo"
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseTwo"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseTwo"
+                    >
+                        Is PortfolioBee free to use?
+                        <i class="fas fa-chevron-right accordion-arrow"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingTwo"
+                        data-mdb-parent="#accordionFlushExample"
                 >
-                    Is PortfolioBee free to use?
-                    <i class="fas fa-circle-chevron-down"></i>
-                </button>
-            </h2>
-            <div
-                    id="flush-collapseTwo"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingTwo"
-                    data-mdb-parent="#accordionFlushExample"
-            >
-                <div class="accordion-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                    heard of them accusamus labore sustainable VHS.
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item py-4">
-            <h2 class="accordion-header" id="flush-headingThree">
-                <button
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingThree">
+                    <button
 
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#flush-collapseThree"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseThree"
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseThree"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseThree"
+                    >
+                        Can I customize my portfolio?
+                        <i class="fas fa-chevron-right accordion-arrow"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseThree"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingThree"
+                        data-mdb-parent="#accordionFlushExample"
                 >
-                    Can I customize my portfolio?
-                    <i class="fas fa-circle-chevron-down"></i>
-                </button>
-            </h2>
-            <div
-                    id="flush-collapseThree"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingThree"
-                    data-mdb-parent="#accordionFlushExample"
-            >
-                <div class="accordion-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                    heard of them accusamus labore sustainable VHS.
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="accordion-item py-4">
-            <h2 class="accordion-header" id="flush-headingFour">
-                <button
+            <div class="accordion-item py-4">
+                <h2 class="accordion-header" id="flush-headingFour">
+                    <button
 
-                        class="accordion-button collapsed"
-                        type="button"
-                        data-mdb-toggle="collapse"
-                        data-mdb-target="#flush-collapseFour"
-                        aria-expanded="false"
-                        aria-controls="flush-collapseFour"
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-mdb-toggle="collapse"
+                            data-mdb-target="#flush-collapseFour"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseFour"
+                    >
+                        How can I share my portfolio?
+                        <i class="fas fa-chevron-right accordion-arrow"></i>
+                    </button>
+                </h2>
+                <div
+                        id="flush-collapseFour"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="flush-headingFour"
+                        data-mdb-parent="#accordionFlushExample"
                 >
-                    How can I share my portfolio?
-                    <i class="fas fa-circle-chevron-down"></i>
-                </button>
-            </h2>
-            <div
-                    id="flush-collapseFour"
-                    class="accordion-collapse collapse"
-                    aria-labelledby="flush-headingFour"
-                    data-mdb-parent="#accordionFlushExample"
-            >
-                <div class="accordion-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                    et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                    craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                    heard of them accusamus labore sustainable VHS.
+                    <div class="accordion-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                        heard of them accusamus labore sustainable VHS.
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
-</div>
-
-<div class="foot reveal hidden" style="margin-top: 7rem;">
-    <div class="rounded-4" style="background-color: black; width: 100%">
-        <div class="credits ">
-            <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
-                <div class="logo-img d-flex justify-content-start  align-items-center">
-                    <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
-                    <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
-                </div>
-                <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
-                     style="width: 40%">
-
-                    <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page" href="#about-us"
-                       style="color: #FFB4AF">About</a>
-                    <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" href="#features" style="color: #F5BA79">Feature</a>
-                    <a class="nav-link mb-4 mb-sm-0 fw-semibold zoom-effect" href="#find-plan"
-                       style="color: #7199FF">Pricing</a>
-
-
-                </div>
-                <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
-                    <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                    <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                    <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center px-0">
-            <hr style="width: 90%; color: white;">
-        </div>
-        <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between "
-             style="padding: 2rem 6rem 2rem 6rem;">
-            <p class="text-center text-sm-center text-md-start fw-semibold text-white">2024 | Licenses</p>
-            <p class="text-center text-sm-center text-md-end fw-semibold text-white">Developed by Wooble</p>
         </div>
     </div>
-</div>
-<div
-        class="toast fade mx-auto"
-        id="basic-toast"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-        data-mdb-toast-init
-        data-mdb-autohide="true"
-        data-mdb-delay="2000"
-        data-mdb-position="bottom-center"
-        data-mdb-append-to-body="true"
-        data-mdb-stacking="true"
-        data-mdb-width="350px"
-        data-mdb-color=""
->
-    <div class="toast-header" id="toast-header">
-        <strong class="me-auto" id="toast-head"></strong>
 
-        <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
+    <div class="foot reveal hidden" style="margin-top: 7rem;">
+        <div class="gradient-border-container">
+            <div class="rounded-4" style="background-color: black; width: 100%;">
+                <div class="credits ">
+                    <div class=" upper-nav d-flex flex-column flex-sm-column flex-md-row justify-content-around align-items-center py-4 m-0">
+                        <div class="logo-img d-flex justify-content-start  align-items-center">
+                            <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
+                            <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
+                        </div>
+                        <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
+                             style="width: 40%">
+
+                            <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page"
+                               href="#about-us"
+                               style="color: #FFB4AF">About</a>
+                            <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" href="#features"
+                               style="color: #F5BA79">Feature</a>
+                            <a class="nav-link mb-4 mb-sm-0 fw-semibold zoom-effect" href="#find-plan"
+                               style="color: #7199FF">Pricing</a>
+
+
+                        </div>
+                        <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
+                            <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center px-0">
+                    <hr style="width: 90%; color: white;">
+                </div>
+                <div class="copyright d-flex flex-column flex-sm-column flex-md-row justify-content-center justify-content-sm-center justify-content-md-between "
+                     style="padding: 2rem 6rem 2rem 6rem;">
+                    <p class="text-center text-sm-center text-md-start fw-semibold text-white">2024 | Licenses</p>
+                    <p class="text-center text-sm-center text-md-end fw-semibold text-white">Developed by Wooble</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="toast-body" id="toast-body"></div>
-</div>
+    <div
+            class="toast fade mx-auto"
+            id="basic-toast"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-mdb-toast-init
+            data-mdb-autohide="true"
+            data-mdb-delay="2000"
+            data-mdb-position="bottom-center"
+            data-mdb-append-to-body="true"
+            data-mdb-stacking="true"
+            data-mdb-width="350px"
+            data-mdb-color=""
+    >
+        <div class="toast-header" id="toast-header">
+            <strong class="me-auto" id="toast-head"></strong>
+
+            <button type="button" class="btn-close" data-mdb-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body" id="toast-body"></div>
+    </div>
 
 </div>
 
@@ -1306,29 +1397,29 @@ include 'dbConnection.php';
 <!-- Custom scripts -->
 <script type="text/javascript">
 
-// document.addEventListener('scroll', function () {
-//         const navbar = document.getElementById('nav-head');
-//         const buttonContainer = document.getElementById('navbar-button-container');
-//
-//         // Define a threshold value (in pixels) to adjust when the styles are applied
-//         const scrollThreshold = 40; // Adjust this value as needed
-//
-//         // Get the offset of the navbar from the top
-//         const navbarOffset = navbar.offsetTop;
-//
-//         // Calculate the effective sticky offset considering the scroll threshold
-//         const effectiveStickyOffset = navbarOffset + scrollThreshold;
-//
-//         if (window.scrollY > effectiveStickyOffset) {
-//             // Make navbar transparent and show button
-//             navbar.classList.add('transparent');
-//             buttonContainer.classList.add('visible');
-//         } else {
-//             // Revert navbar background and hide button
-//             navbar.classList.remove('transparent');
-//             buttonContainer.classList.remove('visible');
-//         }
-//     });
+    // document.addEventListener('scroll', function () {
+    //         const navbar = document.getElementById('nav-head');
+    //         const buttonContainer = document.getElementById('navbar-button-container');
+    //
+    //         // Define a threshold value (in pixels) to adjust when the styles are applied
+    //         const scrollThreshold = 40; // Adjust this value as needed
+    //
+    //         // Get the offset of the navbar from the top
+    //         const navbarOffset = navbar.offsetTop;
+    //
+    //         // Calculate the effective sticky offset considering the scroll threshold
+    //         const effectiveStickyOffset = navbarOffset + scrollThreshold;
+    //
+    //         if (window.scrollY > effectiveStickyOffset) {
+    //             // Make navbar transparent and show button
+    //             navbar.classList.add('transparent');
+    //             buttonContainer.classList.add('visible');
+    //         } else {
+    //             // Revert navbar background and hide button
+    //             navbar.classList.remove('transparent');
+    //             buttonContainer.classList.remove('visible');
+    //         }
+    //     });
 
 
     document.addEventListener('DOMContentLoaded', () => {
