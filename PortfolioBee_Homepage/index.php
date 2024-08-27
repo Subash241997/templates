@@ -936,7 +936,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
         <div class="reveal hidden first-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -50%)">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -5%; left: 15%">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -952,14 +952,14 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
             </div>
             <p style="opacity: 90%;">Insights. Progress. Success.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001935.svg" alt="portfoliobee-dashboard" class="img-fluid" style="">
             </div>
         </div>
         <div class="second-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative;">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -60%);>
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -974,14 +974,14 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
             </div>
             <p style="opacity: 90%;">Achievements. Growth. Legacy.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001936.svg" alt="portfoliobee" class="img-fluid">
             </div>
         </div>
         <div class="third-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -50%);>
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -996,14 +996,14 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
             </div>
             <p style="opacity: 90%;">Professional. Reliable. Achieved.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001937.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="fourth-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -55%);">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -1018,14 +1018,14 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Optimized for Success</p>
             </div>
             <p style="opacity: 90%;">Review. Refine. Succeed.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001938.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="fifth-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -55%);">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -1040,14 +1040,14 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Tailored for Success</p>
             </div>
             <p style="opacity: 90%;">Build. Enhance. Excel.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001939.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="sixth-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -50%);">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -1062,7 +1062,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 gradient-text-header text-center">Stay Ahead in Your Job Search</p>
             </div>
             <p style="opacity: 90%;">Monitor. Progress. Succeed.</p>
-            <div class="img-container" style="width: 80%;">
+            <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001940.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
