@@ -521,7 +521,7 @@ include 'dbConnection.php';
             <img src="images/image%2011.svg" alt="round-border" class="img-fluid" style="position: absolute; top: 1%;">
             <h1 class="text-center fw-bolder text-white">Craft Your Professional</h1>
             <h1 class="text-center fw-bolder gradient-text-header"> Identity with PortfolioBee!</h1>
-            <p class="container text-center" style="opacity: 90%;">The ultimate platform for showcasing both your
+            <p class="container text-center" style="color: linen">The ultimate platform for showcasing both your
                 academic
                 brilliance and extracurricular triumphs.</p>
             <img src="images/image%2011.svg" alt="round-border" class="img-fluid" style="position: absolute; top: 18%;">
@@ -955,7 +955,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Your Career Dashboard:</p>
                 <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
             </div>
-            <p style="opacity: 90%;">Insights. Progress. Success.</p>
+            <p style="color: linen">Insights. Progress. Success.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001935.svg" alt="portfoliobee-dashboard" class="img-fluid" style="">
             </div>
@@ -977,7 +977,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Your Personal Portfolio:</p>
                 <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
             </div>
-            <p style="opacity: 90%;">Achievements. Growth. Legacy.</p>
+            <p style="color: linen">Achievements. Growth. Legacy.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001936.svg" alt="portfoliobee" class="img-fluid">
             </div>
@@ -999,7 +999,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Your Signature:</p>
                 <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
             </div>
-            <p style="opacity: 90%;">Professional. Reliable. Achieved.</p>
+            <p style="color: linen">Professional. Reliable. Achieved.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001937.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
@@ -1021,7 +1021,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Your Resume:</p>
                 <p class="h2 gradient-text-header text-center">Optimized for Success</p>
             </div>
-            <p style="opacity: 90%;">Review. Refine. Succeed.</p>
+            <p style="color: linen">Review. Refine. Succeed.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001938.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
@@ -1043,7 +1043,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Craft Your Resume:</p>
                 <p class="h2 gradient-text-header text-center">Tailored for Success</p>
             </div>
-            <p style="opacity: 90%;">Build. Enhance. Excel.</p>
+            <p style="color: linen">Build. Enhance. Excel.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001939.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
@@ -1065,7 +1065,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 <p class="h2 text-white fw-bold text-center">Track Your Applications:</p>
                 <p class="h2 gradient-text-header text-center">Stay Ahead in Your Job Search</p>
             </div>
-            <p style="opacity: 90%;">Monitor. Progress. Succeed.</p>
+            <p style="color: linen">Monitor. Progress. Succeed.</p>
             <div class="img-container" style="width: 100%;">
                 <img src="images/Group%201000001940.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
