@@ -28,18 +28,6 @@ include 'dbConnection.php';
     <!-- MDB -->
     <link rel="stylesheet" href="css/mdb.min.css"/>
     <style>
-        @media only screen and (max-width: 991px) {
-
-            .pricing {
-                width: 80%;
-            }
-        }
-
-        .buy-now {
-            display: flex;
-            justify-content: center;
-            margin-top: 0.75rem;
-        }
 
         /* Assuming you want to target the specific icon */
         .carousel-control-next-icon::after {
@@ -59,20 +47,14 @@ include 'dbConnection.php';
             left: -12%;
             transform: translateX(-70%);
         }
-        @media only screen and (max-width: 576px){
-            .mentions-arrow{
+
+        @media only screen and (max-width: 576px) {
+            .mentions-arrow {
                 width: 3rem !important;
                 height: 3rem !important;
             }
         }
 
-        /*.accordion-button::after{*/
-        /*    background-color: white !important;*/
-        /*    width: 2rem;*/
-        /*    height: 2rem;*/
-        /*    border-radius: 40%;*/
-        /*}*/
-        /* Custom styles for accordion */
         .accordion-button {
             background-color: black !important; /* Remove background */
             border: none; /* Remove border */
@@ -112,19 +94,14 @@ include 'dbConnection.php';
             padding: 0.5rem 1rem; /* Adjust padding as needed */
         }
 
-        .navbar {
-            box-shadow: none;
+        .accordion-button:not(.collapsed) {
+            color: white;
+            opacity: 70%;
+            padding-bottom: 0.5rem;
         }
 
-        @media only screen and (max-width: 991px) {
-            .signup-btn {
-                display: none;
-            }
-
-            .connect-form {
-                padding: 2rem;
-                margin-top: 2rem;
-            }
+        .navbar {
+            box-shadow: none;
         }
 
         .rolling-img {
@@ -154,11 +131,6 @@ include 'dbConnection.php';
             }
         }
 
-        .accordion-button:not(.collapsed) {
-            color: white;
-            opacity: 70%;
-            padding-bottom: 0.5rem;
-        }
 
         .intro-banner-container {
             position: relative;
@@ -304,20 +276,6 @@ include 'dbConnection.php';
             display: none;
         }
 
-        .textarea-custom-border {
-            border: none !important;
-            border-bottom: 1px solid black !important;
-        }
-
-        .textarea-custom-border {
-            position: relative;
-        }
-
-        .textarea-custom-border::placeholder {
-            position: absolute;
-            top: 70%; /* Move placeholder text down */
-        }
-
 
         .app-links:hover {
             transform: translate(0px, 3px);
@@ -337,12 +295,19 @@ include 'dbConnection.php';
                 padding: 0.5rem;
                 transition: background-color 0.3s ease;
             }
+
+            .other-screen {
+                display: flex;
+            }
+
+            .small-screen {
+                display: none !important;
+            }
+            .logo-text{
+                display: block;
+            }
         }
 
-        /*.transparent {*/
-        /*    background-color: transparent !important;*/
-        /*}*/
-        /* Initial hidden state */
         .hidden {
             opacity: 0;
             transform: translateY(20px) scale(1.05);; /* Adjust as needed */
@@ -365,16 +330,6 @@ include 'dbConnection.php';
             display: block;
         }
 
-        @media only screen and (min-width: 992px) {
-            .other-screen {
-                display: flex;
-            }
-
-            .small-screen {
-                display: none !important;
-            }
-
-        }
 
         @media only screen and (max-width: 991px) {
             .other-screen {
@@ -383,6 +338,17 @@ include 'dbConnection.php';
 
             .small-screen {
                 display: block;
+            }
+
+            .custom-btn {
+                display: none;
+            }
+
+            #nav-head {
+                border: none;
+            }
+            .logo-text{
+                display: none;
             }
         }
 
@@ -404,11 +370,6 @@ include 'dbConnection.php';
             }
         }
 
-        @media only screen and (max-width: 991px) {
-            .custom-btn {
-                display: none;
-            }
-        }
 
         .navbar-collapse {
             flex-grow: 0;
@@ -419,34 +380,77 @@ include 'dbConnection.php';
             background: linear-gradient(284.62deg, #28292C 84.25%, #6A94FF 90.54%, #F5BA79 92.24%, #FF8181 93.27%);
             border-radius: 0.375rem; /* Match the border radius of the inner content */
         }
-        body{
+
+        body {
             background-color: black;
         }
+
         .accordion-item {
             background-color: black !important;
         }
-        .accordion-body{
+
+        .accordion-body {
             color: white;
             opacity: 80%;
         }
-        .fa-chevron-right:before{
+
+        .fa-chevron-right:before {
             background-color: black;
             color: #FFB4B0;
         }
+
+        :root, [data-mdb-theme=light] {
+            --mdb-surface-bg: #0C0C0C;
+        }
+
+        .carousel-card-body {
+            color: white;
+        }
+
+        #nav-head {
+            background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+            box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);
+        }
+
+        .navbar-collapse {
+            flex-grow: 1;
+        }
+
+        .dots {
+            display: block;
+        }
+
+        @media only screen and (max-width: 1199px) {
+            .dots {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 468px){
+            .media-links{
+                width: 20% !important;
+            }
+        }
+        @media only screen and (min-width: 1200px){
+            .media-links{
+                width: 10% !important;
+            }
+        }
+        @media only screen and (max-width: 768px){
+            .bottom-feature{
+                margin-top: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body style="overflow-x: hidden; position: relative;">
 <!-- Start your project here-->
-<div class="container-fluid g-0">
-    <nav class="navbar navbar-expand-lg  "
-    >
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="logo-img d-flex justify-content-between align-items-center">
                 <a href="#">
                     <img src="images/path0.svg" alt="Logo" class="img-fluid">
-                </a>
-                <a href="#">
-                    <h5 class="mb-0 ps-1 text-black">PortfolioBee</h5>
                 </a>
             </div>
             <button
@@ -459,13 +463,11 @@ include 'dbConnection.php';
                     aria-expanded="false"
                     aria-label="Toggle navigation"
             >
-                <i class="fas fa-bars text-black"></i>
-                <i class="fas fa-xmark text-black"></i>
+                <i class="fas fa-bars text-white"></i>
+                <i class="fas fa-xmark text-white"></i>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-                <div class="navbar-nav nav-head fw-semibold" style="background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8))
-;"
-                     id="nav-head">
+                <div class="navbar-nav nav-head" id="nav-head">
                     <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#about-us">About</a>
                     <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#features">Feature</a>
                     <a class="nav-link head-menu" style="color: white; opacity: 80%;" href="#find-plan">Pricing</a>
@@ -487,12 +489,16 @@ include 'dbConnection.php';
                         <button type="button" class="btn btn-dark text-capitalize" data-mdb-ripple-init
                                 style="color: white; border-radius: 50px; background: linear-gradient(91.89deg, #FF847D 15.5%, #FDAA4A 46%, #3361D8 85.5%); font-size: small;
 "
-                                onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get
+                                onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">
+                            Get
                             Started
                         </button>
                     </div>
                 </div>
             </div>
+<!--            <a href="#" class="logo-text">-->
+<!--                <h5 class="mb-0 ps-1">PortfolioBee</h5>-->
+<!--            </a>-->
             <!--        <div class="signup-btn d-none d-lg-block">-->
             <!--            <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FEBC6F"-->
             <!--                    onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get Started-->
@@ -500,13 +506,22 @@ include 'dbConnection.php';
             <!--        </div>-->
         </div>
     </nav>
-    <div class="intro-banner-container" id="intro-banner">
+    <div class="intro-banner-container" id="intro-banner" style="position: relative">
+        <img src="images/Group%201000001865.svg" alt="dots"
+             style="position: absolute; top: 37%; left: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
+        <img src="images/Group%201000001864.svg" alt="dots"
+             style="position: absolute; top: 80%; right: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
+        <img src="images/Group%201000001881.svg" alt="dots"
+             style="position: absolute; top: 95%; left: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
         <div class="intro-banner d-flex flex-wrap flex-column justify-content-center align-content-center align-items-center pt-4 mb-4 mt-0">
-            <h1 class="text-center fw-bolder text-black">Craft Your Professional</h1>
+            <img src="images/image%2011.svg" alt="round-border" class="img-fluid" style="position: absolute; top: 1%;">
+            <h1 class="text-center fw-bolder text-white">Craft Your Professional</h1>
             <h1 class="text-center fw-bolder gradient-text-header"> Identity with PortfolioBee!</h1>
-            <p class="container text-center">The ultimate platform for showcasing both your academic
+            <p class="container text-center" style="opacity: 90%;">The ultimate platform for showcasing both your
+                academic
                 brilliance and extracurricular triumphs.</p>
-            <div class="app-btn d-flex flex-column d-sm-block">
+            <img src="images/image%2011.svg" alt="round-border" class="img-fluid" style="position: absolute; top: 18%;">
+            <div class="app-btn d-flex flex-column align-items-center d-sm-block">
                 <a href="https://www.apple.com/app-store/" target="_blank">
                     <img src="images/Link_margin.svg" alt="App Store" class="img-fluid app-links">
                 </a>
@@ -514,9 +529,12 @@ include 'dbConnection.php';
                     <img src="images/Link.svg" alt="Play Store" class="img-fluid app-links">
                 </a>
             </div>
-            <img src="images/Group%201000001867.svg" alt="mac-systems"
-                 class="img-fluid my-4 px-4 px-lg-0">
-            <h5 class="text-center text-black">Trusted by <span class="gradient-text">20,000+</span> students &
+            <div class="banner-img">
+                <img src="images/Group%201000001867.svg" alt="mac-systems"
+                     class="img-fluid my-4 px-4 px-lg-0">
+            </div>
+            <h5 class="text-center text-white" style="text-wrap: wrap">Trusted by <span
+                        class="gradient-text">20,000+</span> students &
                 institutions</h5>
         </div>
     </div>
@@ -524,72 +542,82 @@ include 'dbConnection.php';
 
 
 <div class="container-fluid ">
-    <div class="rolling-img">
-        <div class="d-flex justify-content-between">
-            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group.png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(1).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(2).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(3).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group.png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(1).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(2).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group.png" alt="Image 1" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(1).png" alt="Image 2" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(2).png" alt="Image 3" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(3).png" alt="Image 4" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(4).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
-            <img src="./images/Group%20(5).png" alt="Image 5" class="img-fluid m-4"
-                 style="width: 5rem; height: 5rem; border-radius: 100%">
+    <div class="container-fluid">
+        <div class="rolling-img">
+            <div class="d-flex justify-content-between">
+                <img src="./images/Group.png" alt="Image 1" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(1).png" alt="Image 2" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(2).png" alt="Image 3" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(3).png" alt="Image 4" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(4).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(5).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group.png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(1).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(2).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(3).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(4).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(5).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group.png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(1).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(2).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group.png" alt="Image 1" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(1).png" alt="Image 2" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(2).png" alt="Image 3" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(3).png" alt="Image 4" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(4).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(5).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group.png" alt="Image 1" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(1).png" alt="Image 2" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(2).png" alt="Image 3" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(3).png" alt="Image 4" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(4).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+                <img src="./images/Group%20(5).png" alt="Image 5" class="img-thumbnail m-4"
+                     style="width: 5rem; height: 5rem; border-radius: 100%;">
+            </div>
         </div>
     </div>
 
-    <div class="features reveal hidden" id="features">
+    <div class="features reveal hidden" id="features" style="position: relative">
+        <img src="images/Group%201000001880.svg" alt="dots"
+             style="position: absolute; top: -4%; right: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
+        <img src="images/Group%201000001884.svg" alt="dots"
+             style="position: absolute; top: 0%; left: 10%; transform: translate(-10%, -20%);" class="dots img-fluid">
+        <img src="images/Group%201000001892.svg" alt="dots"
+             style="position: absolute; top: 15%; right: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
+        <img src="images/Group%201000001893.svg" alt="dots"
+             style="position: absolute; top: 100%; left: 5%; transform: translate(-10%, -20%);" class="dots img-fluid">
         <div class="head-text d-flex align-items-center" style="position: relative; padding: 1rem 2rem 1rem 2rem;">
             <img src="images/Group%201000001887.svg" alt="lightning" class="img-fluid">
             <div class="head-text p-3">
                 <h2 class="fw-bolder text-white ">Features</h2>
                 <!--            <hr style="width: 8rem; ">-->
-                <div style="background-color: black; width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 65%;"></div>
+                <div style="background: linear-gradient(to right, grey, black);  width: 7.5rem; height: 0.25rem; border-radius: 10%; position: absolute; top: 65%;"></div>
             </div>
         </div>
         <div class="reveal hidden small-screen multi-carousel  d-flex justify-content-center mt-5"
@@ -597,7 +625,8 @@ include 'dbConnection.php';
             <div class="multi-carousel-inner" style="width: 95%;">
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Personalised Dashboard</h4>
                             <img src="./images/Group%201000001885.svg" alt="dashboard" class="img-fluid"
@@ -618,7 +647,8 @@ include 'dbConnection.php';
                 </div>
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card  zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Portfolio</h4>
                             <img src="./images/personal-info%201.svg" alt="portfolio" class="img-fluid"
@@ -638,7 +668,8 @@ include 'dbConnection.php';
                 </div>
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card  zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Review Report</h4>
                             <img src="./images/report%201.svg" alt="resume review" class="img-fluid"
@@ -658,7 +689,8 @@ include 'dbConnection.php';
                 </div>
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card  zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Resume Builder</h4>
                             <img src="./images/resume%20(2).svg" alt="dashboard" class=img-fluid"
@@ -678,7 +710,8 @@ include 'dbConnection.php';
                 </div>
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card  zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">E-mail Signature</h4>
                             <img src="./images/email%20(2).svg" alt="dashboard" class="img-fluid"
@@ -698,7 +731,8 @@ include 'dbConnection.php';
                 </div>
                 <div class="multi-carousel-item" style="height: 100%;">
                     <div class="card  zoom-effect mx-1 h-100"
-                         style="background-color: black; color: white; padding: 2rem; ">
+                         style="background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem; ">
                         <div class="img-feature d-flex justify-content-between align-items-center my-4">
                             <h4 class="my-3 fw-bolder" style=" text-wrap: wrap;">Job Tracker</h4>
                             <img src="./images/map-pointer.svg" alt="dashboard" class="img-fluid"
@@ -729,7 +763,8 @@ include 'dbConnection.php';
             <div class="col-lg-4 p-1 reveal hidden">
 
                 <div class="card zoom-effect"
-                     style="height: 100%; width: 100%; background-color: black; color: white; padding: 2rem;">
+                     style="height: 100%; width: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12); color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Personalised Dashboard</h4>
                         <img src="./images/Group%201000001885.svg" alt="dashboard" class="img-fluid"
@@ -751,7 +786,8 @@ include 'dbConnection.php';
             </div>
             <div class="col-lg-4 p-2 reveal hidden">
                 <div class="card zoom-effect"
-                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                     style="height: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Portfolio</h4>
                         <img src="./images/personal-info%201.svg" alt="dashboard" class="img-fluid"
@@ -773,7 +809,8 @@ include 'dbConnection.php';
 
             <div class="col-lg-4 p-2 reveal hidden">
                 <div class="card zoom-effect"
-                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                     style="height: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Review Report</h4>
                         <img src="./images/report%201.svg" alt="dashboard" class="img-fluid"
@@ -795,7 +832,8 @@ include 'dbConnection.php';
             </div>
             <div class="col-lg-4 p-2 reveal hidden">
                 <div class="card zoom-effect"
-                     style="height: 100%; background-color: black;  color: white; padding: 2rem;">
+                     style="height: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12); color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Resume Builder</h4>
                         <img src="./images/resume%20(2).svg" alt="dashboard" class="img-fluid"
@@ -817,7 +855,8 @@ include 'dbConnection.php';
             </div>
             <div class="col-lg-4 p-2 reveal hidden">
                 <div class="card zoom-effect"
-                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                     style="height: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">E-Mail Signature</h4>
                         <img src="./images/email%20(2).svg" alt="dashboard" class="img-fluid"
@@ -839,7 +878,8 @@ include 'dbConnection.php';
             </div>
             <div class="col-lg-4 p-2 reveal hidden">
                 <div class="card zoom-effect"
-                     style="height: 100%; background-color: black; color: white; padding: 2rem;">
+                     style="height: 100%; background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding: 2rem;">
                     <div class="img-feature d-flex justify-content-between align-items-center mt-4">
                         <h4 class="my-3 fw-bolder" style="text-wrap: wrap;">Job Tracker</h4>
                         <img src="./images/map-pointer.svg" alt="dashboard" class="img-fluid"
@@ -863,7 +903,11 @@ include 'dbConnection.php';
     </div>
 
 
-    <div class="details my-5 reveal hidden">
+    <div class="details my-5 reveal hidden" style="position: relative">
+        <img src="images/Group%201000001865.svg" alt="dots" class="img-fluid dots"
+             style="position: absolute; top: 8%; right: 45%">
+        <img src="images/Group%201000001881.svg" alt="dots" class="img-fluid dots"
+             style="position: absolute; top: 80%; left: 90%">
         <!--        <div class="row align-items-center">-->
         <div class="row align-items-center">
             <div class="special-header   col-12 col-md-6 my-5">
@@ -887,173 +931,139 @@ include 'dbConnection.php';
                      style="padding: 1.5rem;">
             </div>
         </div>
-
-        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-        <!--        <div class="col-12 col-md-6 my-2">-->
-        <!--            <div class="container" style="width: 90%;">-->
-        <!--                <h4 class="fw-bolder text-black">Personalised Dashboard</h4>-->
-        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-        <!--                    elementum-->
-        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-        <!--                    libero-->
-        <!--                    vitae erat.</p>-->
-        <!--            </div>-->
-        <!---->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
-        <!--            <img src="images/image%205.png" alt="feature-1" class="img-fluid">-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!---->
-        <!---->
-        <!--    <div class="row align-items-center">-->
-        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
-        <!--            <img src="images/image%206.png" alt="feature-2" class="img-fluid">-->
-        <!---->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="col-12 col-md-6 my-2">-->
-        <!--            <div class="container" style="width: 90%;">-->
-        <!--                <h4 class="fw-bolder text-black">Portfolio</h4>-->
-        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-        <!--                    elementum-->
-        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-        <!--                    libero-->
-        <!--                    vitae erat.</p>-->
-        <!--            </div>-->
-        <!---->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!---->
-        <!---->
-        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-        <!--        <div class="col-12 col-md-6 my-2">-->
-        <!--            <div class="container" style="width: 90%;">-->
-        <!--                <h4 class="fw-bolder text-black">E-mail Signature</h4>-->
-        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-        <!--                    elementum-->
-        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-        <!--                    libero-->
-        <!--                    vitae erat.</p>-->
-        <!--            </div>-->
-        <!---->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
-        <!--            <img src="images/image%207.png" alt="feature-3" class="img-fluid">-->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!---->
-        <!---->
-        <!--    <div class="row align-items-center ">-->
-        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
-        <!--            <img src="images/image%204.png" alt="feature-4" class="img-fluid">-->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="col-12 col-md-6 my-2">-->
-        <!--            <div class="container" style="width: 90%;">-->
-        <!--                <h4 class="fw-bolder text-black">Resume Review Report</h4>-->
-        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-        <!--                    elementum-->
-        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-        <!--                    libero-->
-        <!--                    vitae erat.</p>-->
-        <!--            </div>-->
-        <!---->
-        <!--        </div>-->
-        <!--    </div>-->
-        <!---->
-        <!---->
-        <!--    <div class="row align-items-center flex-column-reverse flex-md-row">-->
-        <!--        <div class="col-12 col-md-6 my-2">-->
-        <!--            <div class="container" style="width: 90%;">-->
-        <!--                <h4 class="fw-bolder text-black">Job Tracker</h4>-->
-        <!--                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros-->
-        <!--                    elementum-->
-        <!--                    tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam-->
-        <!--                    libero-->
-        <!--                    vitae erat.</p>-->
-        <!--            </div>-->
-        <!---->
-        <!--        </div>-->
-        <!---->
-        <!--        <div class="col-12 col-md-6 my-2 text-center">-->
-        <!--            <img src="images/image%208.png" alt="feature-5" class="img-fluid">-->
-        <!--        </div>-->
-        <!--    </div>-->
     </div>
-    <div class="what-you-get">
+    <div class="what-you-get d-flex flex-column align-items-center">
         <div class="reveal hidden first-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
-            <img src="images/Group%201000001927.svg" alt="data-report" class="img-fluid my-4">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: 15%">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; right: 15%">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 50%; left: 10%; rotate: 90deg;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 80%; right: 10%;">
+            <img src="images/Group%201000001927.svg" alt="data-report" class="img-fluid my-4"
+                 style="border: 2px solid; border-image-source: linear-gradient(130.15deg, #FF8181 0%, #F5BA79 4.01%, #6A94FF 7.29%, #28292C 10.2%);">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Career Dashboard:</p>
                 <p class="h2 gradient-text-header text-center">Tracking Your Success Story</p>
             </div>
-            <p style="opacity: 60%;">Insights. Progress. Success.</p>
+            <p style="opacity: 90%;">Insights. Progress. Success.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001911%20(1).svg" alt="portfoliobee-dashboard" class="img-fluid">
+                <img src="images/Group%201000001935.svg" alt="portfoliobee-dashboard" class="img-fluid" style="">
             </div>
         </div>
         <div class="second-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative;">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; left: 15%;">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; right: 15%;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 27%; left: 12%;">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 92%; right: 15%;">
             <img src="images/Group%201000001926.svg" alt="personal-info" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Personal Portfolio:</p>
                 <p class="h2 gradient-text-header text-center">Showcasing Your Success Journey</p>
             </div>
-            <p style="opacity: 60%;">Achievements. Growth. Legacy.</p>
+            <p style="opacity: 90%;">Achievements. Growth. Legacy.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001912%20(1).svg" alt="portfoliobee" class="img-fluid">
+                <img src="images/Group%201000001936.svg" alt="portfoliobee" class="img-fluid">
             </div>
         </div>
         <div class="third-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; left: 15%;">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; right: 15%;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 37%; right: 12%;">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 88%; left: 15%;">
             <img src="images/Group%201000001928.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Signature:</p>
                 <p class="h2 gradient-text-header text-center">Highlighting Your Career Journey</p>
             </div>
-            <p style="opacity: 60%;">Professional. Reliable. Achieved.</p>
+            <p style="opacity: 90%;">Professional. Reliable. Achieved.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001913.svg" alt="portfoliobee-dashboard" class="img-fluid">
+                <img src="images/Group%201000001937.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="fourth-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; left: 15%;">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; right: 15%;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 37%; left: 12%;">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 90%; right: 15%;">
             <img src="images/Group%201000001929.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Resume:</p>
                 <p class="h2 gradient-text-header text-center">Optimized for Success</p>
             </div>
-            <p style="opacity: 60%;">Review. Refine. Succeed.</p>
+            <p style="opacity: 90%;">Review. Refine. Succeed.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001914.svg" alt="portfoliobee-dashboard" class="img-fluid">
+                <img src="images/Group%201000001938.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="fifth-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; left: 15%;">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; right: 15%;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 87%; right: 12%;">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 35%; left: 10%; rotate: 90deg;">
             <img src="images/Group%201000001930.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Craft Your Resume:</p>
                 <p class="h2 gradient-text-header text-center">Tailored for Success</p>
             </div>
-            <p style="opacity: 60%;">Build. Enhance. Excel.</p>
+            <p style="opacity: 90%;">Build. Enhance. Excel.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001915%20(2).svg" alt="portfoliobee-dashboard" class="img-fluid">
+                <img src="images/Group%201000001939.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
         <div class="sixth-item d-flex flex-column justify-content-center align-items-center"
-             style="margin-top: 6rem; margin-bottom: 6rem">
+             style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
+            <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -5%; left: calc(50%); transform: translateX(-50%)">
+            <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; left: 15%;">
+            <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -4%; right: 15%;">
+            <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 87%; left: 12%;">
+            <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: 43%; right: 10%; rotate: 90deg;">
             <img src="images/Group%201000001931.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Track Your Applications:</p>
                 <p class="h2 gradient-text-header text-center">Stay Ahead in Your Job Search</p>
             </div>
-            <p style="opacity: 60%;">Monitor. Progress. Succeed.</p>
+            <p style="opacity: 90%;">Monitor. Progress. Succeed.</p>
             <div class="img-container" style="width: 80%;">
-                <img src="images/Group%201000001916.svg" alt="portfoliobee-dashboard" class="img-fluid">
+                <img src="images/Group%201000001940.svg" alt="portfoliobee-dashboard" class="img-fluid">
             </div>
         </div>
 
@@ -1062,7 +1072,15 @@ include 'dbConnection.php';
 
     <div class="mentions  d-flex flex-column justify-content-center align-items-center my-4 reveal hidden"
          id="mentions">
-        <div class="mentions-header text-center my-3">
+        <div class="mentions-header text-center my-3" style="position: relative">
+            <img src="images/Group%201000001907.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -150%; left: -100%;">
+            <img src="images/Group%201000001907%20(1).svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; top: -150%; right: -100%;">
+            <img src="images/Group%201000001920.svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; left: -60%">
+            <img src="images/Group%201000001920%20(1).svg" alt="dots" class="img-fluid dots"
+                 style="position: absolute; right: -60%">
             <h2 class="text-white text-center fw-bolder">They love Portfoliobee</h2>
             <h2 class="gradient-text-header">you will too!</h2>
         </div>
@@ -1075,12 +1093,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1091,12 +1109,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1107,12 +1125,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1123,12 +1141,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1139,12 +1157,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1155,12 +1173,12 @@ include 'dbConnection.php';
                             <img src="images/Ellipse%203.png" alt="display_pic" class="img-fluid"
                                  style="width: 8rem; height: 8rem;">
                         </div>
-                        <div class="card-body p-2">
+                        <div class="card-body p-2 carousel-card-body">
 
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
                                 varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor
                                 interdum.</p>
-                            <h3 class="card-title text-black">Rahul Sharma</h3>
+                            <h3 class="card-title text-white">Rahul Sharma</h3>
                             <h6 class="card-title" style="opacity: 80%">Full Stack Developer</h6>
                         </div>
                     </div>
@@ -1170,152 +1188,161 @@ include 'dbConnection.php';
             <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls"
                     data-mdb-slide="prev">
                 <!--            <i class="carousel-control-prev-icon fas fa-2x fa-angle-left gradient-icon"></i>-->
-<!--                <i class="far fa-circle-left fa-2x gradient-icon"></i>-->
-                <img src="images/Group%201000001932.svg" alt="left" class="mentions-arrow" style="width: 4rem; height: 4rem;">
+                <!--                <i class="far fa-circle-left fa-2x gradient-icon"></i>-->
+                <img src="images/Group%201000001932.svg" alt="left" class="mentions-arrow"
+                     style="width: 4rem; height: 4rem;">
             </button>
             <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls"
                     data-mdb-slide="next">
                 <!--            <i class="carousel-control-next-icon fas fa-2x fa-angle-right gradient-icon"></i>-->
-<!--                <i class="far fa-circle-right fa-2x gradient-icon"></i>-->
-                <img src="images/Group%201000001933.svg" alt="right" class="mentions-arrow" style="width: 4rem; height: 4rem;">
+                <!--                <i class="far fa-circle-right fa-2x gradient-icon"></i>-->
+                <img src="images/Group%201000001933.svg" alt="right" class="mentions-arrow"
+                     style="width: 4rem; height: 4rem;">
             </button>
         </div>
     </div>
-    <div class="faq  d-flex flex-column justify-content-center reveal hidden">
+    <div class="faq  d-flex flex-column justify-content-center reveal hidden" style="position: relative">
+        <img src="images/Group%201000001924.svg" alt="dots" class="img-fluid dots"
+             style="position: absolute; top: 5%; left: 2%">
+        <img src="images/Group%201000001925.svg" alt="dots" class="img-fluid dots"
+             style="position: absolute; top: 85%; right: 4%">
         <h2 class="text-center my-5 text-white fw-bolder">Frequently Asked Questions</h2>
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button
+        <div class="faq-container d-flex justify-content-center">
+            <div class="accordion accordion-flush" id="accordionFlushExample" style="width: 85%">
+                <div class="accordion-item py-4">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseOne"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseOne"
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#flush-collapseOne"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseOne"
 
+                        >
+                            How does PortfolioBee work?
+                            <i class="fas fa-chevron-right accordion-arrow"></i>
+                        </button>
+                    </h2>
+                    <div
+                            id="flush-collapseOne"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne"
+                            data-mdb-parent="#accordionFlushExample"
                     >
-                        How does PortfolioBee work?
-                        <i class="fas fa-chevron-right accordion-arrow"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseOne"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne"
-                        data-mdb-parent="#accordionFlushExample"
-                >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
+                        <div class="accordion-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                            et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                            heard of them accusamus labore sustainable VHS.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                    <button
+                <div class="accordion-item py-4">
+                    <h2 class="accordion-header" id="flush-headingTwo">
+                        <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseTwo"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseTwo"
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#flush-collapseTwo"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseTwo"
+                        >
+                            Is PortfolioBee free to use?
+                            <i class="fas fa-chevron-right accordion-arrow"></i>
+                        </button>
+                    </h2>
+                    <div
+                            id="flush-collapseTwo"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingTwo"
+                            data-mdb-parent="#accordionFlushExample"
                     >
-                        Is PortfolioBee free to use?
-                        <i class="fas fa-chevron-right accordion-arrow"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseTwo"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingTwo"
-                        data-mdb-parent="#accordionFlushExample"
-                >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
+                        <div class="accordion-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                            et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                            heard of them accusamus labore sustainable VHS.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button
+                <div class="accordion-item py-4">
+                    <h2 class="accordion-header" id="flush-headingThree">
+                        <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseThree"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseThree"
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#flush-collapseThree"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseThree"
+                        >
+                            Can I customize my portfolio?
+                            <i class="fas fa-chevron-right accordion-arrow"></i>
+                        </button>
+                    </h2>
+                    <div
+                            id="flush-collapseThree"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingThree"
+                            data-mdb-parent="#accordionFlushExample"
                     >
-                        Can I customize my portfolio?
-                        <i class="fas fa-chevron-right accordion-arrow"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingThree"
-                        data-mdb-parent="#accordionFlushExample"
-                >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
+                        <div class="accordion-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                            et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                            heard of them accusamus labore sustainable VHS.
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="accordion-item py-4">
-                <h2 class="accordion-header" id="flush-headingFour">
-                    <button
+                <div class="accordion-item py-4">
+                    <h2 class="accordion-header" id="flush-headingFour">
+                        <button
 
-                            class="accordion-button collapsed"
-                            type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#flush-collapseFour"
-                            aria-expanded="false"
-                            aria-controls="flush-collapseFour"
+                                class="accordion-button collapsed"
+                                type="button"
+                                data-mdb-toggle="collapse"
+                                data-mdb-target="#flush-collapseFour"
+                                aria-expanded="false"
+                                aria-controls="flush-collapseFour"
+                        >
+                            How can I share my portfolio?
+                            <i class="fas fa-chevron-right accordion-arrow"></i>
+                        </button>
+                    </h2>
+                    <div
+                            id="flush-collapseFour"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingFour"
+                            data-mdb-parent="#accordionFlushExample"
                     >
-                        How can I share my portfolio?
-                        <i class="fas fa-chevron-right accordion-arrow"></i>
-                    </button>
-                </h2>
-                <div
-                        id="flush-collapseFour"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingFour"
-                        data-mdb-parent="#accordionFlushExample"
-                >
-                    <div class="accordion-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
-                        et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                        sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
-                        craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
-                        heard of them accusamus labore sustainable VHS.
+                        <div class="accordion-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                            richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                            brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                            sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                            et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat
+                            craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't
+                            heard of them accusamus labore sustainable VHS.
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
@@ -1330,7 +1357,7 @@ include 'dbConnection.php';
                             <img src="images/path0%20(1).png" alt="Logo" class="img-fluid me-1">
                             <h5 class="mb-0 ps-1 gradient-text">PortfolioBee</h5>
                         </div>
-                        <div class="d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
+                        <div class="bottom-feature d-flex flex-column flex-sm-row justify-content-around align-items-center mb-sm-3 mb-md-0"
                              style="width: 40%">
 
                             <a class="nav-link mb-3 mb-sm-0 fw-semibold zoom-effect" aria-current="page"
@@ -1344,9 +1371,15 @@ include 'dbConnection.php';
 
                         </div>
                         <div class="media-links d-flex justify-content-between" style="width: 15%; color: white;">
-                            <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            <span class="instagram">
+                                <i class="fab fa-instagram fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            </span>
+                            <span class="linkedin">
                             <i class="fab fa-linkedin-in fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            </span>
+                            <span class="twitter">
                             <i class="fab fa-twitter fa-lg zoom-effect-icon" style="cursor: pointer"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
