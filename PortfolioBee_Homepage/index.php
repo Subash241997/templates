@@ -440,6 +440,10 @@ include 'dbConnection.php';
                 margin-top: 1rem;
             }
         }
+        .get-started-btn{
+            background: var(--www-dimension-dev-zumthor-1-radial-zumthor-zumthor-radial-malibu-malibu, radial-gradient(100% 103.78% at 50% 0%, rgba(118, 146, 255, 0.00) 80.55%, rgba(122, 150, 255, 0.04) 100%), radial-gradient(100% 120.05% at 50% 0%, rgba(226, 232, 255, 0.00) 33.78%, rgba(226, 232, 255, 0.08) 100%), rgba(226, 232, 255, 0.01));
+            box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);
+        }
 
     </style>
 </head>
@@ -919,8 +923,8 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros
                         elementum
                         tristique. Duis cursus, mi quis viverra ornare.</p>
-                    <button type="button" class="btn btn-dark" data-mdb-ripple-init style="color: #FF857C"
-                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'});">Get
+                    <button type="button" class="get-started-btn btn btn-dark" data-mdb-ripple-init style="color: #FF857C"
+                            onclick="document.getElementById('find-plan').scrollIntoView({behavior: 'smooth'}); ">Get
                         Started
                     </button>
                 </div>
