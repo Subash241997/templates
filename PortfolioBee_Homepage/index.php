@@ -905,7 +905,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
 
     <div class="details my-5 reveal hidden" style="position: relative">
         <img src="images/Group%201000001865.svg" alt="dots" class="img-fluid dots"
-             style="position: absolute; top: 8%; right: 45%">
+             style="position: absolute; top: 8%; right: 42%">
         <img src="images/Group%201000001881.svg" alt="dots" class="img-fluid dots"
              style="position: absolute; top: 80%; left: 90%">
         <!--        <div class="row align-items-center">-->
