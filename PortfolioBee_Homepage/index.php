@@ -942,9 +942,9 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -5%; right: 15%">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 50%; left: 10%; rotate: 90deg;">
+                 style="position: absolute; top: 50%; left: 0%; rotate: 90deg;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 80%; right: 10%;">
+                 style="position: absolute; top: 80%; right: 0%;">
             <img src="images/Group%201000001927.svg" alt="data-report" class="img-fluid my-4"
                  style="border: 2px solid; border-image-source: linear-gradient(130.15deg, #FF8181 0%, #F5BA79 4.01%, #6A94FF 7.29%, #28292C 10.2%);">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
@@ -965,9 +965,9 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; right: 15%;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 27%; left: 12%;">
+                 style="position: absolute; top: 27%; left: 3%;">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 92%; right: 15%;">
+                 style="position: absolute; top: 92%; right: 10%;">
             <img src="images/Group%201000001926.svg" alt="personal-info" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Personal Portfolio:</p>
@@ -987,9 +987,9 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; right: 15%;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 37%; right: 12%;">
+                 style="position: absolute; top: 37%; right: 5%;">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 88%; left: 15%;">
+                 style="position: absolute; top: 88%; left: 10%;">
             <img src="images/Group%201000001928.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Your Signature:</p>
@@ -1009,7 +1009,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; right: 15%;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 37%; left: 12%;">
+                 style="position: absolute; top: 37%; left: 5%;">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: 90%; right: 15%;">
             <img src="images/Group%201000001929.svg" alt="data-report" class="img-fluid my-4">
@@ -1031,9 +1031,9 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; right: 15%;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 87%; right: 12%;">
+                 style="position: absolute; top: 87%; right: 8%;">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 35%; left: 10%; rotate: 90deg;">
+                 style="position: absolute; top: 35%; left: 5%; rotate: 90deg;">
             <img src="images/Group%201000001930.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Craft Your Resume:</p>
@@ -1053,9 +1053,9 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; right: 15%;">
             <img src="images/Group%201000001864.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 87%; left: 12%;">
+                 style="position: absolute; top: 87%; left: 8%;">
             <img src="images/Group%201000001893.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: 43%; right: 10%; rotate: 90deg;">
+                 style="position: absolute; top: 43%; right: 4%; rotate: 90deg;">
             <img src="images/Group%201000001931.svg" alt="data-report" class="img-fluid my-4">
             <div class="d-flex flex-column justify-content-center align-items-center my-4">
                 <p class="h2 text-white fw-bold text-center">Track Your Applications:</p>
