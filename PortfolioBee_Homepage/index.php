@@ -926,7 +926,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
                 </div>
 
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 d-flex justify-content-center">
                 <img src="images/Group%201000001904.svg" alt="portfolio-ring" class="img-fluid"
                      style="padding: 1.5rem;">
             </div>
