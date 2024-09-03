@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="" />
+    <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +19,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
+    <include_path>
+      <path value="$PROJECT_DIR$/../../bin" />
+    </include_path>
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -27,21 +33,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/subashmandal/Documents/GitHub/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/archishmandash/Documents/github/templates/Portfoliobee&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Portfoliobee" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -59,23 +73,55 @@
       <option name="presentableId" value="Default" />
       <updated>1721108262445</updated>
       <workItem from="1721108263449" duration="10062000" />
-      <workItem from="1721276130002" duration="21502000" />
-      <workItem from="1721369126925" duration="40000" />
+      <workItem from="1721276130002" duration="22144000" />
+      <workItem from="1721367314091" duration="8460000" />
+      <workItem from="1721624362505" duration="10151000" />
+      <workItem from="1721643598430" duration="1691000" />
+      <workItem from="1721645439969" duration="589000" />
+      <workItem from="1721646146823" duration="6200000" />
+      <workItem from="1721710660998" duration="21975000" />
+      <workItem from="1721796154573" duration="24873000" />
+      <workItem from="1721882951069" duration="25162000" />
+      <workItem from="1722227627480" duration="21792000" />
+      <workItem from="1722314339995" duration="24875000" />
+      <workItem from="1722401016342" duration="19509000" />
+      <workItem from="1722487799921" duration="1306000" />
+      <workItem from="1722940144916" duration="4389000" />
+      <workItem from="1723006961690" duration="1473000" />
+      <workItem from="1723012179349" duration="3298000" />
+      <workItem from="1723094655120" duration="6909000" />
+      <workItem from="1723179982001" duration="3205000" />
+      <workItem from="1723437843569" duration="21728000" />
+      <workItem from="1723467763743" duration="105000" />
+      <workItem from="1723531373315" duration="3799000" />
+      <workItem from="1723536570161" duration="11279000" />
+      <workItem from="1723610778480" duration="20596000" />
+      <workItem from="1723783741685" duration="18048000" />
+      <workItem from="1724129343049" duration="19583000" />
+      <workItem from="1724214978752" duration="9645000" />
+      <workItem from="1724302606315" duration="23228000" />
+      <workItem from="1724331324821" duration="14000" />
+      <workItem from="1724331467580" duration="246000" />
+      <workItem from="1724331917806" duration="343000" />
+      <workItem from="1724388585262" duration="11856000" />
+      <workItem from="1724406880737" duration="128000" />
+      <workItem from="1724651282944" duration="18799000" />
+      <workItem from="1724733973029" duration="6309000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/ajax/deleteUser.php</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
