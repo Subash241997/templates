@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/College placement portal/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" afterDir="false" />
     </list>
@@ -37,7 +38,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/archishmandash/Documents/github/templates/Portfoliobee&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/archishmandash/Documents/github/templates/College placement portal&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -49,6 +50,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/College placement portal" />
       <recent name="$PROJECT_DIR$/Portfoliobee" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -106,7 +108,15 @@
       <workItem from="1724388585262" duration="11856000" />
       <workItem from="1724406880737" duration="128000" />
       <workItem from="1724651282944" duration="18799000" />
-      <workItem from="1724733973029" duration="6309000" />
+      <workItem from="1724733973029" duration="11865000" />
+      <workItem from="1724827867957" duration="1910000" />
+      <workItem from="1724840117835" duration="1430000" />
+      <workItem from="1724931150902" duration="1984000" />
+      <workItem from="1726135891171" duration="9212000" />
+      <workItem from="1726202413476" duration="22658000" />
+      <workItem from="1726468510379" duration="785000" />
+      <workItem from="1726469639819" duration="16472000" />
+      <workItem from="1726549869225" duration="3717000" />
     </task>
     <servers />
   </component>

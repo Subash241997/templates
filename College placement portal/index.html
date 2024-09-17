@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Font Awesome -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+            rel="stylesheet"
+    />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', 'Sales', 'Expenses'],
+                ['2004', 1000, 400],
+                ['2005', 1170, 460],
+                ['2006', 660, 1120],
+                ['2007', 1030, 540]
+            ]);
+
+            var options = {
+                title: 'Company Performance',
+                curveType: 'function',
+                legend: {position: 'bottom'},
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+        function resizeChart() {
+            // Redraw the chart when resizing
+            drawChart();
+        }
+
+        google.charts.load('current', {'packages': ['corechart']});
+        google.charts.setOnLoadCallback(function () {
+            drawChart(); // Initial chart draw
+            window.addEventListener('resize', resizeChart); // Redraw on resize
+        });
+    </script>
+    <style>
+        body {
+            background-color: #F4F6F9;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .details {
+            flex-basis: 66%;
+        }
+
+        .meetings-and-developed {
+            flex-basis: 33%;
+        }
+
+        .progress {
+            background-color: #e9ecef; /* Light gray background */
+            border-radius: .25rem; /* Rounded corners */
+            height: 0.5rem; /* Height of the progress bar */
+            width: 65%; /* Full width of the container */
+            margin: 0 1.5rem 0 1.5rem;
+        }
+
+        .progress-bar {
+            background-color: #007bff; /* Blue color for the progress bar */
+            height: 100%; /* Full height of the container */
+            width: 75%; /* Width of the progress (75% in this case) */
+            transition: width .6s ease; /* Smooth transition effect */
+            border-radius: .25rem; /* Rounded corners for the progress bar */
+        }
+
+        .user-btns-desktop {
+            display: flex;
+        }
+
+        .user-btns-mobile {
+            display: none !important;
+        }
+
+        .custom-select {
+            padding: 1rem;
+            border-radius: 20rem;
+            display: flex;
+            align-items: center;
+            background: #fff;
+            position: relative;
+        }
+
+        .custom-select-inner {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        #dropdownMenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 10px;
+            background: #fff;
+            z-index: 1000;
+        }
+
+        #dropdownMenu div {
+            padding: 0.5rem;
+            cursor: pointer;
+        }
+
+        #dropdownMenu div:hover {
+            background: #f0f0f0;
+        }
+
+        .selected {
+            background: #e0e0e0;
+        }
+
+        .card {
+            border-radius: 1.5rem;
+        }
+
+        .avg-cards-one {
+            background: linear-gradient(to right, #FCCFC2, #EEE5F3);
+        }
+
+        .avg-cards-two {
+            background: linear-gradient(to right, #E2F1FD, #C5F5FA);
+        }
+
+        .vertical-line {
+            display: block;
+        }
+
+        .horizontal-line {
+            display: none;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .vertical-line {
+                display: none;
+            }
+
+            .horizontal-line {
+                display: block;
+            }
+        }
+
+        @media only screen and (max-width: 1320px) {
+            .user-btns-desktop {
+                display: none !important;
+            }
+
+            .user-btns-mobile {
+                display: block !important;
+            }
+        }
+
+        #curve_chart {
+            width: 100%; /* Chart width to fit container */
+            height: 100%; /* Chart height to fit container */
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="main d-flex flex-column flex-xl-row">
+        <div class="details">
+            <nav class="navbar navbar-light bg-body-tertiary mx-4"
+                 style="border: none !important; box-shadow: none !important; background-color: transparent !important; margin-top: 2rem;">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <!--                    <div class="user-img-nav-bar ">-->
+                    <!--                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Person_Image_Placeholder.png?20230410144854" style="width: 3rem; height: 3rem; border-radius: 50%">-->
+                    <!--                    </div>-->
+                    <div class="user-intro d-flex align-items-center">
+                        <img src="images/favicon%20(4).ico"
+                             style="width: 3rem; height: 3rem; border-radius: 50%; margin-right: 0.5rem;">
+                        <div class="nav-intro">
+                            <h4 class="navbar-brand text-black mb-0">Welcome, Kristin</h4>
+                            <p class="text-muted mb-0">Your personal dashboard overview</p>
+                        </div>
+
+                    </div>
+                    <div class="form-and-img d-flex justify-content-between align-items-center">
+                        <form class="d-flex input-group w-auto">
+                            <input
+                                    type="search"
+                                    class="form-control rounded"
+                                    placeholder="Search"
+                                    aria-label="Search"
+                                    aria-describedby="search-addon"
+                                    style="padding-left: 3.5rem;  border-radius: 20rem !important; background: url('images/icons8-magnifying-glass-30.svg') no-repeat ; background-color: #E2E3E8"
+                            />
+                        </form>
+                        <div class="user-img mx-3">
+                            <img src="images/469-536x354.jpg"
+                                 style="width: 3rem; height: 3rem; border-radius: 50%">
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+
+            <div class="interactive-cards">
+                <div class="row m-3">
+                    <div class="col-12 col-lg-5 my-2">
+                        <div class="card h-100 p-3">
+                            <div class="head-text d-flex justify-content-between align-items-center mt-1">
+                                <p class="mb-0">Profile</p>
+                                <button style="background-color: transparent; width: 2rem; height: 2rem; border:none; border-radius: 100%">
+                                    <i class="fas  fa-arrow-rotate-right"></i>
+                                </button>
+                            </div>
+                            <div class="user-img d-flex justify-content-center align-items-center my-2">
+                                <img src="images/610-536x354.jpg"
+                                     alt="user" class="img-thumbnail"
+                                     style="width: 6rem; height: 6rem; -webkit-border-radius: 50%;">
+                            </div>
+                            <div class="user-intro-text text-center">
+                                <h6 class="text-black">Kristin Watson</h6>
+                                <p class="text-muted">Design Manager</p>
+                            </div>
+                            <div class="user-btns-desktop d-flex flex-column flex-xl-row justify-content-lg-around align-items-center pt-5 mt-4">
+                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init
+                                        data-mdb-ripple-color="dark">
+                                    <i class="fas fa-user-group" style="color: #FF2C01;"></i>
+                                    <span class="mx-2" style="color: #FF2C01;">11</span>
+                                </button>
+                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init
+                                        data-mdb-ripple-color="dark">
+                                    <i class="fas fa-check" style="color: #FF2C01;"></i>
+                                    <span class="mx-2" style="color: #FF2C01;">56</span>
+                                </button>
+                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init
+                                        data-mdb-ripple-color="dark">
+                                    <i class="fas fa-trophy" style="color: #FF2C01;"></i>
+                                    <span class="mx-2" style="color: #FF2C01;">12</span>
+                                </button>
+                            </div>
+
+                            <div class="user-btns-mobile d-flex justify-content-center pt-5 mt-4">
+                                <div class="row text-center">
+                                    <div class="col-6 ">
+                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init
+                                                data-mdb-ripple-color="dark">
+                                            <i class="fas fa-user-group" style="color: #FF2C01;"></i>
+                                            <span class="mx-2" style="color: #FF2C01;">11</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init
+                                                data-mdb-ripple-color="dark">
+                                            <i class="fas fa-check" style="color: #FF2C01;"></i>
+                                            <span class="mx-2" style="color: #FF2C01;">56</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init
+                                                data-mdb-ripple-color="dark">
+                                            <i class="fas fa-trophy" style="color: #FF2C01;"></i>
+                                            <span class="mx-2" style="color: #FF2C01;">12</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-7 my-2">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card avg-cards-one" style="background: linear-gradient(315deg, #D3CCED, #EF8B7A, #F2B5D7, #F5EEF3)
+">
+                                    <div class="card-header border-0 pt-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="lead">Prioritized tasks</h6>
+                                            <div class="stopwatch-icon d-flex justify-content-center align-items-center"
+                                                 style="  border: 1px solid grey; border-radius: 30%">
+                                                <button style="background-color: transparent; border: none">
+                                                    <i class="fas fa-stopwatch m-3"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer text-black border-0 pt-4" style="margin-top: 4rem;">
+                                        <h4>83%</h4>
+                                        <p class="text-black">Avg Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card avg-cards-two"
+                                     style="background: linear-gradient(270deg, #A0F3EB, #E8F3FC, #7EBCF3)">
+                                    <div class="card-header border-0 pt-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <h6 class="lead">Additional tasks</h6>
+                                            <div class="tick-icon d-flex justify-content-center align-items-center"
+                                                 style="  border: 1px solid grey; border-radius: 30%">
+                                                <button style="background-color: transparent; border: none">
+                                                    <i class="fas fa-check m-3"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer text-black border-0 pt-4" style="margin-top: 4rem;">
+                                        <h4>56%</h4>
+                                        <p class="text-black">Avg Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card mt-3" style="background-color: #E2E3E8;">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="track">
+                                                <h6 class="text-black">Trackers connected</h6>
+                                                <p class="text-muted mb-0">3 active connections</p>
+                                            </div>
+                                            <div class="btn-three-dots d-flex justify-content-between align-items-center">
+                                                <div class="btns mx-3">
+                                                    <div class="social-link-btns d-flex justify-content-center align-items-center"
+                                                         style="position: relative;">
+                                                        <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                             style="position:absolute;right: 4rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                            <button class="m-2 "
+                                                                    style="background-color: transparent; border: none;">
+                                                                <i class="fab fa-lg fa-figma"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                             style="position:absolute;right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+
+                                                            <button class="m-2"
+                                                                    style="background-color: transparent; border: none;">
+                                                                <i class="fab fa-lg fa-slack"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                             style="position:absolute;right: 0rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                            <button class="m-2"
+                                                                    style="background-color: transparent; border: none;">
+                                                                <i class="fab fa-lg fa-trello"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                                    <!--                                           <buttons class="m-2">-->
+                                                    <!--                                               <i class="fab fa-lg fa-figma"></i>-->
+                                                    <!--                                           </buttons>-->
+                                                    <!--                                           </span>-->
+                                                    <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;" >-->
+                                                    <!--                                           <buttons class="m-2" >-->
+                                                    <!--                                               <i class="fab fa-lg fa-slack"></i>-->
+                                                    <!--                                           </buttons>-->
+                                                    <!--                                           </span>-->
+                                                    <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                                    <!--                                           <buttons class="m-2">-->
+                                                    <!--                                               <i class="fab fa-lg fa-trello"></i>-->
+                                                    <!--                                           </buttons>-->
+                                                    <!--                                           </span>-->
+                                                </div>
+                                                <div class="three-dots">
+                                                    <button style="background-color: transparent; border: none;">
+                                                        <i class="fas fa-ellipsis"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="focus mx-4 my-4 ">
+                <div class="focus-head-div d-flex justify-content-between">
+                    <div class="focus-head">
+                        <h4 class="text-black">Focusing</h4>
+                        <p class="text-muted">Productivity analytics</p>
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-select-wrapper">
+                            <div class="custom-select">
+                                <span class="mx-2">Range:</span>
+                                <div class="custom-select-inner">
+                                    <span id="selectedOption">Last month</span>
+                                    <button id="openSelect" style="border: none; background-color: transparent;">
+                                        <i class="fas fa-angle-down"></i>
+                                    </button>
+                                    <div id="dropdownMenu" class="dropdown-menu mt-3">
+                                        <div data-value="thisMonth">This month</div>
+                                        <div data-value="lastMonth" class="selected">Last month</div>
+                                        <div data-value="last3Months">Last 3 months</div>
+                                        <div data-value="last6Months">Last 6 months</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-div" style="width: 100%; height: 30rem; position: relative">
+                    <div id="curve_chart"></div>
+                    <div class="calculated-percentage" style="position: absolute; bottom: 5%; right: 5%;">
+                        <h4>41%</h4>
+                        <p class="mb-0">Avg. conc-ion</p>
+                    </div>
+                    <!--                    <div class="max-min-legend d-flex flex-column flex-lg-row"-->
+                    <!--                         style="position: absolute; bottom: 5%; left: 5%;">-->
+                    <!--                        <div class="purple-legend d-flex align-items-center me-2">-->
+                    <!--                            <div class="purple-box"-->
+                    <!--                                 style="width: 0.75rem; height: 0.75rem; background-color: mediumpurple; margin-right: 0.5rem;"></div>-->
+                    <!--                            <p class="mb-0">Maximun of focus</p>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="orange-legend d-flex align-items-center">-->
+                    <!--                            <div class="purple-box"-->
+                    <!--                                 style="width: 0.75rem; height: 0.75rem; background-color: darksalmon; margin-right: 0.5rem;"></div>-->
+                    <!--                            <p class="mb-0">Min or lack of focus</p>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="vertical-line">
+            <svg class="mx-4 my-4" height="100%" width="1">
+                <line x1="1" y1="5" x2="1" y2="95%" stroke="lightgrey" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="horizontal-line">
+            <svg class="mx-2 my-4" height="1" width="100%">
+                <line x1="5" y1="1" x2="95%" y2="1" stroke="lightgrey" stroke-width="2"/>
+            </svg>
+        </div>
+        <div class="meetings-and-developed my-3">
+            <div class="container">
+                <div class="meeting-div-head d-flex justify-content-between align-items-center"
+                     style="margin-top: 2rem; margin-bottom: 2rem;">
+                    <h4 class="text-black">My meetings</h4>
+                    <button style="background-color: white; border-radius: 50%; border: none;     width: 3rem;
+    border: none;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;">
+                        <i class="far fa-calendar m-3"></i>
+                    </button>
+                </div>
+                <div class="meeting-details">
+                    <div class="row my-2">
+                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                            <div class="meeting-timings">
+                                <h6 class="text-muted">Tue, 11 Jul</h6>
+                                <p class="fw-semibold text-black">08:15 am</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+                            <div class="meeting-name">
+                                <h6 class="text-black">Quick daily meeting</h6>
+                                <p class="text-muted">
+                                    <i class="fab fa-meetup"></i>
+                                    Zoom
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
+                            <div class="meeting-link">
+                                <button style="background-color: transparent; border: none;">
+                                    <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-2" style="height: 1rem;">
+                    <div class="row my-2">
+                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                            <div class="meeting-timings">
+                                <h6 class="text-muted">Tue, 11 Jul</h6>
+                                <p class="fw-semibold text-black">09:30 am</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+                            <div class="meeting-name">
+                                <h6 class="text-black">John onboarding</h6>
+                                <p class="text-muted">
+                                    <i class="fab fa-meetup"></i>
+                                    Google meet
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
+                            <div class="meeting-link">
+                                <button style="background-color: transparent; border: none;">
+                                    <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-2" style="height: 1rem;">
+                    <div class="row my-2">
+                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                            <div class="meeting-timings">
+                                <h6 class="text-muted">Tue, 11 Jul</h6>
+                                <p class="fw-semibold text-black">02:30 pm</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+                            <div class="meeting-name">
+                                <h6 class="text-black">Call with a new team</h6>
+                                <p class="text-muted">
+                                    <i class="fab fa-meetup"></i>
+                                    Google meet
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
+                            <div class="meeting-link">
+                                <button style="background-color: transparent; border: none;">
+                                    <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-2" style="height: 1rem;">
+                    <div class="row my-2">
+                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                            <div class="meeting-timings">
+                                <h6 class="text-muted">Tue, 11 Jul</h6>
+                                <p class="fw-semibold text-black">04:00 pm</p>
+                            </div>
+                        </div>
+                        <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+                            <div class="meeting-name">
+                                <h6 class="text-black">Lead designers event</h6>
+                                <p class="text-muted">
+                                    <i class="fab fa-meetup"></i>
+                                    Zoom
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
+                            <div class="meeting-link">
+                                <button style="background-color: transparent; border: none;">
+                                    <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="see-all-meetings d-flex justify-content-center align-items-center">
+                        <p class="mb-0 mx-2 text-muted">See all meetings</p>
+                        <button style="background-color: transparent; border: none;">
+                            <i class="fas fa-angle-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="developed-head ">
+                <div class="container">
+                    <div class="developed-head-text  my-5">
+                        <h4 class="text-black">Developed areas</h4>
+                        <p class="text-muted">Most common area of interest</p>
+                    </div>
+                    <div class="developed-content">
+                        <!--                    <div class="soft-skills d-flex justify-content-between align-items-center m-4">-->
+                        <!--                        <p class="lead mb-0">Soft skills</p>-->
+                        <!--                        <div class="progress">-->
+                        <!--                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>-->
+                        <!--                        </div>-->
+                        <!--                        <p class="mb-0 mx-0">71%</p>-->
+                        <!--                        <svg class="mx-4" height="40" width="2">-->
+                        <!--                            <line x1="1" y1="0" x2="1" y2="100" stroke="black" stroke-width="2"/>-->
+                        <!--                        </svg>-->
+                        <!--                        <i class="far fa-lg fa-circle-up"></i>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="blogging d-flex justify-content-between align-items-center m-4">-->
+                        <!--                        <p class="lead mb-0">Blogging</p>-->
+                        <!--                        <div class="progress">-->
+                        <!--                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>-->
+                        <!--                        </div>-->
+                        <!--                        <p class="mb-0 mx-0">92%</p>-->
+                        <!--                        <svg class="mx-4" height="40" width="2">-->
+                        <!--                            <line x1="1" y1="0" x2="1" y2="100" stroke="black" stroke-width="2"/>-->
+                        <!--                        </svg>-->
+                        <!--                        <i class="far fa-lg fa-circle-up"></i>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="leadership d-flex justify-content-between align-items-center m-4">-->
+                        <!--                        <p class="lead mb-0">Leadership</p>-->
+                        <!--                        <div class="progress">-->
+                        <!--                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>-->
+                        <!--                        </div>-->
+                        <!--                        <p class="mb-0 mx-0">33%</p>-->
+                        <!--                        <svg class="mx-4" height="40" width="2">-->
+                        <!--                            <line x1="1" y1="0" x2="1" y2="100" stroke="black" stroke-width="2"/>-->
+                        <!--                        </svg>-->
+                        <!--                        <i class="far fa-lg fa-circle-up"></i>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="meditation d-flex justify-content-between align-items-center m-4">-->
+                        <!--                        <p class="lead mb-0">Meditation</p>-->
+                        <!--                        <div class="progress">-->
+                        <!--                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100"></div>-->
+                        <!--                        </div>-->
+                        <!--                        <p class="mb-0 mx-0">56%</p>-->
+                        <!--                        <svg class="mx-4" height="40" width="2">-->
+                        <!--                            <line x1="1" y1="0" x2="1" y2="100" stroke="black" stroke-width="2"/>-->
+                        <!--                        </svg>-->
+                        <!--                        <i class="far fa-lg fa-circle-up"></i>-->
+                        <!--                    </div>-->
+                        <!--                    <div class="philosophy d-flex justify-content-between align-items-center m-4">-->
+                        <!--                        <p class="lead mb-0">Philosophy</p>-->
+                        <!--                        <div class="progress">-->
+                        <!--                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="779" aria-valuemin="0" aria-valuemax="100"></div>-->
+                        <!--                        </div>-->
+                        <!--                        <p class="mb-0 mx-0">79%</p>-->
+                        <!--                        <svg class="mx-4" height="40" width="2">-->
+                        <!--                            <line x1="1" y1="0" x2="1" y2="100" stroke="black" stroke-width="2"/>-->
+                        <!--                        </svg>-->
+                        <!--                        <i class="far fa-lg fa-circle-up"></i>-->
+                        <!--                    </div>-->
+
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">Soft skills</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="71"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0">71%</span>
+                                <svg class="mx-4 mx-xl-2" height="40" width="2">
+                                    <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+                                </svg>
+                                <i class="far fa-lg fa-circle-down" style="color: red;"></i>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">Blogging</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="92"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0">92%</span>
+                                <svg class="mx-4 mx-xl-2" height="40" width="2">
+                                    <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+                                </svg>
+                                <i class="far fa-lg fa-circle-up" style="color:blue;"></i>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">Leadership</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="33"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0">33%</span>
+                                <svg class="mx-4 mx-xl-2" height="40" width="2">
+                                    <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+                                </svg>
+                                <i class="far fa-lg fa-circle-down" style="color:red;"></i>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">Meditation</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center ">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="56"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0">56%</span>
+                                <svg class="mx-4 mx-xl-2" height="40" width="2">
+                                    <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+                                </svg>
+                                <i class="far fa-lg fa-circle-up" style="color: blue;"></i>
+                            </div>
+                        </div>
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">Philosophy</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center ">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="79"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0">79%</span>
+                                <svg class="mx-4 mx-xl-2" height="40" width="2">
+                                    <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+                                </svg>
+                                <i class="far fa-lg fa-circle-up" style="color: blue;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"
+></script>
+<script>
+
+
+    document.getElementById('openSelect').addEventListener('click', function () {
+        var dropdownMenu = document.getElementById('dropdownMenu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.querySelectorAll('#dropdownMenu div').forEach(function (option) {
+        option.addEventListener('click', function () {
+            var selectedOption = document.getElementById('selectedOption');
+            var dropdownMenu = document.getElementById('dropdownMenu');
+
+            selectedOption.textContent = option.textContent;
+            dropdownMenu.style.display = 'none';
+
+            // Optional: Handle option value (if needed)
+            var value = option.getAttribute('data-value');
+            console.log('Selected value:', value);
+
+            // Update any necessary values or state here
+        });
+    });
+
+    // Optional: Close the dropdown if clicking outside
+    document.addEventListener('click', function (event) {
+        var isClickInside = document.querySelector('.custom-select').contains(event.target);
+        if (!isClickInside) {
+            document.getElementById('dropdownMenu').style.display = 'none';
+        }
+    });
+
+</script>
+</body>
+</html>

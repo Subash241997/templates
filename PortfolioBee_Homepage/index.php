@@ -963,7 +963,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
         <div class="second-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative;">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -65%);>
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -65%);">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
@@ -985,7 +985,7 @@ box-shadow: 0px -28px 84px -24px rgba(226, 232, 255, 0.12);color: white; padding
         <div class="third-item d-flex flex-column justify-content-center align-items-center"
              style="margin-top: 6rem; margin-bottom: 6rem; position: relative">
             <img src="images/Group%201000001908.svg" alt="dots" class="img-fluid dots"
-                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -60%);>
+                 style="position: absolute; top: calc(5%); left: calc(50%); transform: translate(-50%, -60%);">
             <img src="images/Group%201000001905.svg" alt="dots" class="img-fluid dots"
                  style="position: absolute; top: -4%; left: 15%;">
             <img src="images/Group%201000001906.svg" alt="dots" class="img-fluid dots"
