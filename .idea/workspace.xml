@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1369f6a3-d551-4c6a-bb2a-8c0f6c14a187" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/College placement portal/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/College placement portal/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PortfolioBee_Homepage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/College placement portal/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/College placement portal/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +116,8 @@
       <workItem from="1726202413476" duration="22658000" />
       <workItem from="1726468510379" duration="785000" />
       <workItem from="1726469639819" duration="16472000" />
-      <workItem from="1726549869225" duration="3717000" />
+      <workItem from="1726549869225" duration="5467000" />
+      <workItem from="1726639643919" duration="669000" />
     </task>
     <servers />
   </component>
