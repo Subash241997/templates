@@ -167,20 +167,25 @@
             outline: none; /* Remove default outline */
             appearance: none; /* Remove default arrow in some browsers */
         }
+
         canvas {
             display: block;
             margin: 20px auto;
         }
+
         #myDonutChart {
             max-width: 600px;
             margin: 50px auto;
         }
-        #eligibleChart{
+
+        #eligibleChart {
             width: 15rem;
         }
-        #placedChart{
+
+        #placedChart {
             width: 15rem;
         }
+
         .year-select-wrapper {
             position: relative; /* Ensure the wrapper is positioned relatively */
         }
@@ -195,7 +200,51 @@
             overflow-y: auto; /* Enable vertical scrolling */
             display: none; /* Initially hidden */
         }
+        #chartContainer {
+            max-width: 600px;
+            margin: 20px auto;
+        } #chartArea {
+              max-width: 600px;
+              margin: 20px auto;
+          }
+          #studentChartCanvas{
+              max-width: 10rem;
+          }
+          #studentDonutCanvas{
+              max-width: 10rem;
+          }
 
+        .department-selector {
+            display: flex;
+            justify-content: flex-end;
+            margin: 1rem 1.5rem;
+        }
+        .department-select-group {
+            position: relative;
+        }
+        .department-select {
+            padding: 1rem;
+            background-color: white;
+            border-radius: 20rem;
+            cursor: pointer;
+        }
+        .department-dropdown-menu {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            padding: 1rem;
+            border: 1px solid black;
+            border-radius: 5%;
+            background-color: white;
+            margin-top: 2rem;
+        }
+        .department-dropdown-menu div {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .department-dropdown-menu div:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
 
         @media only screen and (max-width: 1200px) {
             .vertical-line {
@@ -266,38 +315,56 @@
 
                 </div>
             </nav>
-            <div class="year-selector d-flex justify-content-end mx-3">
-                <div class="year-select-group">
-                    <div class="year-select-wrapper">
-                        <div class="year-select" style="    padding: 1rem;
+            <div class="secondary-nav d-flex justify-content-between align-items-center">
+                <div class="year-selector d-flex justify-content-end mx-3">
+                    <div class="year-select-group">
+                        <div class="year-select-wrapper">
+                            <div class="year-select" style="    padding: 1rem;
     background-color: white;
     border-radius: 20rem;">
-                            <span class="mx-2">Year: </span>
-                            <span class="year-select-inner">
+                                <span class="mx-2">Year: </span>
+                                <span class="year-select-inner">
                                 <span id="currentYearSelection">Select Year</span>
                                 <button id="toggleYearSelect" style="border: none; background-color: transparent;">
                                     <i class="fas fa-angle-down"></i>
                                 </button>
-                                <div id="yearDropdownMenu" class="year-dropdown-menu mt-4" style="display: none; padding: 1rem; border: 1px solid black; -webkit-border-radius: 10%;-moz-border-radius: 10%;border-radius: 10%;">
+                                <div id="yearDropdownMenu" class="year-dropdown-menu mt-4"
+                                     style="display: none; padding: 1rem; border: 1px solid black; -webkit-border-radius: 10%;-moz-border-radius: 10%;border-radius: 10%;">
                                     <!-- Years will be populated here -->
                                 </div>
                             </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--                <select class="my-2" id="yearDropdown" style="border: none;">-->
+                    <!--                    <option value="">Select a Year</option>-->
+                    <!--                     Generate years from 2000 to 2024-->
+                    <!--                    <script>-->
+                    <!--                        const startYear = 2000;-->
+                    <!--                        const endYear = new Date().getFullYear(); // Current year-->
+                    <!--                        for (let year = startYear; year <= endYear; year++) {-->
+                    <!--                            document.write(`<option value="${year}">${year}</option>`);-->
+                    <!--                        }-->
+                    <!--                    </script>-->
+                    <!--                </select>-->
+                </div>
+
+                <div class="department-selector">
+                    <div class="department-select-group">
+                        <div class="department-select" id="departmentSelect">
+                            <span class="mx-2">Department: </span>
+                            <span id="currentDepartmentSelection">Select Department</span>
+                            <button id="toggleDepartmentSelect" style="border: none; background-color: transparent;">
+                                <i class="fas fa-angle-down"></i>
+                            </button>
+                            <div id="departmentDropdownMenu" class="department-dropdown-menu">
+                                <!-- Departments will be populated here -->
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
-<!--                <select class="my-2" id="yearDropdown" style="border: none;">-->
-<!--                    <option value="">Select a Year</option>-->
-<!--                     Generate years from 2000 to 2024-->
-<!--                    <script>-->
-<!--                        const startYear = 2000;-->
-<!--                        const endYear = new Date().getFullYear(); // Current year-->
-<!--                        for (let year = startYear; year <= endYear; year++) {-->
-<!--                            document.write(`<option value="${year}">${year}</option>`);-->
-<!--                        }-->
-<!--                    </script>-->
-<!--                </select>-->
             </div>
             <div class="interactive-cards">
                 <div class="row m-3">
@@ -317,291 +384,313 @@
                             <div class="user-intro-text text-center">
                                 <h6 class="text-black" id="userName">KIIT</h6>
                             </div>
-<!--                            <div class="user-btns-desktop d-flex flex-column flex-xl-row justify-content-lg-around align-items-center pt-5 mt-4">-->
-<!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
-<!--                                        data-mdb-ripple-color="dark">-->
-<!--                                    <i class="fas fa-user-group" style="color: #FF2C01;"></i>-->
-<!--                                    <span class="mx-2 connections" style="color: #FF2C01;"></span>-->
-<!--                                </button>-->
-<!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
-<!--                                        data-mdb-ripple-color="dark">-->
-<!--                                    <i class="fas fa-check" style="color: #FF2C01;"></i>-->
-<!--                                    <span class="mx-2 tasks_completed" style="color: #FF2C01;"></span>-->
-<!--                                </button>-->
-<!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
-<!--                                        data-mdb-ripple-color="dark">-->
-<!--                                    <i class="fas fa-trophy" style="color: #FF2C01;"></i>-->
-<!--                                    <span class="mx-2 achievements" style="color: #FF2C01;"></span>-->
-<!--                                </button>-->
-<!--                            </div>-->
+                            <!--                            <div class="user-btns-desktop d-flex flex-column flex-xl-row justify-content-lg-around align-items-center pt-5 mt-4">-->
+                            <!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
+                            <!--                                        data-mdb-ripple-color="dark">-->
+                            <!--                                    <i class="fas fa-user-group" style="color: #FF2C01;"></i>-->
+                            <!--                                    <span class="mx-2 connections" style="color: #FF2C01;"></span>-->
+                            <!--                                </button>-->
+                            <!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
+                            <!--                                        data-mdb-ripple-color="dark">-->
+                            <!--                                    <i class="fas fa-check" style="color: #FF2C01;"></i>-->
+                            <!--                                    <span class="mx-2 tasks_completed" style="color: #FF2C01;"></span>-->
+                            <!--                                </button>-->
+                            <!--                                <button type="button" class="btn  btn-rounded my-2 p-2" data-mdb-ripple-init-->
+                            <!--                                        data-mdb-ripple-color="dark">-->
+                            <!--                                    <i class="fas fa-trophy" style="color: #FF2C01;"></i>-->
+                            <!--                                    <span class="mx-2 achievements" style="color: #FF2C01;"></span>-->
+                            <!--                                </button>-->
+                            <!--                            </div>-->
 
-<!--                            <div class="user-btns-mobile d-flex justify-content-center pt-5 mt-4">-->
-<!--                                <div class="row text-center">-->
-<!--                                    <div class="col-6 ">-->
-<!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
-<!--                                                data-mdb-ripple-color="dark">-->
-<!--                                            <i class="fas fa-user-group" style="color: #FF2C01;"></i>-->
-<!--                                            <span class="mx-2 connections" style="color: #FF2C01;"></span>-->
-<!--                                        </button>-->
+                            <!--                            <div class="user-btns-mobile d-flex justify-content-center pt-5 mt-4">-->
+                            <!--                                <div class="row text-center">-->
+                            <!--                                    <div class="col-6 ">-->
+                            <!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
+                            <!--                                                data-mdb-ripple-color="dark">-->
+                            <!--                                            <i class="fas fa-user-group" style="color: #FF2C01;"></i>-->
+                            <!--                                            <span class="mx-2 connections" style="color: #FF2C01;"></span>-->
+                            <!--                                        </button>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="col-6 ">-->
+                            <!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
+                            <!--                                                data-mdb-ripple-color="dark">-->
+                            <!--                                            <i class="fas fa-check" style="color: #FF2C01;"></i>-->
+                            <!--                                            <span class="mx-2 tasks_completed" style="color: #FF2C01;"></span>-->
+                            <!--                                        </button>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="col-2"></div>-->
+                            <!--                                    <div class="col-8">-->
+                            <!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
+                            <!--                                                data-mdb-ripple-color="dark">-->
+                            <!--                                            <i class="fas fa-trophy" style="color: #FF2C01;"></i>-->
+                            <!--                                            <span class="mx-2 achievements" style="color: #FF2C01;"></span>-->
+                            <!--                                        </button>-->
+                            <!--                                    </div>-->
+                            <!--                                    <div class="col-2"></div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+<div class="d-flex justify-content-center">
+    <div class="card mt-3 d-flex flex-column align-items-center" style="width: 75%;">
+        <div class="">
+            <h5>Total students</h5>
+        </div>
+        <div class=" text-end"><h5>10000</h5></div>
+    </div>
+</div>
+                            <div class="inner-card rounded-6 p-2">
+                                <div class="student-stats d-flex">
+                                    <div class=" " id="chartContainer">
+                                        <canvas id="studentChartCanvas"></canvas>
+                                        <div class="chart-text text-center fw-bolder">Eligible Students</div>
+                                        <div class="chart-text text-center fw-bolder">600</div>
+                                    </div>
+                                    <div class=" " id="chartArea">
+                                        <canvas id="studentDonutCanvas" width="300" height="300"></canvas>
+                                        <div class="chart-text text-center fw-bolder">Placed Students</div>
+                                        <div class="chart-text text-center fw-bolder">60</div>
+                                    </div>
+                                </div>
+<!--                                <div class="card" id="chartContainer">-->
+<!--                                    <canvas id="studentChartCanvas"></canvas>-->
+<!--                                    <div class="chart-text text-center fw-bolder">Eligible Students</div>-->
+<!--                                    <div class="chart-text text-center fw-bolder">600</div>-->
+<!--                                </div>-->
+<!--                                <div class="card" id="chartArea">-->
+<!--                                    <canvas id="studentDonutCanvas" width="300" height="300"></canvas>-->
+<!--                                    <div class="chart-text text-center fw-bolder">Placed Students</div>-->
+<!--                                    <div class="chart-text text-center fw-bolder">60</div>-->
+<!--                                </div>-->
+                            </div>
+
+<!--                            <div class="student-stats d-flex flex-column flex-sm-row justify-content-center align-items-center">-->
+<!--                                <div class="card m-2">-->
+<!--                                    <div class="eligible-students">-->
+<!--                                        <canvas id="eligibleChart"></canvas>-->
+<!--                                        <div class="chart-text text-center fw-bolder">Eligible Students</div>-->
+<!--                                        <div class="chart-text text-center fw-bolder">600</div>-->
 <!--                                    </div>-->
-<!--                                    <div class="col-6 ">-->
-<!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
-<!--                                                data-mdb-ripple-color="dark">-->
-<!--                                            <i class="fas fa-check" style="color: #FF2C01;"></i>-->
-<!--                                            <span class="mx-2 tasks_completed" style="color: #FF2C01;"></span>-->
-<!--                                        </button>-->
+<!--                                </div>-->
+<!--                                <div class="card m-2">-->
+<!--                                    <div class="placed-students">-->
+<!--                                        <canvas id="placedChart"></canvas>-->
+<!--                                        <div class="chart-text text-center fw-bolder">Placed Students</div>-->
+<!--                                        <div class="chart-text text-center fw-bolder">60</div>-->
 <!--                                    </div>-->
-<!--                                    <div class="col-2"></div>-->
-<!--                                    <div class="col-8">-->
-<!--                                        <button type="button" class="btn btn-rounded my-2" data-mdb-ripple-init-->
-<!--                                                data-mdb-ripple-color="dark">-->
-<!--                                            <i class="fas fa-trophy" style="color: #FF2C01;"></i>-->
-<!--                                            <span class="mx-2 achievements" style="color: #FF2C01;"></span>-->
-<!--                                        </button>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-2"></div>-->
 <!--                                </div>-->
 <!--                            </div>-->
-
-                            <div class="inner-card rounded-6 p-2" >
-                                <div class="row my-3">
-                                    <div class="col-6">
-                                        <h5>Total students</h5>
-                                    </div>
-                                    <div class="col-6 text-end"><h5>10000</h5></div>
-                                </div>
-                                <div class="row my-3">
-                                    <div class="col-6"><h5>Eligible students</h5></div>
-                                    <div class="col-6 text-end"><h5>600</h5></div>
-                                </div>
-                            </div>
-
-                            <div class="student-stats d-flex flex-column flex-sm-row justify-content-center align-items-center">
-                                <div class="eligible-students">
-                                    <canvas id="eligibleChart"></canvas>
-                                    <div class="chart-text text-center fw-bolder">Eligible Students</div>
-                                    <div class="chart-text text-center fw-bolder">600</div>
-                                </div>
-                                <div class="placed-students">
-                                    <canvas id="placedChart" ></canvas>
-                                    <div class="chart-text text-center fw-bolder">Placed Students</div>
-                                    <div class="chart-text text-center fw-bolder">60</div>
-
-                                </div>
-
-                            </div>
 
 
                         </div>
                     </div>
                     <div class="col-12 col-xl-6 my-2">
-                                <div class="card avg-cards-one" style="background: linear-gradient(315deg, #D3CCED, #EF8B7A, #F2B5D7, #F5EEF3)">
-                                    <div class="card-header border-0 pt-4">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <h3 class="">Job Offers</h3>
-                                            <div class="stopwatch-icon d-flex justify-content-center align-items-center"
-                                                 style="  border: 1px solid grey; border-radius: 30%">
-                                                <button style="background-color: transparent; border: none">
-                                                    <i class="fas fa-stopwatch m-3"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                        <div class="card avg-cards-one"
+                             style="background: linear-gradient(315deg, #D3CCED, #EF8B7A, #F2B5D7, #F5EEF3)">
+                            <div class="card-header border-0 pt-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="">Job Offers</h3>
+                                    <div class="stopwatch-icon d-flex justify-content-center align-items-center"
+                                         style="  border: 1px solid grey; border-radius: 30%">
+                                        <button style="background-color: transparent; border: none">
+                                            <i class="fas fa-stopwatch m-3"></i>
+                                        </button>
                                     </div>
-
-
-                                    <div class="placement-stats d-flex flex-column justify-content-center">
-
-                                        <div class="row text-center">
-                                            <div class="col-6 ">
-                                                <div class="card-body text-black border-0" style="margin-top: 4rem;">
-                                                    <h4 id="offers-made">1200+</h4>
-                                                    <h6 class="text-black">Offers made</h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-6 ">
-                                                <div class="card-body text-black border-0" style="margin-top: 4rem;">
-                                                    <h4 id="avg-salary">40000</h4>
-                                                    <h6 class="text-black">Avg. Offered Salary</h6>
-                                                </div>
-                                            </div>
-                                            <div class="col-2"></div>
-                                            <div class="col-8">
-                                                <div class="card-body text-black border-0" style="margin-top: 4rem;">
-                                                    <h4 id="highest-salary">70000</h4>
-                                                    <p class="text-black">Highest Offered Salary</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-2"></div>
-                                        </div>
-                                        <div class="highest-offered-company d-flex justify-content-around mt-4 mb-2">
-                                            <h5 class="text-wrap fw-bolder fw-bolder text-black">Highest offers made by </h5>
-                                            <h5 class="fw-bolder text-black">Cognizant</h5>
-                                        </div>
-                                    </div>
-
                                 </div>
+                            </div>
+
+
+                            <div class="placement-stats d-flex flex-column justify-content-center">
+                                <div class="row text-center">
+                                    <div class="col-6 ">
+                                        <div class="card-body text-black border-0" style="margin-top: 4rem;">
+                                            <h4 id="offers-made">1200+</h4>
+                                            <h6 class="text-black">Offers made</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ">
+                                        <div class="card-body text-black border-0" style="margin-top: 4rem;">
+                                            <h4 id="avg-salary">40000</h4>
+                                            <h6 class="text-black">Avg. Offered Salary</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <div class="card-body text-black border-0" style="margin-top: 4rem;">
+                                            <h4 id="highest-salary">70000</h4>
+                                            <p class="text-black">Highest Offered Salary</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
+                                <div class="highest-offered-company d-flex justify-content-around mt-4 mb-2">
+                                    <h5 class="text-wrap fw-bolder fw-bolder text-black">Highest offers made by </h5>
+                                    <h5 class="fw-bolder text-black">Cognizant</h5>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-                    <div class="row m-3">
-                        <div class="col-6 ">
-                            <div class="card avg-cards-two"
-                                 style="background: linear-gradient(270deg, #A0F3EB, #E8F3FC, #7EBCF3)">
-                                <div class="card-header border-0 pt-4">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h3 class="">Company Statistics</h3>
-                                        <div class="tick-icon d-flex justify-content-center align-items-center"
-                                             style="  border: 1px solid grey; border-radius: 30%">
-                                            <button style="background-color: transparent; border: none">
-                                                <i class="fas fa-check m-3"></i>
+                <div class="row m-3">
+                    <div class="col-6 ">
+                        <div class="card avg-cards-two"
+                             style="background: linear-gradient(270deg, #A0F3EB, #E8F3FC, #7EBCF3)">
+                            <div class="card-header border-0 pt-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h3 class="">Company Statistics</h3>
+                                    <div class="tick-icon d-flex justify-content-center align-items-center"
+                                         style="  border: 1px solid grey; border-radius: 30%">
+                                        <button style="background-color: transparent; border: none">
+                                            <i class="fas fa-check m-3"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="placement-stats d-flex flex-column justify-content-center">
+
+                                <div class="row text-center">
+                                    <div class="col-12 ">
+                                        <div class="card-body text-black border-0" style="margin-top: 4rem;">
+                                            <h4 id="partiipated-companies">120+</h4>
+                                            <h6 class="text-black">Participant Companies </h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <canvas id="myDonutChart"></canvas>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="card m-3 mt-0" style="background-color: #E2E3E8;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="track m-3">
+                                        <h6 class="text-black">Trackers connected</h6>
+                                        <p class="text-muted mb-0">3 active connections</p>
+                                    </div>
+                                    <div class="btn-three-dots d-flex justify-content-between align-items-center">
+                                        <div class="btns mx-3">
+                                            <div class="social-link-btns d-flex justify-content-center align-items-center"
+                                                 style="position: relative;">
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 4rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                    <button class="m-2 "
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-figma"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                    <button class="m-2"
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-trello"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 0rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                    <button class="m-2"
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-slack"></i>
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                            <!--                                           <buttons class="m-2">-->
+                                            <!--                                               <i class="fab fa-lg fa-figma"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;" >-->
+                                            <!--                                           <buttons class="m-2" >-->
+                                            <!--                                               <i class="fab fa-lg fa-slack"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                            <!--                                           <buttons class="m-2">-->
+                                            <!--                                               <i class="fab fa-lg fa-trello"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                        </div>
+                                        <div class="three-dots">
+                                            <button style="background-color: transparent; border: none;">
+                                                <i class="fas fa-ellipsis"></i>
                                             </button>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="placement-stats d-flex flex-column justify-content-center">
-
-                                    <div class="row text-center">
-                                        <div class="col-12 ">
-                                            <div class="card-body text-black border-0" style="margin-top: 4rem;">
-                                                <h4 id="partiipated-companies">120+</h4>
-                                                <h6 class="text-black">Participant Companies </h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <canvas id="myDonutChart"></canvas>
-                                        </div>
-                                    </div>
 
                                 </div>
 
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="card m-3 mt-0" style="background-color: #E2E3E8;">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="track">
-                                            <h6 class="text-black">Trackers connected</h6>
-                                            <p class="text-muted mb-0">3 active connections</p>
-                                        </div>
-                                        <div class="btn-three-dots d-flex justify-content-between align-items-center">
-                                            <div class="btns mx-3">
-                                                <div class="social-link-btns d-flex justify-content-center align-items-center"
-                                                     style="position: relative;">
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 4rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-                                                        <button class="m-2 "
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-figma"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-
-                                                        <button class="m-2"
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-slack"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 0rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-                                                        <button class="m-2"
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-trello"></i>
-                                                        </button>
-                                                    </div>
+                        <div class="card m-3 mb-0" style="background-color: #E2E3E8;">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="track m-3">
+                                        <h6 class="text-black">Trackers connected</h6>
+                                        <p class="text-muted mb-0">3 active connections</p>
+                                    </div>
+                                    <div class="btn-three-dots d-flex justify-content-between align-items-center">
+                                        <div class="btns mx-3">
+                                            <div class="social-link-btns d-flex justify-content-center align-items-center"
+                                                 style="position: relative;">
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 4rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                    <button class="m-2 "
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-figma"></i>
+                                                    </button>
                                                 </div>
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
-                                                <!--                                           <buttons class="m-2">-->
-                                                <!--                                               <i class="fab fa-lg fa-figma"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;" >-->
-                                                <!--                                           <buttons class="m-2" >-->
-                                                <!--                                               <i class="fab fa-lg fa-slack"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
-                                                <!--                                           <buttons class="m-2">-->
-                                                <!--                                               <i class="fab fa-lg fa-trello"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                            </div>
-                                            <div class="three-dots">
-                                                <button style="background-color: transparent; border: none;">
-                                                    <i class="fas fa-ellipsis"></i>
-                                                </button>
-                                            </div>
-                                        </div>
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
+                                                    <button class="m-2"
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-trello"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="figma-btn d-flex justify-content-center align-items-center"
+                                                     style="position:absolute;right: 0rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
 
+                                                    <button class="m-2"
+                                                            style="background-color: transparent; border: none;">
+                                                        <i class="fab fa-lg fa-slack"></i>
+                                                    </button>
+                                                </div>
+
+                                            </div>
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                            <!--                                           <buttons class="m-2">-->
+                                            <!--                                               <i class="fab fa-lg fa-figma"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;" >-->
+                                            <!--                                           <buttons class="m-2" >-->
+                                            <!--                                               <i class="fab fa-lg fa-slack"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                            <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
+                                            <!--                                           <buttons class="m-2">-->
+                                            <!--                                               <i class="fab fa-lg fa-trello"></i>-->
+                                            <!--                                           </buttons>-->
+                                            <!--                                           </span>-->
+                                        </div>
+                                        <div class="three-dots">
+                                            <button style="background-color: transparent; border: none;">
+                                                <i class="fas fa-ellipsis"></i>
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>
+
                             </div>
-                            <div class="card m-3 mb-0" style="background-color: #E2E3E8;">
-                                <div class="card-body">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="track">
-                                            <h6 class="text-black">Trackers connected</h6>
-                                            <p class="text-muted mb-0">3 active connections</p>
-                                        </div>
-                                        <div class="btn-three-dots d-flex justify-content-between align-items-center">
-                                            <div class="btns mx-3">
-                                                <div class="social-link-btns d-flex justify-content-center align-items-center"
-                                                     style="position: relative;">
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 4rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-                                                        <button class="m-2 "
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-figma"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 2rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-
-                                                        <button class="m-2"
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-slack"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="figma-btn d-flex justify-content-center align-items-center"
-                                                         style="position:absolute;right: 0rem; width: 3rem; height: 3rem; border-radius: 50%; background-color: white">
-                                                        <button class="m-2"
-                                                                style="background-color: transparent; border: none;">
-                                                            <i class="fab fa-lg fa-trello"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
-                                                <!--                                           <buttons class="m-2">-->
-                                                <!--                                               <i class="fab fa-lg fa-figma"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;" >-->
-                                                <!--                                           <buttons class="m-2" >-->
-                                                <!--                                               <i class="fab fa-lg fa-slack"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                                <!--                                           <span class="social-link-btns m-2" style="border-radius: 50%; background-color: white;">-->
-                                                <!--                                           <buttons class="m-2">-->
-                                                <!--                                               <i class="fab fa-lg fa-trello"></i>-->
-                                                <!--                                           </buttons>-->
-                                                <!--                                           </span>-->
-                                            </div>
-                                            <div class="three-dots">
-                                                <button style="background-color: transparent; border: none;">
-                                                    <i class="fas fa-ellipsis"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
+
+                </div>
             </div>
             <div class="focus mx-4 my-4 ">
                 <div class="focus-head-div d-flex justify-content-between">
@@ -683,6 +772,22 @@
                         <div class="col-3 d-flex flex-column justify-content-center align-items-start">
                             <div class="meeting-timings">
                                 <h6 class="text-muted meeting_date">Started on</h6>
+
+                            </div>
+                        </div>
+                        <div class="col-5 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+                        </div>
+                        <div class="col-4 d-flex flex-column  align-items-end align-items-xl-center">
+                            <div class="meeting-link">
+                                <h6 class="text-muted meeting_date">Ended on</h6>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-4">
+                        <div class="col-3 d-flex flex-column  justify-content-start align-items-start">
+                            <div class="meeting-timings">
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
@@ -694,18 +799,17 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column  align-items-end align-items-xl-center">
+                        <div class="col-4 d-flex flex-column  justify-content-start align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <h6 class="text-muted meeting_date">Ended on</h6>
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
                         <hr class="mx-2" style="height: 1rem;">
                     </div>
                     <div class="row my-4">
-                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                        <div class="col-3 d-flex flex-column  justify-content-start align-items-start">
                             <div class="meeting-timings">
-                                <h6 class="text-muted meeting_date">Started on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
@@ -717,18 +821,18 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column  align-items-end align-items-xl-center">
+                        <div class="col-4 d-flex flex-column  justify-content-start align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <h6 class="text-muted meeting_date">Ended on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
                         <hr class="mx-2" style="height: 1rem;">
                     </div>
                     <div class="row my-4">
-                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                        <div class="col-3 d-flex flex-column  justify-content-start align-items-start">
                             <div class="meeting-timings">
-                                <h6 class="text-muted meeting_date">Started on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
@@ -740,18 +844,18 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column  align-items-end align-items-xl-center">
+                        <div class="col-4 d-flex flex-column  justify-content-start align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <h6 class="text-muted meeting_date">Ended on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
                         <hr class="mx-2" style="height: 1rem;">
                     </div>
                     <div class="row my-4">
-                        <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+                        <div class="col-3 d-flex flex-column  justify-content-start align-items-start">
                             <div class="meeting-timings">
-                                <h6 class="text-muted meeting_date">Started on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
@@ -763,12 +867,14 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="col-4 d-flex flex-column  align-items-end align-items-xl-center">
+                        <div class="col-4 d-flex flex-column  justify-content-start align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <h6 class="text-muted meeting_date">Ended on</h6>
+
                                 <p class="fw-semibold text-black meeting_time">Tue, 5th Sep</p>
                             </div>
                         </div>
+                        <hr class="mx-2" style="height: 1rem;">
+
                     </div>
 
                 </div>
@@ -806,16 +912,17 @@
                                 <h6 class="text-black meeting_name">Cognizant</h6>
                                 <p class="text-muted meeting-type">
                                     HR: Ajay Mohanty
-<!--                                    <i class="fab fa-meetup"></i>-->
-<!--                                    Zoom-->
+                                    <!--                                    <i class="fab fa-meetup"></i>-->
+                                    <!--                                    Zoom-->
                                 </p>
                             </div>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <a class="meeting-links" href='' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
-                                    <span class="px-3">Contact HR</span>
-                                <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+                                <a class="meeting-links" href='' target="_blank"
+                                   style="color:darkgreen; background-color: transparent; border: none;">
+                                    <span class="px-3">Contact </span>
+                                    <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
                                 </a>
                             </div>
                         </div>
@@ -834,15 +941,16 @@
                                 <p class="text-muted meeting-type">
                                     HR: Ajay Mohanty
 
-<!--                                    <i class="fab fa-meetup"></i>-->
-<!--                                    Zoom-->
+                                    <!--                                    <i class="fab fa-meetup"></i>-->
+                                    <!--                                    Zoom-->
                                 </p>
                             </div>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <a class="meeting-links" href='' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
-                                    <span class="px-3">Contact HR</span>
+                                <a class="meeting-links" href='' target="_blank"
+                                   style="color:darkgreen; background-color: transparent; border: none;">
+                                    <span class="px-3">Contact </span>
                                     <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
                                 </a>
                             </div>
@@ -863,15 +971,16 @@
                                 <p class="text-muted meeting-type">
                                     HR: Ajay Mohanty
 
-<!--                                    <i class="fab fa-meetup"></i>-->
-<!--                                    Zoom-->
+                                    <!--                                    <i class="fab fa-meetup"></i>-->
+                                    <!--                                    Zoom-->
                                 </p>
                             </div>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <a class="meeting-links" href='' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
-                                    <span class="px-3">Contact HR</span>
+                                <a class="meeting-links" href='' target="_blank"
+                                   style="color:darkgreen; background-color: transparent; border: none;">
+                                    <span class="px-3">Contact </span>
                                     <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
                                 </a>
                             </div>
@@ -892,22 +1001,28 @@
                                 <p class="text-muted meeting-type">
                                     HR: Ajay Mohanty
 
-<!--                                    <i class="fab fa-meetup"></i>-->
-<!--                                    Zoom-->
+                                    <!--                                    <i class="fab fa-meetup"></i>-->
+                                    <!--                                    Zoom-->
                                 </p>
                             </div>
                         </div>
                         <div class="col-4 d-flex flex-column justify-content-center align-items-end align-items-xl-center">
                             <div class="meeting-link">
-                                <a class="meeting-links" href='' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
-                                    <span class="px-3">Contact HR</span>
+                                <a class="meeting-links" href='' target="_blank"
+                                   style="color:darkgreen; background-color: transparent; border: none;">
+                                    <span class="px-3">Contact </span>
                                     <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
                                 </a>
                             </div>
                         </div>
+                        <hr class="mx-2" style="height: 1rem;">
                     </div>
+
+
 
                 </div>
+
+
                 <div class="see-all-meetings d-flex justify-content-center align-items-center">
                     <p class="mb-0 mx-2 text-muted">See all upcoming events</p>
                     <button style="background-color: transparent; border: none;">
@@ -920,26 +1035,26 @@
                 <div class="container">
                     <div class="developed-head-text  my-5">
                         <h4 class="text-black">Skills in Demand</h4>
-<!--                        <p class="text-muted">Most demanding skills</p>-->
+                                                <p class="text-muted">Most demanding skills for the year</p>
                     </div>
                     <div class="developed-content" id="developed_content">
 
 
-                            <div class="row my-4">
-                                <div class="col-3 text-start">
-                                    <p class="lead mb-0">SQL</p>
-                                </div>
-                                <div class="col-6 px-0 d-flex align-items-center">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
-                                             aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                                <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
-                                    <span class="mb-0 mx-0 levels">60%</span>
-
+                        <div class="row my-4">
+                            <div class="col-3 text-start">
+                                <p class="lead mb-0">SQL</p>
+                            </div>
+                            <div class="col-6 px-0 d-flex align-items-center">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
+                            <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+                                <span class="mb-0 mx-0 levels">60%</span>
+
+                            </div>
+                        </div>
                         <div class="row my-4">
                             <div class="col-3 text-start">
                                 <p class="lead mb-0">React</p>
@@ -980,10 +1095,10 @@
                             </div>
                             <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
                                 <span class="mb-0 mx-0 levels">40%</span>
-<!--                                <svg class="mx-4 mx-xl-2" height="40" width="2">-->
-<!--                                                  <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>-->
-<!--                                                  </svg>-->
-<!--                                1600-->
+                                <!--                                <svg class="mx-4 mx-xl-2" height="40" width="2">-->
+                                <!--                                                  <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>-->
+                                <!--                                                  </svg>-->
+                                <!--                                1600-->
                             </div>
                         </div>
 
@@ -1035,168 +1150,168 @@
     const apiUrl = 'https://mocki.io/v1/90611199-ddbf-47a3-8904-f269043c8946'; // Base URL for GitHub users
 
     // Fetch data using jQuery AJAX
-    function fetchData() {
-        const url = `${apiUrl}`; // Construct the full URL
-        $.ajax({
-            url: url,
-            method: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                console.log('Data fetched successfully:', data);
-                // Update the page with the fetched data
-                document.getElementById('user-picture').src=data['user_picture']
-                document.getElementById('user-img').src=data['user_img_url']
-                // document.getElementById('userNameWelcome').textContent=data.name.split(' ')[0];
-                // document.getElementById('userName').textContent=data.name;
-
-                // let meeting_main_div=document.getElementById('meeting-details')
-                // for (let i=0; i<data.meetings.length; i++){
-                //     let meeting_div=document.createElement('div');
-                //     meeting_div.classList.add('row', 'my-2')
-                //     meeting_div.innerHTML=`
-                //     <div class="col-3 d-flex flex-column justify-content-center align-items-start">
-                //             <div class="meeting-timings">
-                //                 <h6 class="text-muted meeting_date">${data.meetings[i]['date']}</h6>
-                //                 <p class="fw-semibold text-black meeting_time">${data.meetings[i]['time']}</p>
-                //             </div>
-                //         </div>
-                //         <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
-                //             <div class="meeting-name">
-                //                 <h6 class="text-black meeting_name">${data.meetings[i]['meeting_name']}</h6>
-                //                 <p class="text-muted meeting-type">
-                //                     <i class="fab fa-meetup"></i>
-                //                     ${data.meetings[i]['meeting_type']}
-                //                 </p>
-                //             </div>
-                //         </div>
-                //         <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
-                //             <div class="meeting-link">
-                //                 <a class="meeting-links" href='${data.meetings[i]['meeting_link']}' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
-                //                     <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
-                //                 </a>
-                //             </div>
-                //         </div>
-                //         <hr class="mx-2" style="height: 1rem;">
-                //     `
-                //     meeting_main_div.append(meeting_div);
-                // }
-
-                // let developed_div= document.getElementById('developed_content')
-                //
-                //
-                // for (let i=0; i<data.developed_skills.length; i++){
-                //     let developed_skill=document.createElement('div');
-                //     developed_skill.innerHTML=`
-                //          <div class="row my-4">
-                //             <div class="col-3 text-start">
-                //                 <p class="lead mb-0">${data.developed_skills[i]['skill_name']}</p>
-                //             </div>
-                //             <div class="col-6 px-0 d-flex align-items-center">
-                //                 <div class="progress">
-                //                     <div class="progress-bar" role="progressbar" style="width: ${data.developed_skills[i]['level']}%" aria-valuenow="${data.developed_skills[i]['level']}"
-                //                          aria-valuemin="0" aria-valuemax="100"></div>
-                //                 </div>
-                //             </div>
-                //             <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
-                //                 <span class="mb-0 mx-0 levels">${data.developed_skills[i]['level']}%</span>
-                //                 <svg class="mx-4 mx-xl-2" height="40" width="2">
-                //                     <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
-                //                 </svg>
-                //                 <i class="far fa-lg fa-circle-down" style="color: red;"></i>
-                //             </div>
-                //         </div>
-                //     `
-                //     developed_div.append(developed_skill)
-                // }
-
-                let connection_div=document.getElementsByClassName('connections')
-                for (let i=0; i<connection_div.length; i++){
-                    connection_div[i].textContent=data.connections;
-                }
-                let tasks_div=document.getElementsByClassName('tasks_completed')
-                for (let i=0; i<tasks_div.length; i++){
-                    tasks_div[i].textContent=data.tasks_completed;
-                }
-                let achievements_div=document.getElementsByClassName('achievements')
-                for (let i=0; i<achievements_div.length; i++){
-                    achievements_div[i].textContent=data.achievements;
-                }
-
-                document.getElementsByClassName('tasks_completed').textContent= data.tasks_completed;
-                document.getElementsByClassName('achievements').textContent= data.achievements;
-                document.getElementById('prioritized_tasks').textContent= data.prioritized_tasks + '%';
-                document.getElementById('additional_tasks').textContent=data.additional_tasks + '%';
-                document.getElementById('company_logo').src=data.company_logo_img;
-                // let progressBar=document.getElementsByClassName('progress-bar');
-                // for (let i=0; i<progressBar.length; i++){
-                //     progressBar[i].setAttribute('aria-valuenow', data.developed_skills[i]['level'])
-                //     progressBar[i].style.width= data.developed_skills[i]['level'] + '%';
-                // }
-                // let developed_levels=document.getElementsByClassName('levels')
-                // for (let i=0; i<developed_levels.length; i++){
-                //     developed_levels[i].textContent=data.developed_skills[i]['level'] + '%'
-                // }
-
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.error('Error fetching data:', 'jqxhr', jqXHR);
-                console.log('textstatus', textStatus);
-                console.log('errorthrown', errorThrown);
-                document.getElementById('test').textContent = 'User not found';
-            }
-        });
-    }
+    // function fetchData() {
+    //     const url = `${apiUrl}`; // Construct the full URL
+    //     $.ajax({
+    //         url: url,
+    //         method: 'GET',
+    //         dataType: 'json',
+    //         success: function (data) {
+    //             console.log('Data fetched successfully:', data);
+    //             // Update the page with the fetched data
+    //             document.getElementById('user-picture').src = data['user_picture']
+    //             document.getElementById('user-img').src = data['user_img_url']
+    //             // document.getElementById('userNameWelcome').textContent=data.name.split(' ')[0];
+    //             // document.getElementById('userName').textContent=data.name;
+    //
+    //             // let meeting_main_div=document.getElementById('meeting-details')
+    //             // for (let i=0; i<data.meetings.length; i++){
+    //             //     let meeting_div=document.createElement('div');
+    //             //     meeting_div.classList.add('row', 'my-2')
+    //             //     meeting_div.innerHTML=`
+    //             //     <div class="col-3 d-flex flex-column justify-content-center align-items-start">
+    //             //             <div class="meeting-timings">
+    //             //                 <h6 class="text-muted meeting_date">${data.meetings[i]['date']}</h6>
+    //             //                 <p class="fw-semibold text-black meeting_time">${data.meetings[i]['time']}</p>
+    //             //             </div>
+    //             //         </div>
+    //             //         <div class="col-6 d-flex flex-column justify-content-center align-items-center align-items-xl-start">
+    //             //             <div class="meeting-name">
+    //             //                 <h6 class="text-black meeting_name">${data.meetings[i]['meeting_name']}</h6>
+    //             //                 <p class="text-muted meeting-type">
+    //             //                     <i class="fab fa-meetup"></i>
+    //             //                     ${data.meetings[i]['meeting_type']}
+    //             //                 </p>
+    //             //             </div>
+    //             //         </div>
+    //             //         <div class="col-3 d-flex flex-column  align-items-end align-items-xl-center">
+    //             //             <div class="meeting-link">
+    //             //                 <a class="meeting-links" href='${data.meetings[i]['meeting_link']}' target="_blank" style="color:darkgreen; background-color: transparent; border: none;">
+    //             //                     <i class="fas fa-arrow-pointer" style="transform: rotate(45deg)"></i>
+    //             //                 </a>
+    //             //             </div>
+    //             //         </div>
+    //             //         <hr class="mx-2" style="height: 1rem;">
+    //             //     `
+    //             //     meeting_main_div.append(meeting_div);
+    //             // }
+    //
+    //             // let developed_div= document.getElementById('developed_content')
+    //             //
+    //             //
+    //             // for (let i=0; i<data.developed_skills.length; i++){
+    //             //     let developed_skill=document.createElement('div');
+    //             //     developed_skill.innerHTML=`
+    //             //          <div class="row my-4">
+    //             //             <div class="col-3 text-start">
+    //             //                 <p class="lead mb-0">${data.developed_skills[i]['skill_name']}</p>
+    //             //             </div>
+    //             //             <div class="col-6 px-0 d-flex align-items-center">
+    //             //                 <div class="progress">
+    //             //                     <div class="progress-bar" role="progressbar" style="width: ${data.developed_skills[i]['level']}%" aria-valuenow="${data.developed_skills[i]['level']}"
+    //             //                          aria-valuemin="0" aria-valuemax="100"></div>
+    //             //                 </div>
+    //             //             </div>
+    //             //             <div class="col-3 px-0 d-flex justify-content-end justify-content-xl-center align-items-center">
+    //             //                 <span class="mb-0 mx-0 levels">${data.developed_skills[i]['level']}%</span>
+    //             //                 <svg class="mx-4 mx-xl-2" height="40" width="2">
+    //             //                     <line x1="1" y1="0" x2="1" y2="100" stroke="lightgrey" stroke-width="2"/>
+    //             //                 </svg>
+    //             //                 <i class="far fa-lg fa-circle-down" style="color: red;"></i>
+    //             //             </div>
+    //             //         </div>
+    //             //     `
+    //             //     developed_div.append(developed_skill)
+    //             // }
+    //
+    //             let connection_div = document.getElementsByClassName('connections')
+    //             for (let i = 0; i < connection_div.length; i++) {
+    //                 connection_div[i].textContent = data.connections;
+    //             }
+    //             let tasks_div = document.getElementsByClassName('tasks_completed')
+    //             for (let i = 0; i < tasks_div.length; i++) {
+    //                 tasks_div[i].textContent = data.tasks_completed;
+    //             }
+    //             let achievements_div = document.getElementsByClassName('achievements')
+    //             for (let i = 0; i < achievements_div.length; i++) {
+    //                 achievements_div[i].textContent = data.achievements;
+    //             }
+    //
+    //             document.getElementsByClassName('tasks_completed').textContent = data.tasks_completed;
+    //             document.getElementsByClassName('achievements').textContent = data.achievements;
+    //             document.getElementById('prioritized_tasks').textContent = data.prioritized_tasks + '%';
+    //             document.getElementById('additional_tasks').textContent = data.additional_tasks + '%';
+    //             document.getElementById('company_logo').src = data.company_logo_img;
+    //             // let progressBar=document.getElementsByClassName('progress-bar');
+    //             // for (let i=0; i<progressBar.length; i++){
+    //             //     progressBar[i].setAttribute('aria-valuenow', data.developed_skills[i]['level'])
+    //             //     progressBar[i].style.width= data.developed_skills[i]['level'] + '%';
+    //             // }
+    //             // let developed_levels=document.getElementsByClassName('levels')
+    //             // for (let i=0; i<developed_levels.length; i++){
+    //             //     developed_levels[i].textContent=data.developed_skills[i]['level'] + '%'
+    //             // }
+    //
+    //         },
+    //         error: function (jqXHR, textStatus, errorThrown) {
+    //             console.error('Error fetching data:', 'jqxhr', jqXHR);
+    //             console.log('textstatus', textStatus);
+    //             console.log('errorthrown', errorThrown);
+    //             document.getElementById('test').textContent = 'User not found';
+    //         }
+    //     });
+    // }
 
     // Call fetchData with the username
-    fetchData();
+    // fetchData();
 
 
-    function drawDonutChart(canvasId, value, maxValue) {
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext('2d');
-
-        const radius = canvas.height / 2 - 10; // Outer radius
-        const innerRadius = radius - 30; // Inner radius for the donut effect
-        const percentage = (value / maxValue) * 100; // Calculate the percentage
-
-        // Clear the canvas
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Draw the background circle
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = '#e0e0e0'; // Background color
-        ctx.fill();
-
-        // Draw the progress arc
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, radius, -0.5 * Math.PI, (2 * Math.PI * (value / maxValue)) - 0.5 * Math.PI);
-        ctx.lineTo(canvas.width / 2, canvas.height / 2);
-        ctx.fillStyle = 'royalblue'; // Progress color
-        ctx.fill();
-
-        // Draw the inner circle to create the donut effect
-        ctx.beginPath();
-        ctx.arc(canvas.width / 2, canvas.height / 2, innerRadius, 0, 2 * Math.PI);
-        ctx.fillStyle = '#fff'; // Inner color (white)
-        ctx.fill();
-
-        // Draw the percentage in the middle
-        ctx.fillStyle = '#000'; // Text color
-        ctx.font = '16px Arial';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(`${percentage.toFixed(0)}%`, canvas.width / 2, canvas.height / 2); // Display percentage
-    }
-
-    // Example data
-    const totalStudents = 100;
-    const eligibleStudents = 75; // Example eligible students
-    const placedStudents = 60; // Example placed students
-
-    // Draw the charts
-    drawDonutChart('eligibleChart', eligibleStudents, totalStudents);
-    drawDonutChart('placedChart', placedStudents, eligibleStudents);
+    // function drawDonutChart(canvasId, value, maxValue) {
+    //     const canvas = document.getElementById(canvasId);
+    //     const ctx = canvas.getContext('2d');
+    //
+    //     const radius = canvas.height / 2 - 10; // Outer radius
+    //     const innerRadius = radius - 30; // Inner radius for the donut effect
+    //     const percentage = (value / maxValue) * 100; // Calculate the percentage
+    //
+    //     // Clear the canvas
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //
+    //     // Draw the background circle
+    //     ctx.beginPath();
+    //     ctx.arc(canvas.width / 2, canvas.height / 2, radius, 0, 2 * Math.PI);
+    //     ctx.fillStyle = '#e0e0e0'; // Background color
+    //     ctx.fill();
+    //
+    //     // Draw the progress arc
+    //     ctx.beginPath();
+    //     ctx.arc(canvas.width / 2, canvas.height / 2, radius, -0.5 * Math.PI, (2 * Math.PI * (value / maxValue)) - 0.5 * Math.PI);
+    //     ctx.lineTo(canvas.width / 2, canvas.height / 2);
+    //     ctx.fillStyle = 'royalblue'; // Progress color
+    //     ctx.fill();
+    //
+    //     // Draw the inner circle to create the donut effect
+    //     ctx.beginPath();
+    //     ctx.arc(canvas.width / 2, canvas.height / 2, innerRadius, 0, 2 * Math.PI);
+    //     ctx.fillStyle = '#fff'; // Inner color (white)
+    //     ctx.fill();
+    //
+    //     // Draw the percentage in the middle
+    //     ctx.fillStyle = '#000'; // Text color
+    //     ctx.font = '16px Arial';
+    //     ctx.textAlign = 'center';
+    //     ctx.textBaseline = 'middle';
+    //     ctx.fillText(`${percentage.toFixed(0)}%`, canvas.width / 2, canvas.height / 2); // Display percentage
+    // }
+    //
+    // // Example data
+    // const totalStudents = 100;
+    // const eligibleStudents = 75; // Example eligible students
+    // const placedStudents = 60; // Example placed students
+    //
+    // // Draw the charts
+    // drawDonutChart('eligibleChart', eligibleStudents, totalStudents);
+    // drawDonutChart('placedChart', placedStudents, eligibleStudents);
 
     document.addEventListener('DOMContentLoaded', function () {
         const currentYear = new Date().getFullYear();
@@ -1272,6 +1387,175 @@
     };
 
     const myDonutChart = new Chart(ctx, config);
+    const totalStudentCount = 100;
+    const eligibleStudentCount = 75; // Example eligible students
+    const eligiblePercentage = (eligibleStudentCount / totalStudentCount) * 100; // Calculate percentage
+
+    // Data for the donut chart
+    const chartData = {
+        labels: ['Eligible Students', 'Non-Eligible Students'],
+        datasets: [{
+            label: 'Student Distribution',
+            data: [eligibleStudentCount, totalStudentCount - eligibleStudentCount],
+            backgroundColor: [
+                'royalblue', // Color for eligible students
+                '#e0e0e0'    // Color for non-eligible students
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Configuration for the donut chart
+    const chartConfig = {
+        type: 'doughnut',
+        data: chartData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            if (context.parsed > 0) {
+                                label += ': ' + context.parsed;
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Create the donut chart
+    const studentDonutChart = new Chart(
+        document.getElementById('studentChartCanvas'),
+        chartConfig
+    );
+
+    // Draw the percentage in the middle of the chart after the chart is rendered
+    studentDonutChart.canvas.parentNode.style.position = 'relative';
+    const percentageText = document.createElement('div');
+    percentageText.innerText = `${eligiblePercentage.toFixed(0)}%`;
+    percentageText.style.position = 'absolute';
+    percentageText.style.left = '50%';
+    percentageText.style.top = '50%';
+    percentageText.style.transform = 'translate(-50%, -50%)';
+    percentageText.style.fontSize = '20px';
+    percentageText.style.color = '#000';
+    percentageText.style.fontFamily = 'Arial';
+    percentageText.style.pointerEvents = 'none'; // Ensure clicks pass through
+    document.getElementById('chartContainer').appendChild(percentageText);
+
+
+    const totalLearnerCount = 100;
+    const placedLearnerCount = 60; // Example placed students
+    const eligibleLearnerCount = totalLearnerCount; // All total students are eligible
+    const placedLearnerPercentage = (placedLearnerCount / eligibleLearnerCount) * 100; // Calculate percentage for placed
+
+    // Data for the donut chart
+    const donutChartData = {
+        labels: ['Placed Students', 'Eligible Students - Not Placed'],
+        datasets: [{
+            label: 'Learner Distribution',
+            data: [placedLearnerCount, eligibleLearnerCount - placedLearnerCount],
+            backgroundColor: [
+                'green', // Color for placed learners
+                '#e0e0e0' // Color for not placed learners
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Configuration for the donut chart
+    const donutChartConfig = {
+        type: 'doughnut',
+        data: donutChartData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.label || '';
+                            if (context.parsed > 0) {
+                                label += ': ' + context.parsed;
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Create the donut chart
+    const learnerDonutChart = new Chart(
+        document.getElementById('studentDonutCanvas'),
+        donutChartConfig
+    );
+
+    // Draw the percentage in the middle of the chart after it is rendered
+    learnerDonutChart.canvas.parentNode.style.position = 'relative';
+    const percentageDisplay = document.createElement('div');
+    percentageDisplay.innerText = `${placedLearnerPercentage.toFixed(0)}%`;
+    percentageDisplay.style.position = 'absolute';
+    percentageDisplay.style.left = '50%';
+    percentageDisplay.style.top = '50%';
+    percentageDisplay.style.transform = 'translate(-50%, -50%)';
+    percentageDisplay.style.fontSize = '20px';
+    percentageDisplay.style.color = '#000';
+    percentageDisplay.style.fontFamily = 'Arial';
+    percentageDisplay.style.pointerEvents = 'none'; // Ensure clicks pass through
+    document.getElementById('chartArea').appendChild(percentageDisplay);
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const departments = [
+            'Civil Engineering',
+            'Electrical Engineering',
+            'Electronics and Communication',
+            'Electrical and Electronics',
+            'Computer Science',
+            'Mechanical Engineering',
+            'Information Technology',
+            'Chemical Engineering'
+        ];
+
+        const departmentDropdownMenu = document.getElementById('departmentDropdownMenu');
+        const currentDepartmentSelection = document.getElementById('currentDepartmentSelection');
+        const toggleDepartmentSelect = document.getElementById('toggleDepartmentSelect');
+
+        // Populate the dropdown with departments
+        departments.forEach(department => {
+            const departmentDiv = document.createElement('div');
+            departmentDiv.textContent = department;
+            departmentDiv.addEventListener('click', function () {
+                currentDepartmentSelection.textContent = department;
+                departmentDropdownMenu.style.display = 'none'; // Close the dropdown
+            });
+            departmentDropdownMenu.appendChild(departmentDiv);
+        });
+
+        // Toggle dropdown visibility
+        toggleDepartmentSelect.addEventListener('click', function () {
+            departmentDropdownMenu.style.display = departmentDropdownMenu.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.department-select-group')) {
+                departmentDropdownMenu.style.display = 'none';
+            }
+        });
+    });
+
 
 </script>
 </body>
